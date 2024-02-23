@@ -1,0 +1,224 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam titleFontSize 28
+top to bottom direction
+scale 1
+
+title US17_CD_ImportDataFromLegacySystem
+
+class ImportLegacyDataUI {}
+
+interface LoadDataFromExternalSource {
+    +readFileFromExternalSource (filePath : String) : List<E>
+}
+
+interface SortingAlgorithm {
+    +sortData(list : List<E>, c : Comparator<E>) : List<E>
+}
+
+class BubbleSort {
++sortData(list : List<E>, c : Comparator<E>) : List<E>
+}
+
+class MergeSort {
++sortData(list : List<E>, c : Comparator<E>) : List<E>
+}
+
+class CsvLegacyDataFileReaderAdapter {
++readFileFromExternalSource(filePath : String) : List<LegacyDataDTO>
+}
+
+class CsvLegacyDataFileReaderAdaptee {
++importDataFromCsvFile(filePath : String) : List<LegacyDataDTO>
++createLegacyDataDTOFromCsvLine(lineItems : String[]) : LegacyDataDTO
++validateHeader(header : String[]) : boolean
++readDateTime(dateTimeString : String) : LocalDateTime
++validateFileExtension(filePath : String) : boolean
+}
+
+class Company {
++getLegacyDataStore()
++getVaccinationCenterStore()
++getSnsUserStore()
++getVaccinationScheduleStore()
++getSnsUserArrivalStore()
++getVaccineAdministrationStore()
++getVaccineStore()
+}
+
+class SortByArrivalTime {
++compare(dto1:LegacyDataDTO, dto2:LegacyDataDTO)
+}
+class SortByLeavingTime {
++compare(dto1:LegacyDataDTO, dto2:LegacyDataDTO)
+}
+
+interface Comparator {
++compare(o1 : T, o2 : T) : int
+}
+
+class LegacyDataStore {
+
++getSortedLegacyDataDTOList(sortCriterion : Comparator) : List<LegacyDataDTO>
++getSortingCriteria() : List<Comparator>
++importLegacyDataFromExternalSource(filePath : String) : List<LegacyDataDTO>
++setRegisteredLegacyDataDTOList(registeredLegacyDataDTOList)
+-loadConfigProperties()
+}
+
+
+
+class ImportLegacyDataController {
+
++importLegacyDataFromExternalSource(filePath : String, vcEmail : String) : boolean
++registerLegacyDataFromExternalSource(legacyDataDTOList, vcEmail : String) : boolean
+}
+
+class LegacyDataDTO {
+
+}
+
+class LegacyDataMapper {
++toDTO(...) : LegacyDataDTO
+}
+
+class SnsUserStore {
++existsSnsUser(snsUserNumber : long)
++getSnsUserBySnsNumber(snsUserNumber : long)
+}
+class VaccinationScheduleStore {
++createVaccinationSchedule(vaccinationScheduleDTO) : VaccinationSchedule
++addVaccinationSchedule(vaccinationSchedule) : boolean
+}
+
+class SnsUserArrivalStore {
++createSnsUserArrival(arrivalDTO) : SnsUserArrival
++addSnsUserArrival(snsUserArrival) : boolean
+}
+
+class VaccineStore {
++getVaccineByName(vaccineName : String)
+
+}
+
+class VaccineAdministrationStore {
++createVaccineAdministration(vaccineAdministrationDTO) : VaccineAdministration
++addVaccineAdministration(vaccineAdministration) : boolean
+}
+
+class VaccinationCenterStore {
++getVaccinationCenterDTOByEmail(vcEmail : String)
+}
+
+class SnsUser {
+}
+
+class SnsUserDTO {
+}
+
+class SnsUserMapper {
+}
+
+class VaccinationCenter {
+}
+
+class VaccinationCenterDTO {
+}
+
+
+class VaccinationSchedule {
+}
+
+class VaccinationScheduleDTO {
+}
+
+class SnsUserArrival {
+}
+
+class SnsUserArrivalDTO {
+}
+
+
+class VaccineAdministration {
+}
+
+class VaccineAdministrationDTO {
+}
+
+
+ImportLegacyDataUI ..> ImportLegacyDataController
+ImportLegacyDataController ..> Company
+
+Company .d.> LegacyDataStore : uses
+Company ..> SnsUserStore : uses
+Company ..> VaccinationScheduleStore : uses
+Company ..> SnsUserArrivalStore : uses
+Company ..> VaccineStore : uses
+Company ..> VaccineAdministrationStore : uses
+Company ..> VaccinationCenterStore : uses
+
+ImportLegacyDataController ..> SnsUserMapper
+SnsUserMapper ..> SnsUserDTO
+SnsUserMapper ..> SnsUser
+
+ImportLegacyDataController ..> VaccineMapper
+VaccineMapper ..> VaccineDTO
+VaccineMapper ..> Vaccine
+
+ImportLegacyDataController ..> VaccineTypeMapper
+VaccineTypeMapper ..> VaccineTypeDTO
+VaccineTypeMapper ..> VaccineType
+
+ImportLegacyDataController ..> VaccinationScheduleMapper
+VaccinationScheduleMapper ..> VaccinationScheduleDTO
+VaccinationScheduleMapper ..> VaccinationSchedule
+
+ImportLegacyDataController ..> VaccinationAdministrationMapper
+VaccinationAdministrationMapper ..> VaccineAdministrationDTO
+VaccinationAdministrationMapper ..> VaccineAdministration
+
+ImportLegacyDataController ..> VaccinationCenterMapper
+VaccinationCenterMapper ..> VaccinationCenterDTO
+VaccinationCenterMapper ..> VaccinationCenter
+
+ImportLegacyDataController ..> SnsUserArrivalMapper
+SnsUserArrivalMapper ..> SnsUserArrivalDTO
+SnsUserArrivalMapper ..> SnsUserArrival
+
+
+LegacyDataStore "1" -- "*" LegacyDataDTO
+LegacyDataStore "1" -- "1" LoadDataFromExternalSource : makes use of >
+
+
+CsvLegacyDataFileReaderAdapter .u.|> LoadDataFromExternalSource : implements
+CsvLegacyDataFileReaderAdapter -> CsvLegacyDataFileReaderAdaptee: uses
+
+
+VaccinationCenterStore "1" --> "*" VaccinationCenter : contains
+SnsUserStore "1" --> "*" SnsUser : contains
+VaccinationScheduleStore "1" --> "*" VaccinationSchedule : contains
+VaccineAdministrationStore "1" --> "*" VaccineAdministration : contains
+SnsUserArrivalStore "1" --> "*" SnsUserArrival : contains
+VaccineStore "1" --> "*" Vaccine : contains
+
+
+
+
+LegacyDataStore *-- SortByArrivalTime
+LegacyDataStore *-- SortByLeavingTime
+LegacyDataStore "1" -- "*" Comparator
+
+SortByArrivalTime ..|> Comparator
+SortByLeavingTime ..|> Comparator
+
+LegacyDataStore -- SortingAlgorithm : makes use of >
+MergeSort .u.|> SortingAlgorithm : implements
+BubbleSort .u.|> SortingAlgorithm : implements
+
+LegacyDataMapper ..> LegacyDataDTO
+CsvLegacyDataFileReaderAdaptee ..> LegacyDataMapper
+
+
+
+
+@enduml

@@ -1,0 +1,45 @@
+@startuml
+autonumber
+'hide footbox
+
+participant "vaccineAdministrationStore\n:VaccineAdministrationStore" as VaccineAdministrationStore
+participant ":AuthFacade" as auth
+participant ":listOfFullyVaccinatedUsersByDate\nList<VaccineAdministration>" as ListOfFullyVaccinatedUsersByDate
+
+title : SD_getListFullyVaccinatedUsersBetweenDatesOfUserCenter(startDate, endDate)
+
+[o-> VaccineAdministrationStore : getListFullyVaccinatedUsersBetweenDatesOfUserCenter(startDate, endDate)
+activate VaccineAdministrationStore
+VaccineAdministrationStore --> ListOfFullyVaccinatedUsersByDate** : create()
+loop for each vaccineAdministration element in VaccineAdministrationStore
+
+VaccineAdministrationStore -> VaccineAdministrationStore : equalsIgnoreCase(currentCoordinatorId)
+activate VaccineAdministrationStore
+deactivate VaccineAdministrationStore
+
+VaccineAdministrationStore -> auth : getCurrentUserSession()
+activate auth
+deactivate auth
+
+VaccineAdministrationStore -> VaccineAdministrationStore : equals(VaccineAdministrationState.FULLYVACCINATED)
+activate VaccineAdministrationStore
+deactivate VaccineAdministrationStore
+
+VaccineAdministrationStore -> VaccineAdministrationStore : LeavingDateisAfter(startDate)
+activate VaccineAdministrationStore
+deactivate VaccineAdministrationStore
+
+VaccineAdministrationStore -> VaccineAdministrationStore : LeavingDateisBefore(endDate)
+activate VaccineAdministrationStore
+deactivate VaccineAdministrationStore
+
+
+VaccineAdministrationStore -> ListOfFullyVaccinatedUsersByDate : add(VaccineAdministration)
+activate ListOfFullyVaccinatedUsersByDate
+deactivate ListOfFullyVaccinatedUsersByDate
+end loop
+
+[<-- VaccineAdministrationStore : return listOfFullyVaccinatedUsersByDate
+deactivate VaccineAdministrationStore
+
+@enduml

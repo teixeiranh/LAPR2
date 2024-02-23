@@ -1,0 +1,16 @@
+@startuml
+'left to right direction
+
+title State diagram: Life cycle of vaccination schedule object
+
+state "Created" as C
+state "In Progress" as IP
+state "Finalized" as F
+
+[*] --> C : US1|US2: Vaccination schedule created
+C --> IP : US4: Registered arrival for vaccination
+IP --> F : US8: Registered vaccine administration
+F --> [*]
+
+
+@enduml

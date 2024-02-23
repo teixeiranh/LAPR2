@@ -1,0 +1,129 @@
+@startuml
+autonumber
+hide footbox
+skinparam titleFontSize 25
+skinparam classFontSize 18
+
+actor "Receptionist" as RECEP  #A9DCDF
+
+participant ":RegisterSnsUserUI" as UI
+participant ":SnsUserDTO" as DTO
+participant ":RegisterSnsUserController" as CTRL
+participant ":Company" as COMP
+participant ":SnsUserStore" as STORE
+participant ":SnsUserMapper" as MAPPER
+participant ":SnsUser" as USER
+participant ":PasswordGenerator" as PWD
+participant ":AuthFacade" as AUTH
+
+title SD: Process of registering an SNS User
+
+activate RECEP  #A9DCDF
+RECEP -> UI : starts new SnsUser registration
+activate UI
+UI -> RECEP : requests data (name, email,\n gender, birthDate, snsNumber,\n address, phoneNumber, citizenCardNumber))
+deactivate UI
+
+RECEP -> UI : types requested data
+activate UI
+
+UI -> DTO **: create
+
+UI -> CTRL : checkIfIsNewUser(snsUserDTO)
+activate CTRL
+
+CTRL -> COMP : authFacade = getAuthFacade()
+activate COMP
+deactivate COMP
+
+CTRL -> AUTH : userExists = authFacade.existsUser(email)
+activate AUTH
+
+CTRL ->CTRL: !userExists
+activate CTRL #E6E6FA
+deactivate CTRL
+|||
+
+deactivate AUTH
+
+CTRL -> COMP : getSnsUserStore()
+activate COMP
+deactivate COMP
+
+CTRL -> STORE: snsUserOptional = getSnsUserById(email)
+activate STORE
+deactivate STORE
+
+CTRL-> CTRL:!snsUserOptional.isPresent()
+activate CTRL #E6E6FA
+deactivate CTRL
+
+CTRL--> UI: isNewUser
+deactivate CTRL
+|||
+alt successful case
+
+UI--> RECEP: shows the data and requests a confirmation
+deactivate UI
+|||
+RECEP -> UI : confirms the data
+activate UI
+
+UI -> CTRL : registerSnsUser(snsUserDTO)
+activate CTRL
+
+CTRL -> PWD : password = generatePassword()
+activate PWD
+deactivate PWD
+
+CTRL -> AUTH :userAddedSuccessfully= addUserWithRole(name, email, password, role)
+activate AUTH
+deactivate AUTH
+
+note right of AUTH
+ <w:#FFAAAA>From this logic forward, it is already implemented
+ and is not part of the present US
+end note
+
+CTRL-> CTRL: userAddedSuccessfully
+activate CTRL#E6E6FA
+deactivate CTRL
+CTRL -> STORE : snsUser = createSnsUser(snsUserDTO)
+activate STORE
+
+STORE -> MAPPER**: create
+
+STORE -> MAPPER: toModel(snsUserDTO)
+activate MAPPER
+deactivate STORE
+|||
+note over MAPPER
+ <w:#FFAAAA>multiple interactions to extract data from DTO</w>
+end note
+MAPPER--> USER** : create(name, email,\n gender, birthDate, snsNumber,\n address, phoneNumber, citizenCardNumber)
+deactivate MAPPER
+CTRL -> STORE : addedSuccessfully = addSnsUser(snsUser)
+activate STORE
+STORE -> STORE : snsUser != null
+activate STORE #E6E6FA
+deactivate STORE
+STORE -> STORE : existsSnsUser(id)
+activate STORE #E6E6FA
+deactivate STORE
+STORE -> STORE : add(snsUser)
+activate STORE #E6E6FA
+deactivate STORE
+deactivate STORE
+
+CTRL--> UI: addedSuccessfully
+UI --> RECEP #A9DCDF: "SNS user registered successfully"
+|||
+else User already exists
+
+UI--> RECEP: "Please reinput the SNS User data"
+
+deactivate UI
+|||
+
+end
+@enduml

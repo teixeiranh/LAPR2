@@ -1,0 +1,39 @@
+@startuml
+autonumber
+autoactivate on
+scale 1
+skinparam titleFontSize 25
+
+title US05_SD_SnsUsersArrivals_List
+
+participant "arrivalsList\n:SnsUserArrivalList" as SNSUSERLIST
+participant "snsUserArrivalsList\n:List<SnsUserArrival>" as ADMISSIONLISTSORTED
+participant "newSnsUserArrivalsList\n:List<SnsUserArrival>" as NEWADMISSIONLISTSORTED
+participant ":Collections" as COLLECTIONS
+participant "snsUserArrival\n:SnsUserArrival" as USERADMISSION
+
+[o-> SNSUSERLIST : getSnsUserArrivalsList()
+SNSUSERLIST --> NEWADMISSIONLISTSORTED** : create()
+
+loop for each snsUserArrival object in snsUserArrivalsList
+
+SNSUSERLIST -> ADMISSIONLISTSORTED : snsUserArrival = getSnsUserArrival(i)
+deactivate ADMISSIONLISTSORTED
+
+SNSUSERLIST -> NEWADMISSIONLISTSORTED : add(snsUserArrival)
+deactivate NEWADMISSIONLISTSORTED
+
+end
+
+SNSUSERLIST -> COLLECTIONS : sort(newSnsUserArrivalsList)
+deactivate COLLECTIONS
+note left
+**newSnsUserArrivalsList** is
+sorted according to the SnsUser
+arrival time in order to meet [[./US05_ConsultUsersWaitingRoom.md AC1]]
+specified by the client.
+end note
+
+[<-- SNSUSERLIST : newSnsUserArrivalsList
+
+@enduml

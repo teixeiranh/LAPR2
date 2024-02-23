@@ -1,0 +1,81 @@
+@startuml US08_DM
+
+title Domail Model Excerpt: Record vaccine administration
+
+
+class Company {
+    
+}
+
+class SNSUser {
+    -snsUserNumber
+}
+
+class VaccinationCenter {
+    -name
+    -phoneNumber
+    -emailAddress
+    -faxNumber
+    -websiteAddress
+    -openingHours
+    -closingHours
+    -slotDuration
+    -maxNumVaccines
+}
+
+class Employee {
+
+}
+
+class Nurse {
+
+}
+
+class VaccineSchedule {
+    -date
+    -time
+}
+
+class VaccineAdministration {
+    
+}
+
+class AdverseReaction {
+    
+}
+
+class Notification {
+    
+}
+
+class RecoveryPeriod {
+    
+}
+
+Company "1" -d "*" VaccinationCenter :  has >
+Company "1" -- "*" SNSUser :  owns >
+Company "1" --  "*" Notification   :  sends  >
+Company "1" -- "*" Employee :  employs >
+
+Employee "*" -- "1" Nurse :  is of >
+Employee "1..*" -- "1" VaccinationCenter : works on
+
+SNSUser "1" --  "0,1,2" Notification :  receives >
+
+VaccineSchedule "1..*" -- "1" SNSUser :  created for 
+VaccineSchedule "1..*" -- "1" VaccinationCenter :  allocated to 
+VaccineSchedule "1" -- "0,1" Notification :  generates >
+
+VaccinationCenter "*" -- "*" VaccineAdministration :  implements >
+
+Nurse "1" -- "1..*" VaccineSchedule : checks >
+Nurse "1" -- "1..*" VaccineAdministration :  registers >
+Nurse "1" - "1..*" RecoveryPeriod :  initiates >
+Nurse "1" -- "*" AdverseReaction :  records >
+
+VaccineAdministration "1" -- "1" VaccineSchedule : fulfilling >
+VaccineAdministration "1..*" - "1" SNSUser :  administered on >
+
+RecoveryPeriod "1" -u- "0,1" Notification :  generates  >
+
+@enduml

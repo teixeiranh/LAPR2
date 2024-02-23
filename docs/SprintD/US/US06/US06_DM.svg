@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="198.4px" preserveAspectRatio="none" style="width:410px;height:198px;background:#FFFFFF;" version="1.1" viewBox="0 0 410 198" width="410.8px" zoomAndPan="magnify"><defs/><g><!--MD5=[02e4b9b7573f1156f41e60aa5b4e25a4]
+class Company--><g id="elem_Company"><rect codeLine="17" fill="#F5F5F5" height="44.9805" id="Company" rx="1" ry="1" style="stroke:#2F4F4F;stroke-width:0.20000000000000004;" width="242.8" x="2.8" y="2.8"/><ellipse cx="110.7" cy="9.2" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#181818;stroke-width:0.4000000000000001;"/><path d="M111.5,7.8 Q111.5813,7.6 111.675,7.5 Q111.7688,7.4 111.875,7.4 Q112.0625,7.4 112.1813,7.5125 Q112.3,7.625 112.3,7.8875 L112.3,8.5125 Q112.3,8.775 112.1875,8.8875 Q112.075,9 111.9,9 Q111.7438,9 111.6438,8.9313 Q111.5438,8.8625 111.5,8.6813 Q111.4813,8.5563 111.4125,8.4875 Q111.2875,8.3563 111.0625,8.2813 Q110.8375,8.2 110.6125,8.2 Q110.3313,8.2 110.0938,8.3125 Q109.8625,8.425 109.6813,8.675 Q109.5,8.925 109.5,9.2688 L109.5,9.6375 Q109.5,10.05 109.8375,10.325 Q110.175,10.6 110.775,10.6 Q111.1313,10.6 111.3813,10.5188 Q111.525,10.475 111.6875,10.3313 Q111.7938,10.25 111.85,10.225 Q111.9063,10.2 111.975,10.2 Q112.1063,10.2 112.2,10.3063 Q112.3,10.4063 112.3,10.55 Q112.3,10.6875 112.1625,10.85 Q111.9625,11.0875 111.6438,11.2188 Q111.225,11.4 110.7125,11.4 Q110.1125,11.4 109.6313,11.1625 Q109.2438,10.975 108.9688,10.5688 Q108.7,10.1625 108.7,9.6813 L108.7,9.2438 Q108.7,8.7438 108.9375,8.3063 Q109.1813,7.8688 109.6,7.6375 Q110.025,7.4 110.5,7.4 Q110.7875,7.4 111.0375,7.5 Q111.2875,7.6 111.5,7.8 Z " fill="#000000"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="23.6" x="118.9" y="11.2845">Company</text><line style="stroke:#2F4F4F;stroke-width:0.20000000000000004;" x1="3.2" x2="245.2" y1="15.6" y2="15.6"/><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="6" y="18.8"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="232.4" x="10.8" y="22.907">vaccinationCenterStatsRecorderRecurringTask: VaccinationCenterStatsRecorderRecurringTask</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="6" y="26.0451"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="130.8" x="10.8" y="30.1521">vaccinationScheduleStore: VaccinationScheduleStore</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="6" y="33.2902"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="118.8" x="10.8" y="37.3973">vaccinationCenterStore: VaccinationCenterStore</text><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="4.8" x="10.8" y="44.6424">...</text></g><!--MD5=[27b5180cc5a74b1bf47273f00ac2a94b]
+class TaskScheduler--><g id="elem_TaskScheduler"><rect codeLine="25" fill="#A9DCDF" height="30.4902" id="TaskScheduler" rx="1" ry="1" style="stroke:#2F4F4F;stroke-width:0.20000000000000004;" width="60" x="94.2" y="165.2"/><ellipse cx="105.42" cy="171.6" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#181818;stroke-width:0.4000000000000001;"/><path d="M106.22,170.2 Q106.3013,170 106.395,169.9 Q106.4888,169.8 106.595,169.8 Q106.7825,169.8 106.9013,169.9125 Q107.02,170.025 107.02,170.2875 L107.02,170.9125 Q107.02,171.175 106.9075,171.2875 Q106.795,171.4 106.62,171.4 Q106.4638,171.4 106.3638,171.3313 Q106.2638,171.2625 106.22,171.0813 Q106.2013,170.9563 106.1325,170.8875 Q106.0075,170.7563 105.7825,170.6813 Q105.5575,170.6 105.3325,170.6 Q105.0513,170.6 104.8138,170.7125 Q104.5825,170.825 104.4013,171.075 Q104.22,171.325 104.22,171.6688 L104.22,172.0375 Q104.22,172.45 104.5575,172.725 Q104.895,173 105.495,173 Q105.8513,173 106.1013,172.9188 Q106.245,172.875 106.4075,172.7313 Q106.5138,172.65 106.57,172.625 Q106.6263,172.6 106.695,172.6 Q106.8263,172.6 106.92,172.7063 Q107.02,172.8063 107.02,172.95 Q107.02,173.0875 106.8825,173.25 Q106.6825,173.4875 106.3638,173.6188 Q105.945,173.8 105.4325,173.8 Q104.8325,173.8 104.3513,173.5625 Q103.9638,173.375 103.6888,172.9688 Q103.42,172.5625 103.42,172.0813 L103.42,171.6438 Q103.42,171.1438 103.6575,170.7063 Q103.9013,170.2688 104.32,170.0375 Q104.745,169.8 105.22,169.8 Q105.5075,169.8 105.7575,169.9 Q106.0075,170 106.22,170.2 Z " fill="#000000"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="35.6" x="112.18" y="173.6845">TaskScheduler</text><line style="stroke:#2F4F4F;stroke-width:0.20000000000000004;" x1="94.6" x2="153.8" y1="178" y2="178"/><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="97.4" y="181.2"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="18.8" x="102.2" y="185.307">adapter</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="97.4" y="188.4451"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="36" x="102.2" y="192.5521">executionTime</text></g><!--MD5=[de60e6d4f424ae4d0522096f76a59010]
+class VaccinationCenter--><g id="elem_VaccinationCenter"><rect codeLine="30" fill="#F5F5F5" height="88.4512" id="VaccinationCenter" rx="1" ry="1" style="stroke:#2F4F4F;stroke-width:0.20000000000000004;" width="122.4" x="285.6" y="62.2"/><ellipse cx="322.5" cy="68.6" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#181818;stroke-width:0.4000000000000001;"/><path d="M323.3,67.2 Q323.3813,67 323.475,66.9 Q323.5688,66.8 323.675,66.8 Q323.8625,66.8 323.9813,66.9125 Q324.1,67.025 324.1,67.2875 L324.1,67.9125 Q324.1,68.175 323.9875,68.2875 Q323.875,68.4 323.7,68.4 Q323.5438,68.4 323.4438,68.3313 Q323.3438,68.2625 323.3,68.0813 Q323.2813,67.9563 323.2125,67.8875 Q323.0875,67.7563 322.8625,67.6813 Q322.6375,67.6 322.4125,67.6 Q322.1313,67.6 321.8938,67.7125 Q321.6625,67.825 321.4813,68.075 Q321.3,68.325 321.3,68.6688 L321.3,69.0375 Q321.3,69.45 321.6375,69.725 Q321.975,70 322.575,70 Q322.9313,70 323.1813,69.9188 Q323.325,69.875 323.4875,69.7313 Q323.5938,69.65 323.65,69.625 Q323.7063,69.6 323.775,69.6 Q323.9063,69.6 324,69.7063 Q324.1,69.8063 324.1,69.95 Q324.1,70.0875 323.9625,70.25 Q323.7625,70.4875 323.4438,70.6188 Q323.025,70.8 322.5125,70.8 Q321.9125,70.8 321.4313,70.5625 Q321.0438,70.375 320.7688,69.9688 Q320.5,69.5625 320.5,69.0813 L320.5,68.6438 Q320.5,68.1438 320.7375,67.7063 Q320.9813,67.2688 321.4,67.0375 Q321.825,66.8 322.3,66.8 Q322.5875,66.8 322.8375,66.9 Q323.0875,67 323.3,67.2 Z " fill="#000000"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="45.2" x="330.7" y="70.6845">VaccinationCenter</text><line style="stroke:#2F4F4F;stroke-width:0.20000000000000004;" x1="286" x2="407.6" y1="75" y2="75"/><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="288.8" y="78.2"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="13.6" x="293.6" y="82.307">name</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="288.8" y="85.4451"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="74.4" x="293.6" y="89.5521">phoneNumber: PhoneNumber</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="288.8" y="92.6902"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="48.8" x="293.6" y="96.7973">emailAddress: Email</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="288.8" y="99.9354"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="112" x="293.6" y="104.0424">vaccinationCenterFaxNumber: PhoneNumber</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="288.8" y="107.1805"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="56.4" x="293.6" y="111.2875">websiteAddress: String</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="288.8" y="114.4256"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="51.2" x="293.6" y="118.5326">openingHours:String</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="288.8" y="121.6707"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="48.4" x="293.6" y="125.7777">closingHours:String</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="288.8" y="128.9158"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="39.6" x="293.6" y="133.0229">slotDuration: int</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="288.8" y="136.1609"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="53.2" x="293.6" y="140.268">maxNumVaccines: int</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="288.8" y="143.4061"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="70.8" x="293.6" y="147.5131">centerCoordinator:Employee</text></g><!--MD5=[cd4ce1c0d44638ff9f42448de30e6b92]
+class VaccineSchedule--><g id="elem_VaccineSchedule"><rect codeLine="57" fill="#F5F5F5" height="37.7354" id="VaccineSchedule" rx="1" ry="1" style="stroke:#2F4F4F;stroke-width:0.20000000000000004;" width="60" x="94.2" y="87.6"/><ellipse cx="102.72" cy="94" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#181818;stroke-width:0.4000000000000001;"/><path d="M103.52,92.6 Q103.6013,92.4 103.695,92.3 Q103.7888,92.2 103.895,92.2 Q104.0825,92.2 104.2013,92.3125 Q104.32,92.425 104.32,92.6875 L104.32,93.3125 Q104.32,93.575 104.2075,93.6875 Q104.095,93.8 103.92,93.8 Q103.7638,93.8 103.6638,93.7313 Q103.5638,93.6625 103.52,93.4813 Q103.5013,93.3563 103.4325,93.2875 Q103.3075,93.1563 103.0825,93.0813 Q102.8575,93 102.6325,93 Q102.3513,93 102.1138,93.1125 Q101.8825,93.225 101.7013,93.475 Q101.52,93.725 101.52,94.0688 L101.52,94.4375 Q101.52,94.85 101.8575,95.125 Q102.195,95.4 102.795,95.4 Q103.1513,95.4 103.4013,95.3188 Q103.545,95.275 103.7075,95.1313 Q103.8138,95.05 103.87,95.025 Q103.9263,95 103.995,95 Q104.1263,95 104.22,95.1063 Q104.32,95.2063 104.32,95.35 Q104.32,95.4875 104.1825,95.65 Q103.9825,95.8875 103.6638,96.0188 Q103.245,96.2 102.7325,96.2 Q102.1325,96.2 101.6513,95.9625 Q101.2638,95.775 100.9888,95.3688 Q100.72,94.9625 100.72,94.4813 L100.72,94.0438 Q100.72,93.5438 100.9575,93.1063 Q101.2013,92.6688 101.62,92.4375 Q102.045,92.2 102.52,92.2 Q102.8075,92.2 103.0575,92.3 Q103.3075,92.4 103.52,92.6 Z " fill="#000000"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="41.6" x="108.88" y="96.0845">VaccineSchedule</text><line style="stroke:#2F4F4F;stroke-width:0.20000000000000004;" x1="94.6" x2="153.8" y1="100.4" y2="100.4"/><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="97.4" y="103.6"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="10.8" x="102.2" y="107.707">date</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="97.4" y="110.8451"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="10.8" x="102.2" y="114.9521">time</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="97.4" y="118.0902"/><text fill="#000000" font-family="Corbel" font-size="6" lengthAdjust="spacing" textLength="12" x="102.2" y="122.1973">state</text></g><!--MD5=[eebe9b198877275d05dd12630ed9e401]
+link Company to VaccinationCenter--><g id="link_Company_VaccinationCenter"><path codeLine="64" d="M200,47.724 C200,60.872 200,74.9 200,74.9 C200,74.9 245.248,74.9 285.5,74.9 " fill="none" id="Company-VaccinationCenter" style="stroke:#808080;stroke-width:0.4000000000000001;"/><polygon fill="#000000" points="217.066,79.1761,213.9741,76.9598,213.2619,79.2005,217.066,79.1761" style="stroke:#000000;stroke-width:0.4000000000000001;"/><text fill="#808080" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="8.4" x="220.36" y="80.698">has</text><text fill="#000000" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="2.8" x="206.7325" y="56.4154">1</text><text fill="#000000" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="2" x="280.4823" y="78.9294">*</text></g><!--MD5=[1f6e9f7a78b09a1f4e7f2df8036076c6]
+link Company to VaccineSchedule--><g id="link_Company_VaccineSchedule"><path codeLine="65" d="M124.4,47.604 C124.4,60.136 124.4,75.588 124.4,87.504 " fill="none" id="Company-VaccineSchedule" style="stroke:#808080;stroke-width:0.4000000000000001;"/><polygon fill="#000000" points="110.4,73.2263,111.5756,69.6083,109.2244,69.6083,110.4,73.2263" style="stroke:#000000;stroke-width:0.4000000000000001;"/><text fill="#808080" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="8.4" x="115.6" y="73.354">has</text><text fill="#000000" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="2.8" x="121.4388" y="56.4399">1</text><text fill="#000000" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="2" x="122.2825" y="83.2571">*</text></g><!--MD5=[8838697d93d887ed612d17e040911d5c]
+link Company to TaskScheduler--><g id="link_Company_TaskScheduler"><path codeLine="66" d="M48.8,47.6 C48.8,90.58 48.8,180.4 48.8,180.4 C48.8,180.4 73.156,180.4 94.184,180.4 " fill="none" id="Company-TaskScheduler" style="stroke:#000000;stroke-width:0.4000000000000001;"/><polygon fill="#000000" points="31.0468,142.2548,30.9892,138.4511,28.7643,139.2114,31.0468,142.2548" style="stroke:#000000;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="12.8" x="35.6" y="142.49">has a</text><text fill="#000000" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="2.8" x="35.68" y="56.4354">1</text><text fill="#000000" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="2" x="88.9855" y="186.1306">*</text></g><!--MD5=[18968283628c2f508e56f30aee4bc691]
+link VaccineSchedule to VaccinationCenter--><g id="link_VaccineSchedule_VaccinationCenter"><path codeLine="68" d="M154.22,106.4 C187.716,106.4 242.804,106.4 285.504,106.4 " fill="none" id="VaccineSchedule-VaccinationCenter" style="stroke:#808080;stroke-width:0.4000000000000001;"/><polygon fill="#000000" points="189.46,110.0703,185.842,108.8947,185.842,111.2459,189.46,110.0703" style="stroke:#000000;stroke-width:0.4000000000000001;"/><text fill="#808080" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="26.8" x="192.66" y="112.198">allocated to</text><text fill="#000000" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="8" x="157.3562" y="112.0933">1..*</text><text fill="#000000" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="2.8" x="279.6672" y="111.9552">1</text></g><!--MD5=[470e4859cfc7b2b57b058b16e61c1eda]
+link TaskScheduler to VaccinationCenter--><g id="link_TaskScheduler_VaccinationCenter"><path codeLine="69" d="M134.4,165.176 C134.4,152.98 134.4,137.9 134.4,137.9 C134.4,137.9 222.768,137.9 285.508,137.9 " fill="none" id="TaskScheduler-VaccinationCenter" style="stroke:#000000;stroke-width:0.4000000000000001;"/><polygon fill="#000000" points="182.6842,141.215,178.9149,140.7009,179.3325,143.0146,182.6842,141.215" style="stroke:#000000;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="10" x="185.916" y="143.698">gets</text><text fill="#000000" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="2.8" x="133.1675" y="160.8968">1</text><text fill="#000000" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="2" x="280.4907" y="144.981">*</text></g><!--MD5=[25d21879aa2c1f8a7d59e23ccd32bcb8]
+link VaccineSchedule to TaskScheduler--><g id="link_VaccineSchedule_TaskScheduler"><path codeLine="70" d="M114.4,125.264 C114.4,137.64 114.4,153.612 114.4,165.176 " fill="none" id="VaccineSchedule-TaskScheduler" style="stroke:#000000;stroke-width:0.4000000000000001;"/><polygon fill="#000000" points="98.8,146.8903,97.6244,150.5083,99.9756,150.5083,98.8,146.8903" style="stroke:#000000;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="10" x="104" y="151.018">gets</text><text fill="#000000" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="2" x="110.8138" y="133.9031">*</text><text fill="#000000" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="2.8" x="109.605" y="160.8968">1</text></g><!--MD5=[8e8c5b252628d4abd4443c90910e7303]
+@startuml
+hide methods
+left to right direction
+scale 10000 height
+
+skinparam classAttributeIconSize 10
+skinparam linetype ortho
+skinparam minClassWidth 150
+skinparam classHeaderBackgroundColor LightGray
+skinparam classBackgroundColor WhiteSmoke
+skinparam classBorderColor DarkSlateGray
+skinparam classFontColor automatic
+skinparam classFontSize 15
+skinparam classFontName Corbel
+skinparam nodesep 100
+skinparam ranksep 100
+
+class Company {
+    -vaccinationCenterStatsRecorderRecurringTask: VaccinationCenterStatsRecorderRecurringTask
+    -vaccinationScheduleStore: VaccinationScheduleStore
+    -vaccinationCenterStore: VaccinationCenterStore
+    ...
+
+}
+
+class TaskScheduler #A9DCDF{
+    -adapter
+    -executionTime
+}
+
+class VaccinationCenter {
+    -name
+    -phoneNumber: PhoneNumber
+    -emailAddress: Email
+    -vaccinationCenterFaxNumber: PhoneNumber
+    -websiteAddress: String
+    -openingHours:String
+    -closingHours:String
+    -slotDuration: int
+    -maxNumVaccines: int
+    -centerCoordinator:Employee
+}
+
+'class CommunityMassVaccinationCenter {
+'   - vaccineType: VaccineType
+'}
+
+'class HealthcareCenter {
+'    - ars: String
+'    - ages: String
+'    - vaccineTypes: List<VaccineType>
+'}
+
+'class Address {
+'    \n
+'}
+
+class VaccineSchedule  {
+    -date
+    -time
+    -state
+}
+
+
+Company "1" -[#grey,thickness=2] "*" VaccinationCenter : <font color=gray> has >
+Company "1" -[#grey,thickness=2] "*" VaccineSchedule : <font color=gray> has >
+Company "1" -[#black,thickness=2] "*" TaskScheduler : <font color=black> has a >
+
+VaccineSchedule "1..*" -[#grey,thickness=2]- "1" VaccinationCenter :  <font color=gray> allocated to >
+TaskScheduler "1" -[#black,thickness=2] "*" VaccinationCenter : <font color=black> gets >
+TaskScheduler "1" -[#black,thickness=2]l "*" VaccineSchedule : <font color=black> gets >
+
+@enduml
+
+@startuml
+hide methods
+left to right direction
+scale 10000 height
+
+skinparam classAttributeIconSize 10
+skinparam linetype ortho
+skinparam minClassWidth 150
+skinparam classHeaderBackgroundColor LightGray
+skinparam classBackgroundColor WhiteSmoke
+skinparam classBorderColor DarkSlateGray
+skinparam classFontColor automatic
+skinparam classFontSize 15
+skinparam classFontName Corbel
+skinparam nodesep 100
+skinparam ranksep 100
+
+class Company {
+    -vaccinationCenterStatsRecorderRecurringTask: VaccinationCenterStatsRecorderRecurringTask
+    -vaccinationScheduleStore: VaccinationScheduleStore
+    -vaccinationCenterStore: VaccinationCenterStore
+    ...
+
+}
+
+class TaskScheduler #A9DCDF{
+    -adapter
+    -executionTime
+}
+
+class VaccinationCenter {
+    -name
+    -phoneNumber: PhoneNumber
+    -emailAddress: Email
+    -vaccinationCenterFaxNumber: PhoneNumber
+    -websiteAddress: String
+    -openingHours:String
+    -closingHours:String
+    -slotDuration: int
+    -maxNumVaccines: int
+    -centerCoordinator:Employee
+}
+
+
+
+
+class VaccineSchedule  {
+    -date
+    -time
+    -state
+}
+
+
+Company "1" -[#grey,thickness=2] "*" VaccinationCenter : <font color=gray> has >
+Company "1" -[#grey,thickness=2] "*" VaccineSchedule : <font color=gray> has >
+Company "1" -[#black,thickness=2] "*" TaskScheduler : <font color=black> has a >
+
+VaccineSchedule "1..*" -[#grey,thickness=2]- "1" VaccinationCenter :  <font color=gray> allocated to >
+TaskScheduler "1" -[#black,thickness=2] "*" VaccinationCenter : <font color=black> gets >
+TaskScheduler "1" -[#black,thickness=2]l "*" VaccineSchedule : <font color=black> gets >
+
+@enduml
+
+PlantUML version 1.2022.5(Sat Apr 30 11:55:52 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

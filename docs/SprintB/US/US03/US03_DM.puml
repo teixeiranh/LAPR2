@@ -1,0 +1,71 @@
+@startuml
+hide methods
+'left to right direction
+scale 500 height
+
+skinparam classAttributeIconSize 10
+skinparam linetype ortho
+skinparam minClassWidth 150
+skinparam classHeaderBackgroundColor LightGray
+skinparam classBackgroundColor WhiteSmoke
+skinparam classBorderColor DarkSlateGray
+skinparam classFontColor automatic
+skinparam classFontSize 15
+skinparam classFontName Corbel
+skinparam nodesep 70
+skinparam ranksep 70
+
+class Company {
+    \n
+}
+
+class SNSUser #A9DCDF {
+    - name: String
+    - gender: Gender
+    - birthDate: Date
+    - snsNumber: long
+    - address: Address
+    - phoneNumber: String
+    - citizenCardNumber: long
+}
+
+class Administrator{
+    \n
+}
+
+class Employee {
+   -address : String
+       -ccNumber: String
+       -email : String
+       -id : String
+       -name : String
+       -phoneNumber: String
+       -role : String
+       -username : String
+       -password : String
+}
+ 
+class Receptionist #A9DCDF {
+  \n
+}
+
+class CenterCoordinator {
+    \n
+}
+
+class Nurse {
+    \n
+}
+
+Company "1" -[#grey,thickness=2]d- "*" Administrator : <font color=gray> has >
+Company "1" --[#grey,thickness=2] "*" SNSUser : <font color=gray> owns >
+
+Administrator "1" -[#grey]-  "*" Employee : <font color=gray> manages >
+
+Receptionist "1" -[#DarkTurquoise,bold]- "1..*" SNSUser :  registers >
+
+Employee  "*" -[#DimGray]-"1" Nurse: has a role >
+Employee "*"-[#DimGray]-"1" Receptionist:  has a role >
+Employee "*"-[#DimGray]-"1" CenterCoordinator:  has a role >
+
+@enduml

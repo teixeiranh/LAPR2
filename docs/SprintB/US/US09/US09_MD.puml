@@ -1,0 +1,50 @@
+@startuml US09_MD
+hide methods
+
+scale 500 height
+
+class Company {
+	
+}
+
+class Administrator {
+
+}
+
+
+class CommunityMassVaccinationCenter {
+
+}
+
+class HealthcareCenter {
+
+}
+
+class VaccinationCenter {
+	name
+	phoneNumber
+	address
+	emailAddress
+	faxNumber
+	websiteAddress
+	openingHour
+	closingHour
+	slotDuration
+	maxNumVaccines 
+	centerCoordinator
+}
+
+class Address{
+
+}
+
+Company "1" -- "*" Administrator : has >
+Company "1" -- "*" VaccinationCenter : has >
+
+Administrator "1" --  "*" VaccinationCenter : manages >
+VaccinationCenter "1" -- "1" Address : has >
+
+VaccinationCenter <|-- CommunityMassVaccinationCenter
+VaccinationCenter <|-- HealthcareCenter
+
+@enduml

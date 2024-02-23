@@ -1,0 +1,132 @@
+@startuml
+autonumber
+hide footbox
+skinparam titleFontSize 30
+skinparam classFontSize 20
+skinparam SequenceReferenceBackgroundColor  white
+
+actor "SNS User" as SNSUSER  #A9DCDF
+
+participant ":VaccinationScheduleUI" as UI #A9DCDF
+participant "vaccinationScheduleDTO:\nVaccinationScheduleDTO" as DTO #A9DCDF
+participant ":VaccinationScheduleController" as CTRL #A9DCDF
+participant "company:Company" as COMP #A9DCDF
+participant "vaccineTypeStore:\nVaccineTypeStore" as VTSTORE #A9DCDF
+participant "vaccinationCenterStore:\nVaccinationCenterStore" as VCSTORE#A9DCDF
+participant "vaccinationScheduleStore:\nVaccinationScheduleStore" as STORE #A9DCDF
+participant "vaccinationScheduleMapper:\nVaccinationScheduleMapper" as MAPPER #A9DCDF
+participant ":VaccinationSchedule" as USER #A9DCDF
+participant ":NotificationHandler" aS SMS #A9DCDF
+
+title SD: Process of scheduling a vaccine by a SNS User
+
+activate SNSUSER
+SNSUSER -> UI : starts a new vaccination schedule
+activate UI
+
+UI --> SNSUSER : requests data (date/time,\nvaccineType,vaccinationCenter)
+deactivate UI
+
+SNSUSER -> UI : chooses and types requested data
+activate UI
+
+UI -> CTRL : vaccineTypes = getAllVaccineTypes()
+activate CTRL
+
+CTRL -> COMP : vaccineTypeStore = getVaccineTypeStore()
+activate COMP
+deactivate COMP
+
+CTRL -> VTSTORE : vaccineTypes = getAllVaccineTypeDTO()
+activate VTSTORE
+deactivate VTSTORE
+deactivate CTRL
+
+UI -> CTRL : snsUser = getSnsUserDTOInSession()
+activate CTRL
+ref#E6E6FA  over CTRL : US01_SD_GET_SNSUSER_OF_USER_IN_SESSION \n (Controller gets an SnsUser object)
+deactivate CTRL
+
+
+UI -> CTRL : vaccinationCenters = getAllVaccinationCentersByVaccineType(vaccineTypeDTO)
+activate CTRL
+
+CTRL -> COMP : vaccinationCenterStore = getVaccinationCenterStore()
+activate COMP
+deactivate COMP
+CTRL -> VCSTORE : vaccinationCenters = getAllVaccinationCentersByVaccineType(VaccineTypeDTO)
+activate VCSTORE
+deactivate VCSTORE
+deactivate CTRL
+
+UI -> DTO **: create
+note right of DTO
+ <w:#FFAAAA> "vaccinationScheduleDTO has all required data
+  (snsUserDTO, date,vaccineTypeDTO,vaccinationCenterDTO)
+end note
+
+UI -> CTRL : vaccinationScheduleCanBeAdd = \ncreateVaccinationSchedule(vaccinationScheduleDTO)
+activate CTRL
+
+CTRL -> STORE : createVaccinationSchedule(vaccinationScheduleDTO)
+activate STORE
+
+STORE -> MAPPER: toModel(snsUserDTO)
+activate MAPPER
+
+|||
+note over MAPPER
+ <w:#FFAAAA>multiple interactions to extract data from DTO</w>
+end note
+MAPPER--> USER ** : create(snsUser, date/time,vaccinetype,vaccinationCenter)
+deactivate MAPPER
+deactivate STORE
+
+CTRL -> STORE : vaccinationSchedule = existsVaccinationSchedule(vaccinationScheduleDTO)
+activate STORE
+deactivate STORE
+
+CTRL -> STORE : vaccinationScheduleTime = checkIfScheduleDateIsBetweenVaccinationCenterOpeningHours\(vaccinationScheduleDate,vaccinationCenterDTOID)
+activate STORE
+deactivate STORE
+deactivate CTRL
+
+UI --> SNSUSER : shows all data and requests confirmation
+deactivate UI
+
+alt#E6E6FA successful case
+
+SNSUSER -> UI : confirms the data
+activate UI
+
+UI -> CTRL : vaccinationScheduleCreatedSuccessfully = addVaccinationSchedule()
+activate CTRL
+
+CTRL -> STORE : addedVaccinationScheduleSucessfully = addVaccinationSchedule(vaccinationSchedule)
+activate STORE
+
+STORE -> STORE :vaccinationSchedule != null
+activate STORE #E6E6FA
+deactivate STORE #E6E6FA
+STORE -> STORE :!existsVaccinationSchedule(snsNumber,vaccineTypeCode)
+activate STORE #E6E6FA
+deactivate STORE #E6E6FA
+STORE -> STORE :add(vaccinationSchedule)
+activate STORE #E6E6FA
+deactivate STORE #E6E6FA
+deactivate STORE
+
+CTRL -> SMS : sendSMS (phoneNumber,message)
+activate SMS
+
+CTRL --> UI : vaccinationScheduleCreatedSuccessfully
+deactivate CTRL
+
+UI --> SNSUSER #A9DCDF: "Vaccination schedule created successfully"
+|||
+else User rejects input schedule data
+
+UI--> SNSUSER: "Please reinput the vaccination schedule information"
+
+end
+@enduml

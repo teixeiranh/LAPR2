@@ -1,0 +1,111 @@
+@startuml
+skinparam classAttributeIconSize 0
+top to bottom direction
+scale 1
+
+class Company {
+-designation : String
+
++getVaccinationCenterStore() : VaccinationCenterStore
+...()
+}
+
+class ConsultUsersWaitingRoomUI {
+-controller: ConsultUsersWaitingRoomController
+
++run()
++printUsersWaitingRoom(userList : List<SnsUserArrivalDTOList>, header : String)
+}
+
+class ConsultUsersWaitingRoomController {
+
++getSnsUserArrivalsList() : List<SnsUserArrivalDTO>
+}
+
+class VaccinationCenter {
++getSnsUserWaitingByArrival() : List<SnsUser>
+}
+
+class HealthcareVaccinationCenter {
+}
+
+class CommunityMassVaccinationCenter {
+}
+
+class VaccinationCenterStore {
+-communityMassVaccinationCenterMapper : CommunityMassVaccinationCenterMapper
+-healthCareVAccinationCenterMapper : HealthCareVAccinationCenterMapper
+
++getByEmail(vcEmail : Email) : VaccinationCenter
+
+}
+
+class SnsUserArrivalList {
+
++getSnsUserArrivalsList() : List<SnsUserArrival>
++addSnsUserArrival(arrival : SnsUserArrival) : boolean
+}
+
+class SnsUserArrival {
+-arrivalDate : LocalDateTime
+
++getArrivalDate() : LocalDateTime
++getSnsNumber() : SnsNumber
++getVaccinationSchedule() : VaccinationSchedule
+
+}
+
+class VaccinationSchedule {
+-id : String
+-date : LocalDateTime
+
+}
+
+class SnsUserArrivalDTO {
+-arrivalDate : LocalDateTime
+-snsNumber : SnsNumber
+-vaccinationSchedule : VaccinationSchedule
+
++getArrivalDate() : LocalDateTime
++getSnsNumber() : SnsNumber
++getVaccineSchedule() : VaccinationSchedule
+}
+
+
+class SnsUserArrivalMapper {
+
++toDTO(snsUserArrival : SnsUserArrival) : SnsUserArrivalDTO
++toDTO(snsUserArrivalList : List<SnsUserArrival>) : List<SnsUserArrivalDTO>
+}
+
+
+' UI
+ConsultUsersWaitingRoomUI ..> ConsultUsersWaitingRoomController
+
+' Controller
+ConsultUsersWaitingRoomController ..> Company
+ConsultUsersWaitingRoomController ..> SnsUserArrivalMapper
+
+' Mapper
+SnsUserArrivalMapper ..> SnsUserArrivalDTO
+SnsUserArrivalMapper ..> SnsUserArrival
+
+' Company
+Company --> VaccinationCenter : has >
+Company ..> VaccinationCenterStore : uses >
+
+' VaccinationCenterStore
+VaccinationCenterStore ..> VaccinationCenter : has >
+
+' VaccinationCenter
+HealthcareVaccinationCenter -u-|> VaccinationCenter : is-a >
+CommunityMassVaccinationCenter -u-|> VaccinationCenter : is-a >
+VaccinationCenter ..> SnsUserArrivalList : uses >
+
+' SnsUserArrivalList
+SnsUserArrivalList "1" --> "*" SnsUserArrival : has >
+
+' SnsUserArrival
+SnsUserArrival ..> VaccinationSchedule
+
+@enduml

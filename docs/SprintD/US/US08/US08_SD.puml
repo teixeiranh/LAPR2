@@ -1,0 +1,147 @@
+@startuml US08_SD
+
+title Sequence Diagram: Record vaccine administration
+
+autonumber
+
+actor "Nurse" as N
+
+participant ":RegisterVaccineAdministrationUI" as UI
+participant ":RegisterVaccineAdministrationController" as CTRL
+participant ":VaccineSchedule" as VSH
+participant ":Company" as COMP
+participant ":SnsUserStore" as STORE
+participant ":AdverseReaction" as AR
+participant ":VaccineAdministration" as VA
+participant ":RecoveryPeriod" as RP
+participant ":Notification" as NO
+
+
+
+activate N
+
+N -> UI : asks to record the administration of a vaccine to a SNS user
+activate UI
+
+UI -> CTRL : snsUserList=getSnsUserList()
+activate CTRL
+
+CTRL -> VSH : snsUserList=getSnsUserList()
+activate VSH
+deactivate VSH
+
+UI --> N : show list of SNS users and requests to select one (snsUserNumber)
+deactivate UI
+deactivate CTRL
+
+N -> UI : selects the SNS user
+activate UI
+
+UI -> CTRL : snsUser = getSnsUserById(snsnsUserNumbersUser)
+activate CTRL
+
+CTRL -> COMP : SnsUserStore = getSnsUserStore()
+activate COMP
+deactivate COMP
+
+CTRL -> STORE : snsUser = getSnsUserById(snsUserNumber)
+activate STORE
+deactivate STORE
+
+deactivate CTRL
+
+UI -> CTRL : adverseReaction = getAdverseReaction(snsUserNumber)
+activate CTRL
+
+CTRL -> AR : adverseReaction = getAdverseReaction(snsUserNumber)
+activate AR
+deactivate AR
+deactivate CTRL
+
+UI --> N : shows SNS user information (Name, Age and Adverse Reactions) and ask for confirmation
+deactivate UI
+
+N -> UI : confirms the information
+activate UI
+
+UI -> CTRL : vaccineList = getVaccineList(snsUserNumber)
+activate CTRL
+
+CTRL -> VSH : vaccineList = getVaccineList(snsUserNumber)
+activate VSH
+deactivate VSH
+deactivate CTRL
+
+UI --> N : asks to select a vaccine from the list and input lot number
+deactivate UI
+
+N -> UI : selects a vaccine and input lot number
+activate UI
+
+UI -> CTRL : registerVaccinationAdministration(snsUserNumber, lotNumber)
+activate CTRL
+
+CTRL -> VA : VA = registerVaccinationAdministration(snsUserNumber, lotNumber)
+activate VA
+
+VA --> "VA: VaccineAdministration"** : create(snsUserNumber, lotNumber)
+deactivate VA
+deactivate CTRL
+
+UI --> N : shows data and request confirmation
+deactivate UI
+
+N -> UI : confirms the data
+activate UI
+
+UI -> CTRL : saveVaccineAdministration(VA)
+activate CTRL
+
+CTRL -> VA : saveVaccineAdministration(VA)
+activate VA
+
+VA -> VA : validateVaccineAdministration(VA)
+activate VA
+deactivate VA
+
+VA -> VA : addVaccineAdministration(VA)
+activate VA
+deactivate VA
+
+deactivate VA
+deactivate CTRL
+
+UI --> N : informs operation success and asks if should start the recovery period
+deactivate UI
+
+
+N -> UI : confirms to start the recovery period
+activate UI
+
+UI -> CTRL : startRecoveryPeriod(snsUserNumber, time)
+activate CTRL
+
+CTRL -> RP : RP = startRecoveryPeriod(snsUserNumber, time)
+activate RP
+
+RP --> "RP: RecoveryPeriod"** : create(snsUserNumber, time)
+deactivate RP
+
+CTRL -> NO : NO = notification(snsUserNumber, delay)
+activate NO
+
+NO --> "NO: notification"**: create(snsUserNumber, delay)
+
+ref over "NO: notification"  
+	createNotification_SD
+end ref
+
+deactivate NO
+deactivate CTRL
+
+
+
+
+
+
+@enduml

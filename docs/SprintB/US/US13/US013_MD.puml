@@ -1,0 +1,44 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+class Company {
+-designation : String
+}
+
+class Vaccine {
+-id : int
+-name : String
+-manufacturer : String
+-type : VaccineType
+-administrationProcess : AdministrationProcess
+}
+
+class VaccineType {
+-code : int
+-designation : String
+-whoID : int
+}
+
+class AdministrationProcess {
+-id : int
+-minAge : int
+-maxAge : int
+-numberOfDoses : int
+-dosage : double
+-timeElapsed : int
+}
+
+class Administrator {
+}
+
+Company "1" -- "*" Administrator : knows
+
+Administrator "1" -- "*" Vaccine : defines
+Administrator "1" -- "*" AdministrationProcess : defines
+
+Vaccine "1" -- "1" AdministrationProcess : has
+Vaccine "*" -- "*" VaccineType : is of
+
+@enduml

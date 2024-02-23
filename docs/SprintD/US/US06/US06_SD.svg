@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="699px" preserveAspectRatio="none" style="width:955px;height:699px;background:#FFFFFF;" version="1.1" viewBox="0 0 955 699" width="955px" zoomAndPan="magnify"><defs/><g><rect height="47.7344" style="stroke:#00000000;stroke-width:1.0;fill:none;" width="820" x="66.5" y="10"/><text fill="#000000" font-family="sans-serif" font-size="30" font-weight="bold" lengthAdjust="spacing" textLength="810" x="71.5" y="46.1426">SD: Generating for each vaccination center a daily report</text><rect fill="#A9DCDF" height="270.3281" style="stroke:#181818;stroke-width:1.0;" width="10" x="317" y="164.3984"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="681" y="501.4297"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="681" y="644.5781"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="915" y="404.7266"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="915" y="501.4297"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="915" y="644.5781"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="322" x2="322" y1="96.3438" y2="692.5781"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="686" x2="686" y1="328.4609" y2="692.5781"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="920" x2="920" y1="371.0703" y2="692.5781"/><rect fill="#A9DCDF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="318" x="163" y="63.7344"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="304" x="170" y="85.2676">:VaccinationCenterStatsRecorderRecurringTask</text><rect fill="#A9DCDF" height="270.3281" style="stroke:#181818;stroke-width:1.0;" width="10" x="317" y="164.3984"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="681" y="501.4297"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="681" y="644.5781"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="915" y="404.7266"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="915" y="501.4297"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="915" y="644.5781"/><ellipse cx="7.5" cy="163.6484" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1.5;"/><polygon fill="#181818" points="305,160.3984,315,164.3984,305,168.3984,309,164.3984" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="12" x2="311" y1="164.3984" y2="164.3984"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="15" y="143.1904">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="241" x="26" y="126.8389">configureVaccinationCenterStatsRecorder</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="173" x="30" y="143.1904">(vaccinationCenterStatsTimer,</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="275" x="30" y="159.542">vaccinationCenterStatsRecorderAdapterToUse )</text><path d="M332,111.3438 L332,170.3438 L919,170.3438 L919,121.3438 L909,111.3438 L332,111.3438 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M909,111.3438 L909,121.3438 L919,121.3438 L909,111.3438 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" text-decoration="wavy underline" textLength="562" x="338" y="129.8389">"adapterTask: VaccinationCenterStatsDailyRecorderAdapter" might be replaced by an instance of</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" text-decoration="wavy underline" textLength="450" x="342" y="146.1904">any subclass of TimerTask. It receives the data/objects required for it's correct</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" text-decoration="wavy underline" textLength="120" x="342" y="162.542">operation through it's</text><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" text-decoration="wavy underline" textLength="70" x="466" y="162.542">constructor</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" text-decoration="wavy underline" textLength="205" x="540" y="162.542">or any other method this class has.</text><path d="M24,180.3984 L24,239.3984 L312,239.3984 L312,190.3984 L302,180.3984 L24,180.3984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M302,180.3984 L302,190.3984 L312,190.3984 L302,180.3984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="241" x="30" y="198.8936">The attributes are obtained by configs file:</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="169" x="30" y="215.2451">vaccinationCenterStatsTimer,</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="267" x="30" y="231.5967">vaccinationCenterStatsRecorderAdapterToUse</text><path d="M547,249.4531 L547,291.4531 L825,291.4531 L825,259.4531 L815,249.4531 L547,249.4531 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M815,249.4531 L815,259.4531 L825,259.4531 L815,249.4531 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="207" x="553" y="267.9482">Adapter class obtained by reflection</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="253" x="557" y="284.2998">based on a setting defined in the configs file</text><polygon fill="#181818" points="479,315.5078,489,319.5078,479,323.5078,483,319.5078" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="327" x2="485" y1="319.5078" y2="319.5078"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="334" y="314.6514">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="44" x="345" y="314.6514">create()</text><rect fill="#A9DCDF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="390" x="491" y="297.1563"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="376" x="498" y="318.6895">adapterTask: VaccinationCenterStatsDailyRecorderAdapter</text><polygon fill="#181818" points="879,358.1172,889,362.1172,879,366.1172,883,362.1172" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="327" x2="885" y1="362.1172" y2="362.1172"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="334" y="357.2607">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="44" x="345" y="357.2607">create()</text><rect fill="#A9DCDF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="58" x="891" y="339.7656"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="44" x="898" y="361.2988">t:Timer</text><polygon fill="#181818" points="903,400.7266,913,404.7266,903,408.7266,907,404.7266" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="327" x2="909" y1="404.7266" y2="404.7266"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="334" y="399.8701">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="218" x="345" y="399.8701">schedule(adapterTask, delay, interval)</text><path d="M327,447.7266 L327,473.7266 L934,473.7266 L934,457.7266 L924,447.7266 L327,447.7266 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M924,447.7266 L924,457.7266 L934,457.7266 L924,447.7266 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" text-decoration="wavy underline" textLength="274" x="513" y="466.2217">After the time specified by "delay" has elapsed.</text><polygon fill="#181818" points="702,497.4297,692,501.4297,702,505.4297,698,501.4297" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="696" x2="914" y1="501.4297" y2="501.4297"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="708" y="496.5732">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="26" x="719" y="496.5732">run()</text><rect fill="#FFFFFF" height="41.4453" style="stroke:#000000;stroke-width:1.5;" width="396" x="488" y="539.4297"/><path d="M488,539.4297 L550,539.4297 L550,547.4297 L540,557.4297 L488,557.4297 L488,539.4297 " fill="#E6E6FA" style="stroke:#000000;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="17" x="501" y="554.9248">ref</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="237" x="567.5" y="573.8867">US06_Record daily vaccination center stats</text><path d="M327,590.875 L327,616.875 L943,616.875 L943,600.875 L933,590.875 L327,590.875 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M933,590.875 L933,600.875 L943,600.875 L933,590.875 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" text-decoration="wavy underline" textLength="283" x="513" y="609.3701">After the time specified by "interval" has elapsed.</text><polygon fill="#181818" points="702,640.5781,692,644.5781,702,648.5781,698,644.5781" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="696" x2="914" y1="644.5781" y2="644.5781"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="708" y="639.7217">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="26" x="719" y="639.7217">run()</text><!--MD5=[66d803194713ab0f1af2026365fb0e3c]
+@startuml
+autonumber
+hide footbox
+skinparam titleFontSize 30
+skinparam classFontSize 20
+skinparam SequenceReferenceBackgroundColor  white
+
+
+participant ":VaccinationCenterStatsRecorderRecurringTask" as system #A9DCDF
+participant "adapterTask: VaccinationCenterStatsDailyRecorderAdapter" as task #A9DCDF
+participant "t:Timer" as timer #A9DCDF
+
+
+title SD: Generating for each vaccination center a daily report
+
+[o-> system : configureVaccinationCenterStatsRecorder \n (vaccinationCenterStatsTimer, \n vaccinationCenterStatsRecorderAdapterToUse )
+activate system #A9DCDF
+note left system
+   The attributes are obtained by configs file:
+   vaccinationCenterStatsTimer,
+   vaccinationCenterStatsRecorderAdapterToUse
+end note
+
+note right
+<w>"adapterTask: VaccinationCenterStatsDailyRecorderAdapter" might be replaced by an instance of </w>
+<w> any subclass of TimerTask. It receives the data/objects required for it's correct </w>
+<w> operation through it's **constructor** or any other method this class has.</w>
+end note
+
+note over task
+    Adapter class obtained by reflection
+     based on a setting defined in the configs file
+end note
+system - -> task **: create()
+
+system - -> timer ** :create()
+system -> timer: schedule(adapterTask, delay, interval)
+activate timer
+deactivate timer
+deactivate system
+note right of system
+    <w>                                             After the time specified by "delay" has elapsed.                                 </w>
+end note
+
+timer -> task: run()
+activate timer
+activate task
+deactivate timer
+deactivate task
+ref#E6E6FA  over task : US06_Record daily vaccination center stats
+note right of system
+    <w>                                             After the time specified by "interval" has elapsed.                                 </w>
+end note
+
+timer -> task: run()
+activate timer
+activate task
+deactivate timer
+deactivate task
+
+
+
+@enduml
+
+PlantUML version 1.2022.5(Sat Apr 30 11:55:52 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

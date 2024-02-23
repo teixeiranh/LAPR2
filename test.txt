@@ -1,0 +1,9 @@
+Name;Sex;Birth Date;Address;Phone Number;E-mail;SNS User Number;Citizen Card Number
+João Fernandes; Male; 14-08-1991; Rua do Porto/89/3700-265/Porto/Portugal;967569747;joaofernandes@gmail.com; 275341394; 139999850ZY3
+João Fernandes; Male; 14-08-1991; Rua do Porto/89/3700-265/Porto/Portugal;967569747;joaofernandes@gmail.com; 275341394; 139999850ZY3
+João Fernandes; Male; 14-08-1991; Rua do Porto/89/3700-265/Porto/Portugal;967569747;joaofernandes@gmail.com; 275341394; 139999850ZY3
+Manuel da Máquina; Male; 25-04-1974; Rua da Alegria/56/3700-123/Lisboa/Portugal;967569741;manel@gmail.com; 275341390; 000000000ZU4
+Ze Portuga; Male; 30-03-1974; Rua da Sorte/32/4200-123/Aveiro/Portugal;967569742;ze@gmail.com; 275341391; 000000000ZZ4
+Ze Portuga; Male; 30-03-1974; Rua da Sorte/32/4200-123/Aveiro/Portugal;967569742;ze@gmail.com; 275341391; 000000000ZZ4
+Maia Curandeira; Female; 13-09-1991; Rua da Sorte/22/4100-100/Braga/Portugal;967569743;maia@gmail.com; 275341392; 000000000ZY4
+Rosinha ; Female; 14-10-1974; Rua da Mouraria/11/3100-123/Lisboa/Portugal;967569744;rosinha@gmail.com; 275341393; 000000000ZX4

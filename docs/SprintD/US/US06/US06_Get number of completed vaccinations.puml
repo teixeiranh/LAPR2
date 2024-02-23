@@ -1,0 +1,39 @@
+@startuml
+autonumber
+hide footbox
+skinparam titleFontSize 25
+skinparam classFontSize 18
+skinparam SequenceReferenceBackgroundColor  white
+skinparam OptBackgroundColor #A9DCDF
+
+participant "vaccinationScheduleStore:\nVaccinationScheduleStore" as VSStore#A9DCDF
+
+participant "vaccinationScheduleStore:\nVaccinationScheduleStore" as VSStore#A9DCDF
+
+
+title SD: Get number of completed vaccination schedules
+
+
+[o-> VSStore : getNumberOfVaccinations(vaccinationCenter)
+activate VSStore
+VSStore -> VSStore #A9DCDF: vaccinationScheduleCounter  = 0
+
+loop for each vaccination schedule (vs) in vaccinationScheduleStore
+
+VSStore -> VSStore #A9DCDF: vaccinationScheduleState = vs.getState()
+VSStore -> VSStore #A9DCDF: vaccinationCenterName = vs.getVaccinationCenter().getVaccinationCenterName()
+VSStore -> VSStore #A9DCDF: vaccinationScheduleDate = vs.getDate()
+opt vaccinationScheduleState = FINALIZED \n \
+&& vaccinationCenterName = vaccinationCenter.getName()\n \
+&& vaccinationScheduleDate = today
+|||
+VSStore -> VSStore #A9DCDF: vaccinationScheduleCounter ++
+end
+note right
+   Consult life cycle diagram for
+   clarification of vaccinationScheduleState
+   state transition
+end note
+end
+
+@enduml

@@ -1,0 +1,55 @@
+@startuml
+autonumber
+autoactivate on
+scale 1
+skinparam titleFontSize 25
+
+title US17_SD_ImportLegacyDataDTO_List
+
+participant "legacyDataStore\n:LegacyDataStore" as store
+participant "<<interface>>\n:LoadDataFromExternalSource" as interface
+participant "csvFileReaderLegacyDataAdaptee\n:CsvFileReaderLegacyDataAdaptee" as adaptee
+participant "legacyDataDTOList\n:List<LegacyDataDTO>" as dtoList
+participant "csvReader\n:Scanner" as scanner
+participant "legacyDataMapper\n:LegacyDataMapper" as mapper
+
+
+[o-> store : importLegacyDataFromExternalSource(filePath)
+
+store -> interface : readFileFromExternalSource(filePath)
+
+interface -> adaptee : importDataFromCsvFile(filePath)
+adaptee -> adaptee : validateFileExtension(filePath)
+deactivate adaptee
+adaptee --> scanner** : create()
+adaptee --> dtoList** : create()
+
+adaptee -> scanner : lineItems = nextLine().split(";")
+deactivate scanner
+
+adaptee -> adaptee : validateHeader(lineItems)
+deactivate adaptee
+
+loop while file has lines to read
+adaptee -> scanner : lineItems = nextLine().split(";")
+deactivate scanner
+adaptee -> adaptee : legacyDataDTO = createLegacyDataDTOFromCsvLine(lineItems)
+note over adaptee
+ multiple interactions to extract
+ data from **lineItems** array
+end note
+adaptee -> mapper : toDTO(snsUserNumber, vaccineName, vaccineDose, lotNumber, vaccineScheduleDateTime, \n           arrivalDateTime,vaccineAdministrationDateTime,leavingDateTime)
+deactivate mapper
+deactivate adaptee
+adaptee -> dtoList : add(legacyDataDTO)
+deactivate dtoList
+
+end
+
+adaptee -> scanner : close()
+deactivate scanner
+
+return legacyDataDTOList
+return legacyDataDTOList
+[<-- store : legacyDataDTOList
+@enduml

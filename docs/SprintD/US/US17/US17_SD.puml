@@ -1,0 +1,92 @@
+@startuml
+' settings
+autonumber
+autoactivate on
+scale 1
+skinparam sequenceReferenceBackgroundColor white
+
+' actor
+actor CenterCoordinator as coordinator
+
+' participants definition
+participant ":ImportLegacyDataUI" as ui
+participant ":ImportLegacyDataController" as controller
+participant ":Company" as company
+participant "legacyDataStore\n:LegacyDataStore" as store
+participant "<<interface>>\n:LoadDataFromExternalSource" as externalSource
+participant "<<interface>>\n:SortingAlgorithm" as sort
+participant "importedLegacyDataDTOList\n:List<LegacyDataDTO>" as dtoList
+participant "registeredLegacyDataDTOList\n:List<LegacyDataDTO>" as registeredDtoList
+participant "sortedLegacyDataDTOList\n:List<LegacyDataDTO>" as sortedDtoList
+participant "sortingCriteriaList\n:List<Comparator<LegacyDataDTO>>"
+participant "sortCriterion\n:Comparator<LegacyDataDTO>"
+
+'1
+activate coordinator
+coordinator -> ui : starts importing data from legacy system
+return request path of the file to import
+
+coordinator -> ui : types requested file path (filePath)
+ui -> controller : importLegacyDataFromExternalSource(filePath, vcEmail)
+
+note left
+After logging into the system the
+**center coordinator** is already
+associated with a vaccination
+center. This association is used
+to fetch the vaccination center
+email (**vcEmail**) used in the
+subsequent steps of this US.
+end note
+
+controller -> company : legacyDataStore = getLegacyDataStore()
+deactivate company
+
+controller -> store : importLegacyDataFromExternalSource(filePath)
+
+store -> externalSource : readFileFromExternalSource(filePath)
+
+' ref import data
+ref over externalSource
+[[.\US17_SD_ImportLegacyDataDTO_List.svg US17_SD_ImportLegacyDataDTO_List]]
+end ref
+return importedLegacyDataDTOList
+return importedLegacyDataDTOList
+
+controller -> controller : registerLegacyDataFromExternalSource(importedLegacyDataDTOList, vcEmail)
+' ref register imported data
+ref over controller
+[[.\US17_SD_RegisterLegacyDataDTO_List.svg US17_SD_RegisterLegacyDataDTO_List]]
+end ref
+note left
+The successfully registered
+DTOs are stored in a **collection**
+managed by **LegacyDataStore**,
+which is subsequently used in
+the sorting operation of **msg 21**.
+end note
+return success
+return success
+
+
+ui -> controller : getSortingCriteriaList()
+
+controller -> store : getSortingCriteriaList()
+return sortingCriteriaList
+return sortingCriteriaList
+
+ui --> coordinator :  shows data sorting options and requests selection
+coordinator -> ui : selects data sorting option
+
+ui -> controller : getSortedLegacyDataDTOList(sortCriterion)
+controller -> store : getSortedLegacyDataDTOList(sortCriterion)
+
+store -> sort :  sortData(registeredLegacyDataDTOList, sortCriterion)
+
+return sortedLegacyDataDTOList
+return sortedLegacyDataDTOList
+return sortedLegacyDataDTOList
+return shows imported data according to the selected sorting option
+
+
+@enduml

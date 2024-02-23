@@ -1,0 +1,29 @@
+@startuml
+autonumber
+actor "SNS User" as User #A9DCDF
+
+
+title SSD: Process of scheduling a vaccine by a SNS User
+
+activate "User" #F0FFFF
+"User" -> ":System" : starts new vaccination schedule
+activate ":System" 	#E6E6FA
+":System" --> "User" : requests data (date, vaccineType, vaccinationCenter)
+deactivate ":System"
+
+"User" -> ":System" : types requested data
+activate ":System" #E6E6FA
+":System" --> "User" : show data and requests a confirmation
+deactivate ":System"
+
+"User" -> ":System" : confirms the data entered
+activate ":System" #E6E6FA
+":System" --> "User" : informs operation success
+deactivate ":System"
+
+deactivate "User"
+
+'*https://www.w3.org/TR/css-color-4/#hex-notation*'
+
+@enduml
+

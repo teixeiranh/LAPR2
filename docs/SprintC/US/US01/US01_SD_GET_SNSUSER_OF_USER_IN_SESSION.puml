@@ -1,0 +1,42 @@
+@startuml
+autonumber
+hide footbox
+skinparam titleFontSize 25
+skinparam classFontSize 18
+
+
+participant ":VaccinationScheduleController" as CTRL #A9DCDF
+participant "company:Company" as COMP #A9DCDF
+participant ":APP" as App#A9DCDF
+participant " app:APP" as app#A9DCDF
+participant " userSession:UserSession" as UserSession#A9DCDF
+participant "snsUserStore:SnsUserStore" as STORE#A9DCDF
+participant ":SnsUser" as USER#A9DCDF
+
+
+title SD: Get SNS User of User in session
+
+
+activate CTRL  #A9DCDF
+[o-> CTRL : doSomething()
+CTRL -> App : app = getInstance()
+activate App
+deactivate App
+CTRL -> app : userSession = getCurrentUserSession()
+activate app
+deactivate app
+CTRL -> UserSession : getUserId()
+activate UserSession
+deactivate UserSession
+CTRL -> app : company = getCompany()
+activate app
+deactivate app
+CTRL -> COMP : snsUserStore = getSnsUserStore()
+activate COMP
+deactivate COMP
+CTRL -> STORE : snsUser = getSnsUserById()
+activate STORE
+deactivate STORE
+
+
+@enduml

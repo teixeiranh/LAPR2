@@ -1,0 +1,131 @@
+@startuml
+autonumber
+scale 1
+actor Administrator as ADMIN
+
+participant ":RegisterEmployeeUI" as UI
+participant ":RegisterEmployeeController" as CTRL
+participant ":Company" as COMPANY
+participant "empStore\n:EmployeeStore" as ESTORE
+participant "emp\n:Employee" as EMP
+participant ":PasswordGenerator" as PWD
+participant ":AuthFacade" as AUTH
+
+'1
+activate ADMIN
+ADMIN -> UI : starts registering a new employee
+
+'2
+activate UI
+UI -> CTRL : getRoleList()
+
+'3
+activate CTRL
+CTRL -> COMPANY : empStore=getEmployeeStore()
+activate COMPANY
+deactivate COMPANY
+
+'4
+CTRL -> ESTORE : getRoleList()
+activate ESTORE
+deactivate ESTORE
+deactivate CTRL
+
+'5
+UI --> ADMIN: shows list of employee roles and requests selection (role)
+deactivate UI
+
+'6
+ADMIN -> UI : selects an employee role
+
+'7
+activate UI
+UI --> ADMIN : requests data (name, address, phoneNumber, email, citizenCardNumber)
+deactivate UI
+
+'8
+ADMIN -> UI : types requested data
+
+'9
+activate UI
+UI -> CTRL : createEmployee(name, address, phoneNumber, email, citizenCardNumber, role)
+
+'10
+activate CTRL
+CTRL -> ESTORE : emp=createEmployee(name, address, phoneNumber, email, citizenCardNumber, role)
+
+'11
+activate ESTORE
+ESTORE --> EMP** : create(name, address, phoneNumber, email, citizenCardNumber, role)
+deactivate ESTORE
+deactivate CTRL
+
+'12
+UI --> ADMIN : shows all data and requests confirmation
+deactivate UI
+
+'13
+ADMIN -> UI : confirms the data
+
+'14
+activate UI
+UI -> CTRL : saveEmployee()
+
+'15
+activate CTRL
+CTRL -> ESTORE : saveEmployee(emp)
+
+'16
+activate ESTORE
+ESTORE -> ESTORE : validateEmployee(emp)
+
+'17
+activate ESTORE
+ESTORE -> AUTH : s = existsUser(email)
+activate AUTH
+deactivate AUTH
+deactivate ESTORE
+
+'18
+ESTORE --> PWD** : create()
+ESTORE -> PWD : pwd = generatePassword()
+activate PWD
+deactivate PWD
+
+'19
+ESTORE -> EMP : name = getName()
+activate EMP
+deactivate EMP
+
+'20
+ESTORE -> EMP : email = getEmail()
+activate EMP
+deactivate EMP
+
+'21
+ESTORE -> EMP : role = getRole()
+activate EMP
+deactivate EMP
+
+'22
+ESTORE -> AUTH : s = addUserWithRole(name, email, pwd, role)
+activate AUTH
+deactivate AUTH
+
+'23
+ESTORE -> ESTORE : addEmployee(emp)
+activate ESTORE
+deactivate ESTORE
+
+'24
+ESTORE -> ESTORE : sendEmail(emp, pwd)
+activate ESTORE
+deactivate ESTORE
+deactivate ESTORE
+deactivate CTRL
+
+'25
+UI --> ADMIN : informs operation success
+deactivate UI
+
+@enduml

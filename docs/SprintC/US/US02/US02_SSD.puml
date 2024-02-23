@@ -1,0 +1,29 @@
+@startuml
+autonumber
+actor "Receptionist" as Receptionist
+
+activate Receptionist
+Receptionist -> ":System" : starts to schedule a vaccination
+
+activate ":System"
+":System" --> Receptionist : requests data (SNSUserNumber, date, vaccineType, vaccinationCenter)
+deactivate ":System"
+
+
+Receptionist -> ":System" : types requested data
+activate ":System"
+
+":System" --> Receptionist : shows all data and request confirmation
+deactivate ":System"
+
+Receptionist -> ":System" : confirms the data
+activate ":System"
+":System" --> Receptionist : informs operation (in)success
+deactivate ":System"
+
+
+
+
+deactivate Receptionist
+
+@enduml

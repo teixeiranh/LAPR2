@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="297.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.CenterPerformanceScene1">
+    <opaqueInsets>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </opaqueInsets>
+    <bottom>
+        <FlowPane alignment="CENTER" hgap="10.0" prefHeight="31.0" prefWidth="320.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="btnNext" mnemonicParsing="false" onAction="#btnNextAction" text="Next">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="btnCancel" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnCancelAction" text="Cancel">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            </children>
+            <opaqueInsets>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </opaqueInsets>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </BorderPane.margin>
+        </FlowPane>
+    </bottom>
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="3.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Insert the following information:">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </BorderPane.margin>
+        </HBox>
+    </top>
+    <center>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <center>
+                <GridPane hgap="10.0" prefHeight="188.0" prefWidth="337.0" vgap="10.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label alignment="CENTER_RIGHT" layoutX="20.0" layoutY="50.0" text="List of Available Days">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                  <Label fx:id="txtDoseNumber" text="Interval" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtInterval" layoutX="222.0" layoutY="185.0" onKeyPressed="#txtLoteNumberPressed" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </TextField>
+                  <ComboBox fx:id="cmbListOfAvailableDays" onAction="#cmbListOfAvailableDaysAction" prefHeight="25.0" prefWidth="215.0" GridPane.columnIndex="1" />
+                    </children>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="283.0" minWidth="22.00002034505208" prefWidth="192.0" />
+                        <ColumnConstraints hgrow="ALWAYS" maxWidth="278.66664632161456" minWidth="16.33333333333337" prefWidth="205.33333333333337" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+                    </padding>
+                </GridPane>
+            </center>
+            <bottom>
+                <Label fx:id="lblAlert" textFill="#eb080f" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+            </bottom>
+        </BorderPane>
+    </center>
+</BorderPane>

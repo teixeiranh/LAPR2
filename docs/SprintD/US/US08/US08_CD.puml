@@ -1,0 +1,131 @@
+@startuml US08_CD
+
+title Class Diagram: Record vaccine administration
+
+package UI <<Folder>> {
+    
+    class RegisterVaccineAdministrationUI {
+        
+    }
+
+}
+
+package Controler <<Folder>> {
+
+    class RegisterVaccineAdministrationController {
+        +snsUserList getSnsUserList()
+        +snsUser getSnsUserById(snsnsUserNumbersUser)
+        +SnsUserStore getSnsUserStore()
+        +adverseReaction getAdverseReaction(snsUserNumber)
+        +vaccineList getVaccineList(snsUserNumber)
+        +VA registerVaccinationAdministration(snsUserNumber, lotNumber)
+        +saveVaccineAdministration(VA)
+        +RP startRecoveryPeriod(snsUserNumber, time)
+        +NO notification(snsUserNumber, delay)
+    }
+
+}
+
+
+package Domain <<Folder>> {
+
+    package Model <<Folder>> {
+
+        class Company {
+            
+        }
+
+        class SNSUser {
+            -Int snsUserNumber
+        }
+
+        class VaccinationCenter {
+            -String name
+            -String phoneNumber
+            -String emailAddress
+            -String faxNumber
+            -String websiteAddress
+            -Time openingHour
+            -Time closingHour
+            -Int slotDuration
+            -Int maxNumVaccines
+            -String centerCoordinator
+            -Address address
+        }
+
+        class Employee {
+
+        }
+
+        class Nurse {
+
+        }
+
+        class VaccineSchedule {
+            -LocalDate date
+            -Time time
+        }
+
+        class VaccineAdministration {
+            +create(snsUserNumber, lotNumber)
+            +validateVaccineAdministration(VA)
+            +addVaccineAdministration(VA)   
+        }
+
+        class AdverseReaction {
+            
+        }
+
+        class Notification {
+            +create(snsUserNumber, delay)
+        }
+
+        class RecoveryPeriod {
+            +create(snsUserNumber, time)
+        }
+    
+    }
+
+    package Stores <<Folder>> {
+
+        class SnsUserStore {
+            +SnsUser getSnsUserById(String)
+        }
+
+    }
+}
+
+
+RegisterVaccineAdministrationUI ..> RegisterVaccineAdministrationController
+RegisterVaccineAdministrationController ..> VaccinationCenter
+
+Company "1" -d "*" VaccinationCenter :  has >
+Company "1" -- "*" SNSUser :  owns >
+Company "1" --  "*" Notification   :  sends  >
+Company "1" -- "*" Employee :  employs >
+Company "1" -- "1" SnsUserStore : uses >
+
+Employee "*" -- "1" Nurse :  is of >
+Employee "1..*" -- "1" VaccinationCenter : works on
+
+SNSUser "1" --  "0,1,2" Notification :  receives >
+
+VaccineSchedule "1..*" -- "1" SNSUser :  created for 
+VaccineSchedule "1..*" -- "1" VaccinationCenter :  allocated to 
+VaccineSchedule "1" -- "0,1" Notification :  generates >
+
+VaccinationCenter "*" -- "*" VaccineAdministration :  implements >
+
+Nurse "1" -- "1..*" VaccineSchedule : checks >
+Nurse "1" -- "1..*" VaccineAdministration :  registers >
+Nurse "1" - "1..*" RecoveryPeriod :  initiates >
+Nurse "1" -- "*" AdverseReaction :  records >
+
+VaccineAdministration "1" -- "1" VaccineSchedule : fulfilling >
+VaccineAdministration "1..*" - "1" SNSUser :  administered on >
+
+RecoveryPeriod "1" -- "0,1" Notification :  generates  >
+
+SnsUserStore  "1" -- "*" SNSUser: stores >
+
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+autonumber
+autoactivate on
+scale 1
+actor "Nurse" as NURSE
+participant ":System" as SYSTEM
+
+'1
+activate NURSE
+NURSE -> SYSTEM : starts requesting list of SNS Users in the waiting room
+return shows list of SNS Users in the waiting room
+
+@enduml

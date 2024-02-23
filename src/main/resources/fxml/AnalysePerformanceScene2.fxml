@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<GridPane hgap="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="450.0" minWidth="800.0" prefHeight="450.0" prefWidth="800.0" styleClass="grid-pane" stylesheets="@../styles/MFXButton.css" vgap="20.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.CenterPerformanceScene2">
+<columnConstraints>
+    <ColumnConstraints halignment="CENTER" />
+    <ColumnConstraints halignment="CENTER" />
+</columnConstraints>
+<rowConstraints>
+    <RowConstraints prefHeight="32.0" />
+    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+</rowConstraints>
+<padding>
+    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+</padding>
+<StackPane minHeight="150.0" minWidth="300.0" styleClass="grid-background" GridPane.columnSpan="2" GridPane.rowSpan="3">
+    <GridPane.margin>
+        <Insets left="-15.0" right="-15.0" />
+    </GridPane.margin>
+</StackPane>
+<Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="300.0" minWidth="800.0" prefHeight="300.0" prefWidth="800.0" styleClass="header-label" text="Vaccination Center Perfomance" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font></Label>
+<TextArea fx:id="console" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="800.0" GridPane.rowIndex="1" />
+<MFXButton fx:id="btnCancelAction" buttonType="RAISED" cancelButton="true" contentDisplay="CENTER" minHeight="40.0" minWidth="100.0" onAction="#btnCancelAction" styleClass="outline-button" stylesheets="@../styles/MFXButton.css" text="Return" textAlignment="CENTER" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS"></MFXButton>
+</GridPane>

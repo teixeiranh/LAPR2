@@ -1,0 +1,92 @@
+@startuml
+hide methods
+'left to right direction
+scale 1000 height
+
+skinparam classAttributeIconSize 10
+skinparam linetype ortho
+skinparam minClassWidth 150
+skinparam classHeaderBackgroundColor LightGray
+skinparam classBackgroundColor WhiteSmoke
+skinparam classBorderColor DarkSlateGray
+skinparam classFontColor automatic
+skinparam classFontSize 15
+skinparam classFontName Corbel
+skinparam nodesep 100
+skinparam ranksep 100
+
+class Company {
+    \n
+}
+
+class SNSUser #A9DCDF {
+    - name: String
+    - gender: Gender
+    - birthDate: Date
+    - snsNumber: long
+    - address: Address
+    - phoneNumber: String
+    - citizenCardNumber: long
+}
+
+
+class VaccinationCenter {
+    -name
+    -phoneNumber: PhoneNumber
+    -emailAddress: Email
+    -vaccinationCenterFaxNumber: PhoneNumber
+    -websiteAddress: String
+    -openingHours:String
+    -closingHours:String
+    -slotDuration: int
+    -maxNumVaccines: int
+    -centerCoordinator:Employee
+}
+
+class CommunityMassVaccinationCenter {
+    - vaccineType: VaccineType
+}
+
+class HealthcareCenter {
+    - ars: String
+    - ages: String
+    - vaccineTypes: List<VaccineType>
+}
+
+class VaccineType {
+    - code: String
+    - description: String
+    - technology: VaccineTechnology
+}
+
+class Address {
+    \n
+}
+
+class VaccineSchedule  #A9DCDF{
+    -Date
+    -Time
+}
+
+class Notification  #A9DCDF{
+    \n
+}
+
+Company "1" -[#grey,thickness=2]d "*" VaccinationCenter : <font color=gray> has >
+Company "1" --[#grey,thickness=2] "*" SNSUser : <font color=gray> owns >
+Company "1" --[#grey,thickness=2]  "*" Notification   : <font color=gray> sends confirmation
+
+SNSUser "1" -[#DarkTurquoise,bold]-  "0,1,2" Notification :  receives >
+
+VaccineSchedule "1..*" -[#DimGray,bold]- "1" VaccineType : <font color=gray> for taking >
+VaccineSchedule "1..*" -[#DarkTurquoise,bold]u- "1" SNSUser :  created for >
+VaccineSchedule "1..*" -[#DimGray,bold]- "1" VaccinationCenter : <font color=gray> allocated to >
+VaccineSchedule "1" -[#DarkTurquoise,bold]- "0,1" Notification :  generates >
+
+
+VaccinationCenter <|-[#grey]- CommunityMassVaccinationCenter
+VaccinationCenter <|-[#grey]- HealthcareCenter
+VaccinationCenter "1" -[#grey]- "1" Address : <font color=gray> has >
+
+
+@enduml

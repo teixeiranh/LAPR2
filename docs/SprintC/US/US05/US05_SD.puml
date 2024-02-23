@@ -1,0 +1,63 @@
+@startuml
+autonumber
+autoactivate on
+scale 1
+skinparam sequenceReferenceBackgroundColor white
+
+actor Nurse as NURSE
+
+participant ":ConsultUsersWaitingRoomUI" as UI
+participant ":ConsultUsersWaitingRoomController" as CTRL
+participant ":Company" as COMPANY
+participant "vcStore\n:VaccinationCenterStore" as VCSTORE
+participant "vc:VaccinationCenter" as VCENTER
+participant "arrivalsList\n:SnsUserArrivalList" as ADMISSIONLIST
+participant ":SnsUserArrivalMapper" as MAPPER
+participant "snsUserArrivalsList\n:List<SnsUserArrival>" as LSU
+participant "snsUserArrivalsDTOList\n:List<SnsUserArrivalDTO>" as LDTO
+
+'1
+activate NURSE
+NURSE -> UI : starts requesting list of SNS users in the waiting room
+
+'2
+UI -> CTRL : getSnsUserArrivalList()
+
+'3
+CTRL -> COMPANY: vcStore = getVaccinationCenterStore()
+deactivate COMPANY
+
+'4
+CTRL -> VCSTORE : vc = getByEmail(vcEmail)
+deactivate VCSTORE
+note left
+**vcEmail** is obtained after the nurse logs
+into the system and selects the vaccination
+center where he/she is working at. By doing
+so, the list of actions available are restricted
+to a given vaccination center.
+cf. **US05_SD_Select_VaccinationCenter**
+end note
+
+'5 Obter classe responsável por gerir a lista de sns users
+CTRL -> VCENTER : arrivalsList = getArrivalsList()
+deactivate VCENTER
+
+'6 Obter
+CTRL -> ADMISSIONLIST : getSnsUserArrivalsList()
+ref over ADMISSIONLIST
+US05_SD_SnsUserArrivals_List
+end ref
+return snsUserArrivalsList
+
+CTRL -> MAPPER : toDTO(snsUserArrivalsList)
+ref over MAPPER
+US05_SD_SnsUserArrivalMapper_ToDTO_List
+end ref
+return snsUserArrivalsDTOList
+
+return snsUserArrivalsDTOList
+
+return shows list of SNS users in the waiting room
+
+@enduml

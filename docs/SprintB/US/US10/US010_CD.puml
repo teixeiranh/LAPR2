@@ -1,0 +1,113 @@
+@startuml
+skinparam classAttributeIconSize 0
+scale 1
+
+class Company {
+-designation : String
+-authFacade : AuthFacade
+-snsUserStore: SnsUserStore
+-vaccinationCenterStore : VacccinationCenterStore
+-empStore : EmployeeStore
+...
+
++getDesignation() : String
++getAuthFacade() : AuthFacade
++getSnsUserStore() : SnsUserStore
++getVaccinationCenterStore() : VacccinationCenterStore
++getEmployeeStore() : EmployeeStore
+(...)
+}
+
+class Employee {
+-name : String
+-email : String
+-address : String
+-citizenCardNumber: long
+-phoneNumber: long
+-role : Role
+-id : String
+-employeeCount: int
+-ID_TEMPLATE : String
+
++getName() : String
++getEmail() : String
++getCitizenCardNumber() : long
++getPhoneNumber() : long
++getRole() : String
++getId() : String
++getEmployeeCount() : int
++toString() : String
+
+}
+
+class RegisterEmployeeUI {
+-controller: RegisterEmployeeController
+
++run()
+}
+
+class RegisterEmployeeController {
+
++createEmployee(name, address, phoneNumber, email, citizenCardNumber, role) : boolean
++saveEmployee() : boolean
+}
+
+class EmployeeStore {
+-authFacade: AuthFacade
+-passwordGenerator : PasswordGenerator
+-employeeList : List<Employee>
+-roleList : List<Role>
+
++createEmployee(name, addres, phoneNumber, email, citizenCardNumber, role) : Employee
++saveEmployee(emp : Employee) : boolean
++addEmployee(emp : Employee) : boolean
++validateEmployee(emp: Employee) : boolean
++sendEmail(emp: Employee, pwd : String)
++getRoleList() : List<Role>
+
+}
+
+Enum Role {
+  +CENTER_COORDINATOR
+  +RECEPTIONIST
+  +NURSE
+}
+
+class AuthFacade {
+
++existsUser(email:String)
++addUserWithRole(name:String, email:String, pwd:String, role:String) : boolean
+}
+
+class PasswordGenerator {
+  -PASSWORD_LENGTH: String
+  -DIGIT: String
+  -CHAR_LOWERCASE: String
+  -CHAR_UPPERCASE: String
+  -PASSWORD_ALLOW: String
+  -random: SecureRandom
+
+  +generatePassword(): String
+  +shuffleString(): String
+}
+
+' UI
+RegisterEmployeeUI ..> RegisterEmployeeController
+
+' Controller
+RegisterEmployeeController ..> Company
+RegisterEmployeeController ..> Employee
+
+' Company
+Company "1" --> "1" EmployeeStore : > uses
+
+
+' EmployeeStore
+EmployeeStore "1" --> "*" Employee : > employs
+EmployeeStore ..> AuthFacade
+EmployeeStore ..> PasswordGenerator
+
+' Employee
+Employee ..> Role
+
+@enduml

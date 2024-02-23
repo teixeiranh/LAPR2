@@ -1,0 +1,199 @@
+@startuml
+hide methods
+'left to right direction
+scale 500 height
+
+skinparam classAttributeIconSize 10
+skinparam linetype ortho
+skinparam minClassWidth 150
+skinparam classHeaderBackgroundColor LightGray
+skinparam classBackgroundColor WhiteSmoke
+skinparam classBorderColor DarkSlateGray
+skinparam classFontColor automatic
+skinparam classFontSize 15
+skinparam classFontName Corbel
+skinparam nodesep 70
+skinparam ranksep 70
+
+class Company {
+    \n
+}
+
+class SNSUser {
+    #snsUserNumber
+}
+
+class VaccinationCenter {
+    #name
+    #phoneNumber
+    #emailAddress
+    #faxNumber
+    #websiteAddress
+    #openingHours
+    #closingHours
+    #slotDuration
+    #maxNumVaccines
+}
+
+class CommunityMassVaccinationCenter {
+    \n
+}
+
+class HealthcareCenter {
+    \n
+}
+
+class Administrator {
+    \n
+}
+
+class Vaccine {
+    #brand
+}
+
+class VaccineType {
+    #lotNumber
+}
+
+class Address {
+    \n
+}
+
+class VaccineSchedule {
+    #Date
+    #Time
+}
+
+class VaccineAdministration {
+    \n
+}
+
+class VaccinationCertificate {
+    \n
+}
+
+together {
+    class ARS {
+        \n
+    }
+    class AGES {
+        \n
+    }
+}
+
+together {
+    class Employee {
+        \n
+    }
+    class CenterCoordinator {
+        \n
+    }
+    class Nurse {
+        \n
+    }
+    class NurseHCC {
+        \n
+    }
+    class Receptionist {
+        \n
+    }
+    class ReceptionistHCC {
+        \n
+    }
+}
+
+class VaccineAdministrationInstruction {
+    \n
+}
+
+class AdverseReaction {
+    \n
+}
+
+class VaccinationProcess {
+    \n
+}
+
+class Notification {
+    \n
+}
+class RecoveryPeriod {
+    \n
+}
+
+
+Company "1" -[#grey,thickness=2]d- "*" Administrator : <font color=grey> has >
+Company "1" -[#grey,thickness=2] "*" VaccinationCenter : <font color=grey> has >
+Company "1" --[#grey,thickness=2] "*" SNSUser : <font color=grey> owns >
+Company "1" --[#grey,thickness=2] "*" Vaccine : <font color=grey> has >
+Company "1" --[#grey,thickness=2]  "*" VaccinationProcess : <font color=grey> has >
+Company "1" --[#grey,thickness=2]  "*" Notification   : <font color=grey> sends confirmation  >
+Company "1" --[#grey,thickness=2]  "*" Notification   : <font color=grey> sends  >
+
+Administrator "1" -[#navy]-  "*" VaccinationCenter : <font color=navy> manages >
+Administrator "1" -[#navy]-  "*" VaccineType : <font color=navy> manages >
+Administrator "1" -[#navy]-  "*" Vaccine : <font color=navy> manages >
+Administrator "1" -[#navy]-  "*" Employee : <font color=navy> manages >
+Administrator "1" -[#navy]-  "*" SNSUser : <font color=navy> manages >
+
+SNSUser "1" -[#darkgreen]-  "1" VaccinationCertificate : <font color=darkgreen>  requests >
+SNSUser "1" -[#darkgreen]-  "0,1,2" Notification : <font color=darkgreen>  receives >
+SNSUser "1" -[#darkgreen]-  "0,1" Notification : <font color=darkgreen> authorizes >
+
+VaccinationCenter "1" -[#Teal]- "1" CenterCoordinator :<font color=Teal> has >
+VaccinationCenter "1" -[#Teal]- "1" VaccinationProcess : <font color=Teal> has >
+VaccinationCenter "1" -[#Teal]- "1" Address : <font color=Teal> has >
+VaccinationCenter "*" -[#Teal]- "*" VaccineAdministration : <font color=Teal> implements >
+
+CommunityMassVaccinationCenter "1..*" -[#SeaGreen]- "1" VaccineType : <font color=SeaGreen> administers >
+
+HealthcareCenter "*" -[#Indigo]- "*" VaccineType : <font color=Indigo> administers >
+HealthcareCenter "1..*" -[#Indigo]- "1" ARS : <font color=Indigo> is associated with >
+HealthcareCenter "1..*" -[#Indigo]- "1" AGES : <font color=Indigo> is associated with >
+
+Employee "1..*" -[#MediumVioletRed]- "1" VaccinationCenter : <font color=MediumVioletRed> works on >
+
+Nurse "1..*" -[#LimeGreen]- "1..*" Vaccine : <font color=LimeGreen> administers >
+Nurse "1" -[#LimeGreen]- "1..*" VaccineAdministration : <font color=LimeGreen> registers >
+Nurse "1" -[#LimeGreen]- "1..*" SNSUser : <font color=LimeGreen> checks >
+Nurse "1" -[#LimeGreen]- "1..*" VaccineSchedule : <font color=LimeGreen> checks >
+Nurse "1" -[#LimeGreen]- "1..*" RecoveryPeriod : <font color=LimeGreen> initiates >
+Nurse "1" -[#LimeGreen]- "*" AdverseReaction : <font color=LimeGreen> records >
+Nurse "1" -[#LimeGreen]- "1..*" VaccineAdministrationInstruction : <font color=LimeGreen> records >
+NurseHCC "1" -[#LimeGreen]- "*" VaccinationCertificate : <font color=LimeGreen> issues >
+
+Receptionist "1" -[#Purple]- "1..*" VaccineSchedule : <font color=Purple> confirms >
+Receptionist "1" -[#Purple]- "1..*" VaccineAdministration : <font color=Purple> acknowledges >
+Receptionist "1" -[#Purple]- "1..*" SNSUser : <font color=Purple> checks in >
+
+ReceptionistHCC "1" -[#Magenta]- "*" VaccineSchedule : <font color=Magenta> schedules >
+
+Vaccine "*" -[#FireBrick]- "1" VaccineType : <font color=FireBrick> is of >
+VaccineType "*" -[#FireBrick]- "1" VaccineAdministrationInstruction : <font color=FireBrick> has >
+
+VaccinationCertificate "*" -[#DarkOliveGreen]- "1" Vaccine : <font color=DarkOliveGreen> refers to >
+
+VaccineSchedule "1..*" -[#Peru]- "1" VaccineType : <font color=Peru> for taking >
+VaccineSchedule "1..*" -[#Peru]- "1" SNSUser : <font color=Peru> created for >
+VaccineSchedule "1..*" -[#Peru]- "1" VaccinationCenter : <font color=Peru> allocated to >
+VaccineSchedule "1" -[#Peru]- "0,1" Notification : <font color=Peru> generates >
+
+VaccineAdministration "1" -[#SteelBlue]- "1" VaccineSchedule :<font color=SteelBlue> fulfilling >
+VaccineAdministration "1..*" -[#SteelBlue]- "1" SNSUser : <font color=SteelBlue> administered on >
+
+CenterCoordinator "1" -[#IndianRed]- "*" VaccinationProcess : <font color=IndianRed> monitors >
+CenterCoordinator "1" -[#IndianRed]- "1" VaccinationProcess : <font color=IndianRed> manages >
+
+RecoveryPeriod "1" -u[#blue]- "0,1" Notification : <font color=blue> generates  >
+
+VaccinationCenter <|-[#DimGray]- CommunityMassVaccinationCenter
+VaccinationCenter <|-[#DimGray]- HealthcareCenter
+
+Nurse <|-[#DimGray]- NurseHCC
+Receptionist <|-[#DimGray]- ReceptionistHCC
+
+Employee <|-d[#DimGray]- Nurse
+Employee <|-d[#DimGray]- Receptionist
+Employee <|-d[#DimGray]- CenterCoordinator
+
+@enduml

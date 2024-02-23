@@ -1,0 +1,27 @@
+@startuml getVaccinationCentersList_SD
+autonumber
+
+participant ":VaccinationCenterStore" as VCS
+participant "List<VaccinationCenter>" as list
+participant "list: List<VaccinationCenter>" as listObj
+
+
+[o-> VCS : vaccinationCentersList=getVaccinationCenterList()
+activate VCS
+
+VCS --> listObj **: list = create()
+
+loop for each VaccinationCenter
+	
+	VCS -> list : obj=get(i)
+	activate list
+	deactivate list
+
+	VCS -> listObj : add(obj)
+	activate listObj
+	deactivate listObj
+
+end
+
+
+deactivate VCS

@@ -1,0 +1,170 @@
+@startuml
+autonumber
+'hide footbox
+actor "Receptionist" as Receptionist
+
+participant ":VaccinationScheduleUI" as VaccinationScheduleUI
+participant ":VaccinationScheduleController" as VaccinationScheduleController
+participant ":Company" as Company
+participant "snsUserStore\n:SNSUserStore" as SNSUserStore
+participant "vaccineTypeStore\n:VaccineTypeStore" as VaccineTypeStore
+participant "vaccinationCenterStore\n:VaccinationCenterStore" as VaccinationCenterStore
+participant "vaccinationScheduleStore\n:VaccinationScheduleStore" as VaccinationScheduleStore
+'participant ":VaccineStore" as VaccineStore
+participant ":VaccinationScheduleMapper" as VaccinationScheduleMapper
+participant ":VaccinationScheduleDTO" as VaccinationScheduleDTO
+participant "vaccinationSchedule\n:VaccinationSchedule" as VaccinationSchedule
+'participant "schVaccDto:ScheduleVaccinationDTO" as ScheduleVaccinationDTO
+'participant "schVacc:ScheduleVaccination" as ScheduleVaccination
+participant ":NotificationHandle" as NotificationHandler
+
+activate Receptionist
+
+Receptionist -> VaccinationScheduleUI : starts scheduling a vaccination
+activate VaccinationScheduleUI
+
+'request ---------------------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
+VaccinationScheduleUI --> Receptionist : request data (snsUserNumber)
+deactivate VaccinationScheduleUI
+
+'types
+Receptionist -> VaccinationScheduleUI : types requested data
+activate VaccinationScheduleUI
+
+VaccinationScheduleUI -> VaccinationScheduleController : getSnsUserBySnsNumber(snsUserNumber)
+activate VaccinationScheduleController
+
+'company
+VaccinationScheduleController -> Company : snsUserStore=getSnsUserStore()
+activate Company
+
+'controller
+VaccinationScheduleController -> SNSUserStore : getSnsUserBySnsNumber(snsUserNumber)
+deactivate Company
+activate SNSUserStore
+
+'request ---------------------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
+VaccinationScheduleUI --> Receptionist : request data (date and time)
+deactivate SNSUserStore
+deactivate VaccinationScheduleController
+deactivate VaccinationScheduleUI
+
+'types
+Receptionist -> VaccinationScheduleUI : types requested data
+activate VaccinationScheduleUI
+
+'controller
+VaccinationScheduleUI -> VaccinationScheduleController : getAllVaccineTypes()
+activate VaccinationScheduleController
+
+'company
+VaccinationScheduleController -> Company : vaccineTypeStore=getVaccineTypeStore()
+activate Company
+
+VaccinationScheduleController -> VaccineTypeStore : getAll()
+deactivate Company
+activate VaccineTypeStore
+
+'request ---------------------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
+VaccinationScheduleUI --> Receptionist : shows list of available vaccines types and request selection (vaccineType)
+deactivate VaccineTypeStore
+deactivate VaccinationScheduleUI
+deactivate VaccinationScheduleController
+
+'types
+Receptionist -> VaccinationScheduleUI : selects a vaccineType
+activate VaccinationScheduleUI
+
+'controller
+VaccinationScheduleUI -> VaccinationScheduleController : getAllVaccinationCenterByVaccineType(vaccineType)
+activate VaccinationScheduleController
+
+'company
+VaccinationScheduleController -> Company : vaccinationCenterStore=getVaccineCenterStore()
+activate Company
+
+VaccinationScheduleController -> VaccinationCenterStore : getAllVaccinationCenterByVaccineType(vaccineType)
+deactivate Company
+activate VaccinationCenterStore
+
+'request ---------------------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
+VaccinationScheduleUI --> Receptionist : shows list of available vaccination center and request selection (vaccinationCenter)
+deactivate VaccineTypeStore
+deactivate VaccinationScheduleUI
+deactivate VaccinationCenterStore
+deactivate VaccinationScheduleController
+
+'types
+Receptionist -> VaccinationScheduleUI : selects vaccinationCenter
+activate VaccinationScheduleUI
+
+'controller
+VaccinationScheduleUI -> VaccinationScheduleController : createVaccinationSchedule(vaccineTypeDTO)
+activate VaccinationScheduleController
+
+VaccinationScheduleController -> VaccinationScheduleStore : vaccinationSchedule=createVaccinationSchedule(vaccineTypeDTO)
+activate VaccinationScheduleStore
+
+'mapper
+VaccinationScheduleStore -> VaccinationScheduleMapper : vaccinationSchedule= toModel(vaccineTypeDTO)
+activate VaccinationScheduleMapper
+
+'dto--------------------------------------------------------------------------------------------------------------------
+VaccinationScheduleMapper -> VaccinationScheduleDTO : snsUserNumber=getSnsUserNumber()
+activate VaccinationScheduleDTO
+deactivate VaccinationScheduleDTO
+
+
+VaccinationScheduleMapper -> VaccinationScheduleDTO : dateAndTime=getDateAndTime()
+activate VaccinationScheduleDTO
+deactivate VaccinationScheduleDTO
+
+VaccinationScheduleMapper -> VaccinationScheduleDTO : vaccineType=getVaccineType()
+activate VaccinationScheduleDTO
+deactivate VaccinationScheduleDTO
+
+VaccinationScheduleMapper -> VaccinationScheduleDTO : vaccinationCenter=getVaccinationCenter()
+activate VaccinationScheduleDTO
+deactivate VaccinationScheduleDTO
+
+VaccinationScheduleMapper -> VaccinationSchedule** : create(snsUserNumber,dateAndTime,vaccineType,vaccinationCenter)
+deactivate VaccinationScheduleMapper
+deactivate VaccinationScheduleStore
+deactivate VaccinationScheduleController
+
+'request ---------------------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
+VaccinationScheduleUI --> Receptionist : show all data and request confirmation
+deactivate VaccineTypeStore
+deactivate VaccinationScheduleUI
+deactivate VaccinationCenterStore
+
+'types
+Receptionist -> VaccinationScheduleUI : confirms the data
+activate VaccinationScheduleUI
+
+'controller
+VaccinationScheduleUI -> VaccinationScheduleController : addVaccinationSchedule()
+activate VaccinationScheduleController
+
+VaccinationScheduleController -> VaccinationScheduleStore : addVaccinationSchedule(vaccinationSchedule)
+activate VaccinationScheduleStore
+
+VaccinationScheduleStore -> VaccinationScheduleStore : validateVaccinationSchedule(vaccinationSchedule)
+VaccinationScheduleStore -> VaccinationScheduleStore : addVaccinationSchedule(vaccinationSchedule)
+
+VaccinationScheduleController -> NotificationHandler : sendSMS(phoneNumber,message)
+deactivate VaccinationScheduleStore
+activate NotificationHandler
+
+VaccinationScheduleUI --> Receptionist : informs operation (in)sucess
+deactivate VaccinationScheduleController
+deactivate VaccinationScheduleUI
+deactivate Receptionist
+deactivate NotificationHandler
+
+@enduml

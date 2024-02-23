@@ -1,0 +1,118 @@
+@startuml
+autonumber
+autoactivate on
+scale 1
+skinparam titleFontSize 25
+
+title US17_SD_RegisterLegacyDataDTO_List
+
+participant ":ImportLegacyDataController" as controller
+participant ":Company" as company
+participant ":LegacyDataStore" as store
+participant "registeredLegacyDataDTOList\n:List<LegacyDataDTO>" as registeredDtoList
+participant "legacyDataDTO\n:LegacyDataDTO" as legacyDataDTO
+participant "vaccinationCenterStore\n:VaccinationCenterStore" as vcStore
+participant "snsUserStore\n:SnsUserStore" as snsUserStore
+participant "snsUserMapper\n:SnsUserMapper" as snsUserMapper
+participant "vaccinationScheduleStore\n:VaccinationScheduleStore" as scheduleStore
+participant "snsUserArrivalStore\n:SnsUserArrivalStore" as arrivalStore
+participant "vaccineAdministrationStore\n:VaccineAdministrationStore" as administrationStore
+participant "vaccineStore\n:VaccineStore" as vaccineStore
+participant "vaccinationCenterDTO\n:VaccinationCenterDTO" as vcDTO
+participant "snsUser\n:SnsUser" as snsUser
+participant "snsUserDTO\n:SnsUserDTO" as snsUserDTO
+participant "vaccinationSchedule\n:VaccinationSchedule"
+
+[o->controller : registerLegacyDataFromExternalSource(importedLegacyDataDTOList, vcEmail)
+
+controller -> company : vaccinationCenterStore = getVaccinationCenterStore()
+deactivate company
+controller -> company : snsUserStore = getSnsUserStore()
+deactivate company
+controller -> company : vaccinationScheduleStore = getVaccinationScheduleStore()
+deactivate company
+controller -> company : snsUserArrivalStore = getSnsUserArrivalStore()
+deactivate company
+controller -> company : vaccineAdministrationStore = getVaccineAdministrationStore()
+deactivate company
+controller -> company : vaccineStore = getVaccineStore()
+deactivate company
+
+controller --> registeredDtoList** : create()
+
+autoactivate off
+controller -> controller : registeredWithSuccess = false
+autoactivate on
+
+controller -> vcStore : vaccinationCenterDTO = getVaccinationCenterDTOByEmail(vcEmail)
+deactivate vcStore
+
+loop for each legacyDataDTO object in importedLegacyDataDTOList
+
+controller -> legacyDataDTO : snsUserNumber = getSnsUserNumber()
+deactivate legacyDataDTO
+
+controller -> snsUserStore : userExists = existsSnsUser(snsUserNumber)
+deactivate snsUserStore
+
+opt userExists
+
+controller -> snsUserStore : snsUser = getSnsUserBySnsNumber(snsUserNumber)
+deactivate snsUserStore
+
+controller -> snsUserMapper : snsUserDTO = toDTO(snsUser)
+deactivate snsUserMapper
+
+controller -> controller : vaccinationScheduleDTO = createVaccinationScheduleDTOFromLegacyDataDTO(legacyDataDTO, vaccinationCenterDTO, snsUserDTO)
+deactivate controller
+
+controller -> scheduleStore : scheduleExists = existsVaccinationSchedule(vaccinationScheduleDTO)
+deactivate scheduleStore
+
+opt scheduleExists == false
+
+controller -> scheduleStore : vaccinationSchedule = createVaccinationSchedule(vaccinationScheduleDTO)
+deactivate scheduleStore
+
+controller -> scheduleStore : addVaccinationSchedule(vaccinationSchedule)
+deactivate scheduleStore
+
+
+controller -> controller : arrivalDTO = createSnsUserArrivalDTOFromLegacyDataDTO(legacyDataDTO, vaccinationScheduleDTO)
+deactivate controller
+
+controller -> arrivalStore : snsUserArrival = createSnsUserArrival(arrivalDTO)
+deactivate arrivalStore
+controller -> arrivalStore : addSnsUserArrival(snsUserArrival)
+deactivate arrivalStore
+
+controller -> controller : vaccineAdministrationDTO = createVaccineAdministrationDTOFromLegacyDataDTO(legacyDataDTO, snsUserDTO, arrivalDTO)
+deactivate controller
+
+controller -> administrationStore : createVaccineAdministration(vaccineAdministrationDTO)
+deactivate administrationStore
+
+controller -> administrationStore : addVaccineAdministration(vaccineAdministration)
+deactivate administrationStore
+
+controller -> registeredDtoList : add(legacyDataDTO)
+deactivate registeredDtoList
+
+end
+
+end
+
+end
+
+opt !registeredLegacyDataDTOList.isEmpty()
+controller -> store : setRegisteredLegacyDataDTOList(registeredDtoList)
+deactivate store
+
+autoactivate off
+controller -> controller : registeredWithSuccess = true
+autoactivate on
+end
+
+[<-- controller : registeredWithSuccess
+
+@enduml

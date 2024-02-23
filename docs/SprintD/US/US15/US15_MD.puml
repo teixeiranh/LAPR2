@@ -1,0 +1,61 @@
+@startuml
+hide methods
+'left to right direction
+'skinparam classAttributeIconSize 0
+
+'class Administrator
+class Company
+
+class Employee
+{
+-email : String
+- password : String
+}
+
+class Coordinator
+{
+}
+class VaccineAdministration
+{
+-snsUserArrival : SnsUserArrival
+-snsUser : SnsUser
+-vaccine : Vaccine
+-doseNumber : int
+-lotNumber : String
+-administrationDate : LocalDateTime
+-leavingDate : LocalDateTime
+-vaccineAdministrationState : VaccineAdministrationState
+}
+
+class SNSUser
+{
+-snsNumber : long
+-...
+}
+
+class VaccinationCenter
+{
+-name : String
+-emailAddress : String
+-openingHour
+-closingHour
+-slotDuration
+-maxNumVaccines : int
+-centerCoordinator
+-...
+}
+
+class ExternalModule
+
+Company "1" -- "*" Employee : has
+
+Employee "*" -- "1" Coordinator : has a role
+
+Coordinator "1" -- "1" VaccinationCenter : coordinates >
+VaccinationCenter "1" -- "*" VaccineAdministration : has many >
+VaccineAdministration "1" -- "1*" SNSUser : if for >
+VaccineAdministration "*" - "1" ExternalModule : has <
+
+Coordinator  "1" --  "1" ExternalModule : makes use of >
+
+@enduml

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="394.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.RecordAdministrationScene2">
+    <opaqueInsets>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </opaqueInsets>
+    <bottom>
+        <FlowPane alignment="CENTER" hgap="10.0" prefHeight="31.0" prefWidth="320.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="btnNext" mnemonicParsing="false" onAction="#btnNextAction" text="Next">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="btnCancel" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnCancelAction" text="Cancel">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            </children>
+            <opaqueInsets>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </opaqueInsets>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </BorderPane.margin>
+        </FlowPane>
+    </bottom>
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="3.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Insert the following information:">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </BorderPane.margin>
+        </HBox>
+    </top>
+    <center>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <center>
+                <GridPane hgap="10.0" prefHeight="188.0" prefWidth="337.0" vgap="10.0" BorderPane.alignment="CENTER">
+                    <children>
+                  <AnchorPane />
+                  <Label alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="199.0" text="Pick User on Waiting Room">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cmbUsersWaitingRoom" layoutX="204.0" layoutY="62.0" onAction="#cmbUsersWaitingRoomAction" prefHeight="35.0" prefWidth="219.0" GridPane.columnIndex="1" />
+                    </children>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="283.0" minWidth="22.00002034505208" prefWidth="192.0" />
+                        <ColumnConstraints hgrow="ALWAYS" maxWidth="278.66664632161456" minWidth="16.33333333333337" prefWidth="205.33333333333337" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+                    </padding>
+                </GridPane>
+            </center>
+            <bottom>
+                <Label fx:id="lblAlert" textFill="#eb080f" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+            </bottom>
+        </BorderPane>
+    </center>
+</BorderPane>

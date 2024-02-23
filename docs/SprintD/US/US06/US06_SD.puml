@@ -1,0 +1,65 @@
+@startuml
+autonumber
+hide footbox
+skinparam titleFontSize 30
+skinparam classFontSize 20
+skinparam SequenceReferenceBackgroundColor  white
+
+
+participant ":VaccinationCenterStatsRecorderRecurringTask" as system #A9DCDF
+participant "adapterTask: VaccinationCenterStatsDailyRecorderAdapter" as task #A9DCDF
+participant "t:Timer" as timer #A9DCDF
+
+
+title SD: Generating for each vaccination center a daily report
+
+[o-> system : configureVaccinationCenterStatsRecorder \n \
+(vaccinationCenterStatsTimer, \n \
+vaccinationCenterStatsRecorderAdapterToUse )
+activate system #A9DCDF
+note left system
+   The attributes are obtained by configs file:
+   vaccinationCenterStatsTimer,
+   vaccinationCenterStatsRecorderAdapterToUse
+end note
+
+note right
+<w>"adapterTask: VaccinationCenterStatsDailyRecorderAdapter" might be replaced by an instance of </w>
+<w> any subclass of TimerTask. It receives the data/objects required for it's correct </w>
+<w> operation through it's **constructor** or any other method this class has.</w>
+end note
+
+note over task
+    Adapter class obtained by reflection
+     based on a setting defined in the configs file
+end note
+system --> task **: create()
+
+system --> timer ** :create()
+system -> timer: schedule(adapterTask, delay, interval)
+activate timer
+deactivate timer
+deactivate system
+note right of system
+    <w>                                             After the time specified by "delay" has elapsed.                                 </w>
+end note
+
+timer -> task: run()
+activate timer
+activate task
+deactivate timer
+deactivate task
+ref#E6E6FA  over task : US06_Record daily vaccination center stats
+note right of system
+    <w>                                             After the time specified by "interval" has elapsed.                                 </w>
+end note
+
+timer -> task: run()
+activate timer
+activate task
+deactivate timer
+deactivate task
+
+
+
+@enduml

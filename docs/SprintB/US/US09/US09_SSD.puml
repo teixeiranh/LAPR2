@@ -1,0 +1,23 @@
+@startuml US09_SSD
+autonumber
+actor "Administrator" as Admin
+
+activate Admin
+Admin -> ":System" : starts registering a vaccination center
+activate ":System"
+":System" --> Admin : requests data (name, phoneNumber, address, emailAddress, faxNumber, websiteAddress, openingHour, closingHour, slotDuration, maxNumVaccines, centerCoordinator)
+deactivate ":System"
+
+Admin -> ":System" : types requested data
+activate ":System"
+":System" --> Admin : shows the data and requests a confirmation
+deactivate ":System"
+
+Admin -> ":System" : confirms the data
+activate ":System"
+":System" --> Admin : informs operation success
+deactivate ":System"
+
+deactivate Admin
+
+@enduml

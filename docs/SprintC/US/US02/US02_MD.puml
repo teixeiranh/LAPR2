@@ -1,0 +1,81 @@
+@startuml
+hide methods
+'left to right direction
+'skinparam classAttributeIconSize 0
+
+'class Administrator
+class Company
+
+class Employee
+{
+-email : String
+- password : String
+}
+
+class Receptionist
+{
+}
+class Vaccination
+{
+-Date : date
+-Time : time
+}
+class SNSUser
+{
+-name : String
+-gender : Gender
+-birthDate : Date
+-snsNumber : long
+-address : Address
+-phoneNumber : String
+-citizenCardNumber : long
+}
+
+'class VaccineSchedule
+'{
+'-Date : date
+'-Time : time
+'}
+
+class VaccinationCenter
+{
+-name : String
+-phoneNumber : long
+-address : String
+-emailAddress : String
+-faxNumber
+-websiteAddress : String
+-openingHour
+-closingHour
+-slotDuration
+-maxNumVaccines : int
+-centerCoordinator
+}
+
+class VaccineType
+{
+-id : int
+-name : String
+-manufacturer : String
+-type : VaccineType
+-administrationProcess : AdministrationProcess
+}
+
+class Notification
+
+Company "1" - "*" Employee : has
+
+'Adminstrator "1" - "*" Employee : manages
+Employee "*" - "1" Receptionist : has a role
+
+
+
+Receptionist "1" -- "1..*" Vaccination : schedules >
+Vaccination "1" -- "1" SNSUser : administered to >
+Vaccination "1" -- "1" VaccinationCenter : happens in >
+Vaccination "1" -- "1" VaccineType : is of a >
+
+Vaccination "1" -  "1" Notification : generates >
+SNSUser  "1" -  "1" Notification : receives >
+
+@enduml

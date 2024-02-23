@@ -1,0 +1,25 @@
+@startuml createNotification_SD
+
+title Sequence Diagram: createNotificarion
+
+autonumber
+
+participant ":Notification" as NO
+
+[o-> NO : create(snsUserNumber, delay)
+activate NO
+
+NO --> "task: notification"** : create(snsUserNumber, delay)
+
+NO --> "t: Timer"** : create()
+
+
+NO -> "t: Timer" : schedule(task, delay)
+activate "t: Timer"
+deactivate "t: Timer"
+
+"t: Timer" -> "task: notification" : run()
+activate "t: Timer"
+activate "task: notification"
+deactivate "t: Timer"
+deactivate "task: notification"

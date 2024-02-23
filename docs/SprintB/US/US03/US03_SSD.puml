@@ -1,0 +1,29 @@
+@startuml
+autonumber
+actor "Receptionist" as Receptionist #A9DCDF
+
+
+title SSD: Process of registering an SNS User
+
+activate "Receptionist" #F0FFFF
+"Receptionist" -> ":System" : starts new SnsUser registration
+activate ":System" 	#E6E6FA
+":System" --> "Receptionist" : requests data (name, email, gender,birthDate,\n                       snsNumber,address,phoneNumber,\n                      citizenCardNumber)
+deactivate ":System"
+
+"Receptionist" -> ":System" : types requested data
+activate ":System" #E6E6FA
+":System" --> "Receptionist" : show data and requests a confirmation
+deactivate ":System"
+
+"Receptionist" -> ":System" : confirms the data entered
+activate ":System" #E6E6FA
+":System" --> "Receptionist" : informs operation success
+deactivate ":System"
+
+deactivate "Receptionist"
+
+'*https://www.w3.org/TR/css-color-4/#hex-notation*'
+
+@enduml
+

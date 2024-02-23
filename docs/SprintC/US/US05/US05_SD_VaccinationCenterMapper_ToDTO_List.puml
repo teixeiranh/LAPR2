@@ -1,0 +1,33 @@
+@startuml
+autonumber
+autoactivate on
+scale 1
+skinparam titleFontSize 25
+
+title US05_SD_VaccinationCenterMapper_ToDTO_List
+
+participant ":VaccinationCenterSelectionMapper" as MAPPER
+participant "vcList\n:List<VaccinationCenter>" as VCLIST
+participant "vcSelectionDTOList\n:List<VaccinationCenterSelectionDTO>" as VCLISTDTO
+participant "vcSelectionDTO\n:VaccinationCenterSelectionDTO" as DTO
+participant "vc:VaccinationCenter" as VC
+
+[o-> MAPPER : toDTO(vcList)
+
+MAPPER --> VCLISTDTO** : create()
+loop for each VaccinationCenter object in vcList
+MAPPER -> VCLIST : vc = getVaccinationCenter(i)
+deactivate VCLIST
+MAPPER -> MAPPER : vcSelectionDTO = toDTO(vc)
+deactivate MAPPER
+
+MAPPER -> VCLISTDTO : add(vcSelectionDTO)
+deactivate VCLISTDTO
+
+end
+
+[<-- MAPPER : vcSelectionDTOList
+
+
+
+@enduml

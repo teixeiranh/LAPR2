@@ -1,0 +1,63 @@
+@startuml US09_SD
+autonumber
+'hide footbox
+actor "Administrator" as ADM
+
+participant ":RegisterVaccinationCenterUI" as UI
+participant ":RegisterVaccinationCenterController" as CTRL
+participant ":Company" as COMP
+participant ":VaccinationCenterStore" as VCS
+
+
+activate ADM
+ADM -> UI : asks to register a vaccination center to respond to a certain pandemic
+activate UI
+UI -> CTRL : listCenterCoordinar=getListEmployeByRole(centerCoordinator)
+activate CTRL
+CTRL -> COMP : listCenterCoordinar=getListEmployeByRole(centerCoordinator)
+activate COMP
+deactivate CTRL
+deactivate COMP
+
+UI --> ADM : requests data (name, phone number, address, email address, fax number, website address, opining hour, closing hour, slot duration, max number of vaccines, center coordinator form the list of coordinators)
+deactivate UI
+
+ADM -> UI : types requested data (name, phoneNumber, address, emailAddress, faxNumber, websiteAddress, opiningHour, closingHour, slotDuration, maxNumVaccines, centerCoordinator)
+
+activate UI
+UI -> CTRL : registerVaccinationCenter(name, phoneNumber, address, emailAddress, faxNumber, websiteAddress, opiningHour, closingHour, slotDuration, maxNumVaccines, centerCoordinator)
+
+activate CTRL
+CTRL -> COMP : store = getVaccinationCenterStore()
+activate COMP
+deactivate COMP
+CTRL -> VCS : vc = registerVaccinationCenter(name, phoneNumber, address, emailAddress, faxNumber, websiteAddress, opiningHour, closingHour, slotDuration, maxNumVaccines, centerCoordinator)
+activate VCS
+VCS --> "vc: VaccinationCenter"** : create(name, phoneNumber, address, emailAddress, faxNumber, websiteAddress, opiningHour, closingHour, slotDuration, maxNumVaccines, centerCoordinator)
+deactivate VCS
+
+CTRL -> VCS : validateVaccinationCenter(vc)
+activate VCS
+deactivate VCS
+deactivate CTRL
+
+UI --> ADM : shows the data and request a confirmation
+deactivate UI
+
+ADM -> UI : confirms the data
+activate UI
+
+UI -> CTRL : saveVaccinationCenter(vc)
+activate CTRL
+
+CTRL -> VCS : saveVaccinationCenter(vc)
+activate VCS
+
+VCS -> VCS : validateVaccinationCenter(vc)
+VCS -> VCS : addVaccinationCenter(vc)
+UI --> ADM : informs operation success
+
+deactivate CTRL
+
+
+@enduml

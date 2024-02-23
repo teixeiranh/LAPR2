@@ -1,0 +1,79 @@
+@startuml
+'left to right direction
+skinparam classAttributeIconSize 0
+hide empty members
+hide @unlinked
+
+class SpecifyNewVaccineUI
+{
+}
+
+class SpecifyNewVaccineController
+{
++createVaccine(id,name,manufacturer,type,administrationProcess)
++getVaccineTypeList()
+}
+
+class Company
+{
+-designation : String
++getVaccineTypeList() : VaccineTypeList
++createVaccine(id,name,manufacturer,type,administrationProcess) : Vaccine
++saveVaccine(Vaccine) : bool
+}
+
+class VaccineStore
+{
++createVaccine(id,name,manufacturer,type,administrationProcess) : Vaccine
+-validateVaccine(vc) : bool
++addVaccine(vc) : bool
+}
+
+class Vaccine
+{
+-id : int
+-name : String
+-manufacturer : String
+-type : VaccineType
+-administrationProcess : AdministrationProcess
++Vaccine(name,brand,type,administrationProcess) : Vaccine
+-validadeVaccine() : bool
+}
+
+class VaccineType
+{
+-code : int
+-designation : String
+-whoId : String
++VaccineType(code,designation,whoId) : VaccineType
+-validateVaccineType() : bool
+}
+
+
+class AdministrationProcess
+{
+-id : int
+-minAge : int
+-maxAge : int
+-numberOfDoses : int
+-dosage : double
+-timeElapsed : int
++AdministrationProcess(id,minAge,maxAge,numberOfDoses,dosage,timeElapsed) : AdministrationProcess
+}
+
+class VaccineTypeStore
+{
++getVaccineTypeList() : VaccineType
+}
+
+
+SpecifyNewVaccineUI .> SpecifyNewVaccineController : <<use>>
+SpecifyNewVaccineController ..> Company : <<use>>
+Company "1" - "1"VaccineStore : use
+VaccineStore "1" - "1..*" Vaccine : adopts
+Vaccine "1" -- "1" VaccineType : has
+Vaccine "1" *-- "1" AdministrationProcess : contains
+VaccineTypeStore "1" - "1" Company : uses
+VaccineType "1..*" -- "1"VaccineTypeStore : adopts
+
+@enduml

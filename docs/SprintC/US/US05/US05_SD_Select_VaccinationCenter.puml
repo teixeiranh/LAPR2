@@ -1,0 +1,61 @@
+@startuml
+autonumber
+autoactivate on
+scale 1
+skinparam titleFontSize 25
+skinparam sequenceReferenceBackgroundColor white
+
+actor Nurse as NURSE
+
+participant ":NurseUI" as NUI
+participant ":SelectVaccinationCenterUI" as UI
+participant ":SelectVaccinationCenterController" as CTRL
+participant ":Company" as COMPANY
+participant "vcStore\n:VaccinationCenterStore" as VCSTORE
+participant ":VaccinationCenterSelectionMapper" as MAPPER
+participant "vcList\n:List<VaccinationCenter>" as VCLIST
+participant "vcSelectionDTOList\n:List<VaccinationCenterSelectionDTO>" as VCLISTDTO
+participant "vcEmail\n:Email"
+
+title US05_SD_Select_VaccinationCenter
+
+activate NUI
+note over NUI: after successful login
+NUI --> UI** : create()
+
+NUI -> UI : run()
+
+UI -> CTRL : getVaccinationCenterList()
+
+'3
+CTRL -> COMPANY : vcStore = getVaccinationCenterStore()
+deactivate COMPANY
+
+'4
+CTRL -> VCSTORE : vcList = getVaccinationCenterList()
+deactivate VCSTORE
+
+CTRL -> MAPPER : toDTO(vcList)
+ref over MAPPER
+US05_SD_VaccinationCenterSelectionMapper_ToDTO_List
+end
+return vcSelectionDTOList
+return vcSelectionDTOList
+
+' Select vaccination center loop
+group loop [while an existing vaccination center is not selected]
+    UI --> NURSE : shows list of vaccination centers and asks to select one
+    activate NURSE
+    NURSE -> UI : selects vaccination center
+
+    UI -> CTRL : vcExists = checkIfVaccinationCenterExists(vcEmail)
+    CTRL -> VCSTORE : vcExists = exists(vcEmail)
+    deactivate VCSTORE
+    deactivate CTRL
+    deactivate UI
+end
+
+NUI -> UI : vcEmail = getVaccinationCenterSelectionEmail()
+deactivate UI
+
+@enduml

@@ -1,0 +1,68 @@
+@startuml
+autonumber
+'hide footbox
+actor "Coordinator" as Coordinator
+
+participant ":ExportVaccinationStatisticsUI" as ExportVaccinationStatisticsUI
+participant ":ExportVaccinationStatisticsController" as ExportVaccinationStatisticsController
+participant ":Company" as Company
+participant "vaccineAdministrationStore\n:VaccineAdministrationStore" as VaccineAdministrationStore
+participant ":csvStatisticsExportToExternalSourceAdapter" as CSVStatisticsExportToExternalSourceAdapter
+
+activate Coordinator
+
+Coordinator -> ExportVaccinationStatisticsUI : starts to export total number of vaccinated users
+activate ExportVaccinationStatisticsUI
+
+'request ---------------------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
+ExportVaccinationStatisticsUI --> Coordinator : request data (startDate, endDate, csvFileName)
+deactivate ExportVaccinationStatisticsUI
+
+'types
+Coordinator -> ExportVaccinationStatisticsUI : types requested data
+activate ExportVaccinationStatisticsUI
+
+ExportVaccinationStatisticsUI -> ExportVaccinationStatisticsController : getListOfFullyVaccinatedUsersByDate(startDate,endDate)
+activate ExportVaccinationStatisticsController
+
+'company
+ExportVaccinationStatisticsController -> Company : listOfVaccinations=getVaccineAdministrationStore()
+activate Company
+
+ExportVaccinationStatisticsController -> VaccineAdministrationStore : listOfFullyVaccinatedUsersByDate=getListFullyVaccinatedUsersBetweenDatesOfUserCenter(startDate, endDate)
+deactivate Company
+activate VaccineAdministrationStore
+
+ref over VaccineAdministrationStore : SD_getListFullyVaccinatedUsersBetweenDatesOfUserCenter(listOfVaccinations,startDate, endDate)
+
+VaccineAdministrationStore --> ExportVaccinationStatisticsController : return listOfFullyVaccinatedUsersByDate
+deactivate VaccineAdministrationStore
+
+'request ---------------------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
+ExportVaccinationStatisticsUI --> Coordinator : shows data and request confirmation
+deactivate ExportVaccinationStatisticsController
+deactivate ExportVaccinationStatisticsUI
+
+'types
+Coordinator -> ExportVaccinationStatisticsUI : confirms the data
+activate ExportVaccinationStatisticsUI
+
+'controller
+ExportVaccinationStatisticsUI -> ExportVaccinationStatisticsController : exportStatistics()
+activate ExportVaccinationStatisticsController
+
+ExportVaccinationStatisticsController -> CSVStatisticsExportToExternalSourceAdapter : exportStatistics(listOfFullyVaccinatedUsersByDate,csvFileName)
+activate CSVStatisticsExportToExternalSourceAdapter
+
+ref over CSVStatisticsExportToExternalSourceAdapter : SD_exportStatistics(listOfFullyVaccinatedUsersByDate,csvFileName)
+
+
+ExportVaccinationStatisticsUI --> Coordinator : informs operation sucess
+deactivate ExportVaccinationStatisticsController
+deactivate ExportVaccinationStatisticsUI
+deactivate Coordinator
+deactivate CSVStatisticsExportToExternalSourceAdapter
+
+@enduml

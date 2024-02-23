@@ -1,0 +1,38 @@
+@startuml
+hide methods
+'left to right direction
+scale 1
+
+class Company {
+}
+class Administrator {
+}
+class Employee {
+    -name : String
+    -email : String
+    -address : String
+    -phoneNumber: long
+    -citizenCardNumber: long
+    -role : Role
+    -id : String
+}
+class CenterCoordinator {
+}
+
+class Nurse {
+}
+
+class Receptionist {
+}
+
+Company "1" -- "*" Administrator : has >
+Company "1" -- "*" Employee : employs >
+
+Administrator "1" --  "*" Employee : manages >
+
+Employee "*" -- "1" Nurse : > has a role
+Employee "*" -- "1" Receptionist : > has a role
+Employee "*" -- "1" CenterCoordinator : > has a role
+
+
+@enduml

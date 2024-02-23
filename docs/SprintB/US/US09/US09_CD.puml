@@ -1,0 +1,55 @@
+@startuml US09_CD
+skinparam classAttributeIconSize 0
+
+class RegisterVaccinationCenterUI {
+  
+}
+
+class RegisterVaccinationCenterController {
+  +registerVaccinationCenter(name, phoneNumber, address, emailAddress, faxNumber, websiteAddress, openingHour, closingHour, slotDuration, maxNumVaccines, centerCoordinator)
+  +getListEmployeByRole()
+  +saveVaccinationCenter()
+  +validateVaccinationCenter()
+  +getVaccinationCenterStore()
+}
+
+class Company {
+  +getVaccinationCenterStore()
+}
+
+Class VaccinationCenterStore{
+  +registerVaccinationCenter(name, phoneNumber, address, emailAddress, faxNumber, websiteAddress, openingHour, closingHour, slotDuration, maxNumVaccines, centerCoordinator)
+  +saveVaccinationCenter()
+  +validateVaccinationCenter()
+}
+
+class VaccinationCenter {
+  -String name
+  -String phoneNumber
+  -String emailAddress
+  -String faxNumber
+  -String websiteAddress
+  -Time openingHour
+  -Time closingHour
+  -Int slotDuration
+  -Int maxNumVaccines
+  -String centerCoordinator
+  -Address address
+  +VaccinationCenter(name, phoneNumber, address, emailAddress, faxNumber, websiteAddress, openingHour, closingHour, slotDuration, maxNumVaccines, centerCoordinator)
+}
+
+class Address {
+
+}
+
+RegisterVaccinationCenterUI ..> RegisterVaccinationCenterController
+RegisterVaccinationCenterController ..> Company
+
+Company "1" -- "1" VaccinationCenterStore : uses >
+VaccinationCenterStore "1" -- "*" VaccinationCenter : has >
+
+VaccinationCenter "1" -- "1" Address : has >
+
+
+
+@enduml

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1449px" preserveAspectRatio="none" style="width:1155px;height:1449px;background:#FFFFFF;" version="1.1" viewBox="0 0 1155 1449" width="1155px" zoomAndPan="magnify"><defs/><g><!--MD5=[02e4b9b7573f1156f41e60aa5b4e25a4]
+class Company--><g id="elem_Company"><rect codeLine="4" fill="#F1F1F1" height="259.3125" id="Company" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="369" x="524.5" y="295"/><ellipse cx="674.75" cy="311" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M676.75,307.5 Q676.9531,307 677.1875,306.75 Q677.4219,306.5 677.6875,306.5 Q678.1563,306.5 678.4531,306.7813 Q678.75,307.0625 678.75,307.7188 L678.75,309.2813 Q678.75,309.9375 678.4688,310.2188 Q678.1875,310.5 677.75,310.5 Q677.3594,310.5 677.1094,310.3281 Q676.8594,310.1563 676.75,309.7031 Q676.7031,309.3906 676.5313,309.2188 Q676.2188,308.8906 675.6563,308.7031 Q675.0938,308.5 674.5313,308.5 Q673.8281,308.5 673.2344,308.7813 Q672.6563,309.0625 672.2031,309.6875 Q671.75,310.3125 671.75,311.1719 L671.75,312.0938 Q671.75,313.125 672.5938,313.8125 Q673.4375,314.5 674.9375,314.5 Q675.8281,314.5 676.4531,314.2969 Q676.8125,314.1875 677.2188,313.8281 Q677.4844,313.625 677.625,313.5625 Q677.7656,313.5 677.9375,313.5 Q678.2656,313.5 678.5,313.7656 Q678.75,314.0156 678.75,314.375 Q678.75,314.7188 678.4063,315.125 Q677.9063,315.7188 677.1094,316.0469 Q676.0625,316.5 674.7813,316.5 Q673.2813,316.5 672.0781,315.9063 Q671.1094,315.4375 670.4219,314.4219 Q669.75,313.4063 669.75,312.2031 L669.75,311.1094 Q669.75,309.8594 670.3438,308.7656 Q670.9531,307.6719 672,307.0938 Q673.0625,306.5 674.25,306.5 Q674.9688,306.5 675.5938,306.75 Q676.2188,307 676.75,307.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="695.25" y="316.7285">Company</text><line style="stroke:#181818;stroke-width:0.5;" x1="525.5" x2="892.5" y1="327" y2="327"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="127" x="530.5" y="345.5332">-designation : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="170" x="530.5" y="363.1426">-authFacade : AuthFacade</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="185" x="530.5" y="380.752">-snsUserStore: SnsUserStore</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="322" x="530.5" y="398.3613">-vaccinationCenterStore : VacccinationCenterStore</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="174" x="530.5" y="415.9707">-empStore : EmployeeStore</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="12" x="530.5" y="433.5801">...</text><line style="stroke:#181818;stroke-width:0.5;" x1="525.5" x2="892.5" y1="440.6563" y2="440.6563"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="162" x="530.5" y="459.1895">+getDesignation() : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="204" x="530.5" y="476.7988">+getAuthFacade() : AuthFacade</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="224" x="530.5" y="494.4082">+getSnsUserStore() : SnsUserStore</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="357" x="530.5" y="512.0176">+getVaccinationCenterStore() : VacccinationCenterStore</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="530.5" y="529.627">+getEmployeeStore() : EmployeeStore</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="22" x="530.5" y="547.2363">(...)</text></g><!--MD5=[7421f545a0d8420c5bec41e74b387d9c]
+class Employee--><g id="elem_Employee"><rect codeLine="20" fill="#F1F1F1" height="347.3594" id="Employee" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="211" x="842.5" y="934"/><ellipse cx="912.75" cy="950" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M914.75,946.5 Q914.9531,946 915.1875,945.75 Q915.4219,945.5 915.6875,945.5 Q916.1563,945.5 916.4531,945.7813 Q916.75,946.0625 916.75,946.7188 L916.75,948.2813 Q916.75,948.9375 916.4688,949.2188 Q916.1875,949.5 915.75,949.5 Q915.3594,949.5 915.1094,949.3281 Q914.8594,949.1563 914.75,948.7031 Q914.7031,948.3906 914.5313,948.2188 Q914.2188,947.8906 913.6563,947.7031 Q913.0938,947.5 912.5313,947.5 Q911.8281,947.5 911.2344,947.7813 Q910.6563,948.0625 910.2031,948.6875 Q909.75,949.3125 909.75,950.1719 L909.75,951.0938 Q909.75,952.125 910.5938,952.8125 Q911.4375,953.5 912.9375,953.5 Q913.8281,953.5 914.4531,953.2969 Q914.8125,953.1875 915.2188,952.8281 Q915.4844,952.625 915.625,952.5625 Q915.7656,952.5 915.9375,952.5 Q916.2656,952.5 916.5,952.7656 Q916.75,953.0156 916.75,953.375 Q916.75,953.7188 916.4063,954.125 Q915.9063,954.7188 915.1094,955.0469 Q914.0625,955.5 912.7813,955.5 Q911.2813,955.5 910.0781,954.9063 Q909.1094,954.4375 908.4219,953.4219 Q907.75,952.4063 907.75,951.2031 L907.75,950.1094 Q907.75,948.8594 908.3438,947.7656 Q908.9531,946.6719 910,946.0938 Q911.0625,945.5 912.25,945.5 Q912.9688,945.5 913.5938,945.75 Q914.2188,946 914.75,946.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="933.25" y="955.7285">Employee</text><line style="stroke:#181818;stroke-width:0.5;" x1="843.5" x2="1052.5" y1="966" y2="966"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="89" x="848.5" y="984.5332">-name : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="848.5" y="1002.1426">-email : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105" x="848.5" y="1019.752">-address : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="848.5" y="1037.3613">-citizenCardNumber: long</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="129" x="848.5" y="1054.9707">-phoneNumber: long</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="848.5" y="1072.5801">-role : Role</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="848.5" y="1090.1895">-id : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="127" x="848.5" y="1107.7988">-employeeCount: int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="148" x="848.5" y="1125.4082">-ID_TEMPLATE : String</text><line style="stroke:#181818;stroke-width:0.5;" x1="843.5" x2="1052.5" y1="1132.4844" y2="1132.4844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="123" x="848.5" y="1151.0176">+getName() : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="848.5" y="1168.627">+getEmail() : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199" x="848.5" y="1186.2363">+getCitizenCardNumber() : long</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="167" x="848.5" y="1203.8457">+getPhoneNumber() : long</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="848.5" y="1221.4551">+getRole() : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="848.5" y="1239.0645">+getId() : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="165" x="848.5" y="1256.6738">+getEmployeeCount() : int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="848.5" y="1274.2832">+toString() : String</text></g><!--MD5=[a126dd63c8621c017159ae62771fbe54]
+class RegisterEmployeeUI--><g id="elem_RegisterEmployeeUI"><rect codeLine="42" fill="#F1F1F1" height="83.2188" id="RegisterEmployeeUI" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="261" x="724.5" y="7"/><ellipse cx="787.25" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M789.25,19.5 Q789.4531,19 789.6875,18.75 Q789.9219,18.5 790.1875,18.5 Q790.6563,18.5 790.9531,18.7813 Q791.25,19.0625 791.25,19.7188 L791.25,21.2813 Q791.25,21.9375 790.9688,22.2188 Q790.6875,22.5 790.25,22.5 Q789.8594,22.5 789.6094,22.3281 Q789.3594,22.1563 789.25,21.7031 Q789.2031,21.3906 789.0313,21.2188 Q788.7188,20.8906 788.1563,20.7031 Q787.5938,20.5 787.0313,20.5 Q786.3281,20.5 785.7344,20.7813 Q785.1563,21.0625 784.7031,21.6875 Q784.25,22.3125 784.25,23.1719 L784.25,24.0938 Q784.25,25.125 785.0938,25.8125 Q785.9375,26.5 787.4375,26.5 Q788.3281,26.5 788.9531,26.2969 Q789.3125,26.1875 789.7188,25.8281 Q789.9844,25.625 790.125,25.5625 Q790.2656,25.5 790.4375,25.5 Q790.7656,25.5 791,25.7656 Q791.25,26.0156 791.25,26.375 Q791.25,26.7188 790.9063,27.125 Q790.4063,27.7188 789.6094,28.0469 Q788.5625,28.5 787.2813,28.5 Q785.7813,28.5 784.5781,27.9063 Q783.6094,27.4375 782.9219,26.4219 Q782.25,25.4063 782.25,24.2031 L782.25,23.1094 Q782.25,21.8594 782.8438,20.7656 Q783.4531,19.6719 784.5,19.0938 Q785.5625,18.5 786.75,18.5 Q787.4688,18.5 788.0938,18.75 Q788.7188,19 789.25,19.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="127" x="807.75" y="28.7285">RegisterEmployeeUI</text><line style="stroke:#181818;stroke-width:0.5;" x1="725.5" x2="984.5" y1="39" y2="39"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="249" x="730.5" y="57.5332">-controller: RegisterEmployeeController</text><line style="stroke:#181818;stroke-width:0.5;" x1="725.5" x2="984.5" y1="64.6094" y2="64.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="730.5" y="83.1426">+run()</text></g><!--MD5=[6a4e699b59c2ecf8286aba2faa72e4bd]
+class RegisterEmployeeController--><g id="elem_RegisterEmployeeController"><rect codeLine="48" fill="#F1F1F1" height="83.2188" id="RegisterEmployeeController" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="586" x="562" y="151"/><ellipse cx="762.25" cy="167" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M764.25,163.5 Q764.4531,163 764.6875,162.75 Q764.9219,162.5 765.1875,162.5 Q765.6563,162.5 765.9531,162.7813 Q766.25,163.0625 766.25,163.7188 L766.25,165.2813 Q766.25,165.9375 765.9688,166.2188 Q765.6875,166.5 765.25,166.5 Q764.8594,166.5 764.6094,166.3281 Q764.3594,166.1563 764.25,165.7031 Q764.2031,165.3906 764.0313,165.2188 Q763.7188,164.8906 763.1563,164.7031 Q762.5938,164.5 762.0313,164.5 Q761.3281,164.5 760.7344,164.7813 Q760.1563,165.0625 759.7031,165.6875 Q759.25,166.3125 759.25,167.1719 L759.25,168.0938 Q759.25,169.125 760.0938,169.8125 Q760.9375,170.5 762.4375,170.5 Q763.3281,170.5 763.9531,170.2969 Q764.3125,170.1875 764.7188,169.8281 Q764.9844,169.625 765.125,169.5625 Q765.2656,169.5 765.4375,169.5 Q765.7656,169.5 766,169.7656 Q766.25,170.0156 766.25,170.375 Q766.25,170.7188 765.9063,171.125 Q765.4063,171.7188 764.6094,172.0469 Q763.5625,172.5 762.2813,172.5 Q760.7813,172.5 759.5781,171.9063 Q758.6094,171.4375 757.9219,170.4219 Q757.25,169.4063 757.25,168.2031 L757.25,167.1094 Q757.25,165.8594 757.8438,164.7656 Q758.4531,163.6719 759.5,163.0938 Q760.5625,162.5 761.75,162.5 Q762.4688,162.5 763.0938,162.75 Q763.7188,163 764.25,163.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="782.75" y="172.7285">RegisterEmployeeController</text><line style="stroke:#181818;stroke-width:0.5;" x1="563" x2="1147" y1="183" y2="183"/><line style="stroke:#181818;stroke-width:0.5;" x1="563" x2="1147" y1="191" y2="191"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="574" x="568" y="209.5332">+createEmployee(name, address, phoneNumber, email, citizenCardNumber, role) : boolean</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173" x="568" y="227.1426">+saveEmployee() : boolean</text></g><!--MD5=[829fb52c07ade3ad64ef85b99d1fca10]
+class EmployeeStore--><g id="elem_EmployeeStore"><rect codeLine="54" fill="#F1F1F1" height="224.0938" id="EmployeeStore" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="590" x="331" y="632"/><ellipse cx="573.75" cy="648" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M575.75,644.5 Q575.9531,644 576.1875,643.75 Q576.4219,643.5 576.6875,643.5 Q577.1563,643.5 577.4531,643.7813 Q577.75,644.0625 577.75,644.7188 L577.75,646.2813 Q577.75,646.9375 577.4688,647.2188 Q577.1875,647.5 576.75,647.5 Q576.3594,647.5 576.1094,647.3281 Q575.8594,647.1563 575.75,646.7031 Q575.7031,646.3906 575.5313,646.2188 Q575.2188,645.8906 574.6563,645.7031 Q574.0938,645.5 573.5313,645.5 Q572.8281,645.5 572.2344,645.7813 Q571.6563,646.0625 571.2031,646.6875 Q570.75,647.3125 570.75,648.1719 L570.75,649.0938 Q570.75,650.125 571.5938,650.8125 Q572.4375,651.5 573.9375,651.5 Q574.8281,651.5 575.4531,651.2969 Q575.8125,651.1875 576.2188,650.8281 Q576.4844,650.625 576.625,650.5625 Q576.7656,650.5 576.9375,650.5 Q577.2656,650.5 577.5,650.7656 Q577.75,651.0156 577.75,651.375 Q577.75,651.7188 577.4063,652.125 Q576.9063,652.7188 576.1094,653.0469 Q575.0625,653.5 573.7813,653.5 Q572.2813,653.5 571.0781,652.9063 Q570.1094,652.4375 569.4219,651.4219 Q568.75,650.4063 568.75,649.2031 L568.75,648.1094 Q568.75,646.8594 569.3438,645.7656 Q569.9531,644.6719 571,644.0938 Q572.0625,643.5 573.25,643.5 Q573.9688,643.5 574.5938,643.75 Q575.2188,644 575.75,644.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="96" x="594.25" y="653.7285">EmployeeStore</text><line style="stroke:#181818;stroke-width:0.5;" x1="332" x2="920" y1="664" y2="664"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="166" x="337" y="682.5332">-authFacade: AuthFacade</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="268" x="337" y="700.1426">-passwordGenerator : PasswordGenerator</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="200" x="337" y="717.752">-employeeList : List&lt;Employee&gt;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="130" x="337" y="735.3613">-roleList : List&lt;Role&gt;</text><line style="stroke:#181818;stroke-width:0.5;" x1="332" x2="920" y1="742.4375" y2="742.4375"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="578" x="337" y="760.9707">+createEmployee(name, addres, phoneNumber, email, citizenCardNumber, role) : Employee</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="274" x="337" y="778.5801">+saveEmployee(emp : Employee) : boolean</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="268" x="337" y="796.1895">+addEmployee(emp : Employee) : boolean</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="289" x="337" y="813.7988">+validateEmployee(emp: Employee) : boolean</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="262" x="337" y="831.4082">+sendEmail(emp: Employee, pwd : String)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="168" x="337" y="849.0176">+getRoleList() : List&lt;Role&gt;</text></g><!--MD5=[a3638c1e5b65d287ecad7f06f5c0f212]
+class Role--><g id="elem_Role"><rect codeLine="69" fill="#F1F1F1" height="100.8281" id="Role" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="187" x="854.5" y="1342"/><ellipse cx="929.25" cy="1358" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M927.75,1359 L927.75,1361 L931.75,1361 L931.75,1360 L931.75,1359.5156 L932.375,1359 L932.75,1359 L933.125,1359 L933.75,1359.5156 L933.75,1360 L933.75,1363 L925.75,1363 L925.2656,1363 L924.75,1362.375 L924.75,1362 L924.75,1361.625 L925.2656,1361 L925.75,1361 L925.75,1361 L925.75,1355 L925.75,1355 L925.2656,1355 L924.75,1354.375 L924.75,1354 L924.75,1353.625 L925.2656,1353 L925.75,1353 L933.75,1353 L933.75,1356 L933.75,1356.4844 L933.125,1357 L932.75,1357 L932.375,1357 L931.75,1356.4844 L931.75,1356 L931.75,1355 L927.75,1355 L927.75,1357 L928.75,1357 L928.75,1356.5156 L928.75,1356.5156 L929.375,1356 L929.75,1356 L930.125,1356 L930.75,1356.5156 L930.75,1357 L930.75,1359 L930.75,1359.4844 L930.125,1360 L930.125,1360 L929.75,1360 L929.375,1360 L928.75,1359.4844 L928.75,1359.4844 L928.75,1359 L927.75,1359 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29" x="949.75" y="1363.7285">Role</text><line style="stroke:#181818;stroke-width:0.5;" x1="855.5" x2="1040.5" y1="1374" y2="1374"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="175" x="860.5" y="1392.5332">+CENTER_COORDINATOR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="860.5" y="1410.1426">+RECEPTIONIST</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="860.5" y="1427.752">+NURSE</text><line style="stroke:#181818;stroke-width:0.5;" x1="855.5" x2="1040.5" y1="1434.8281" y2="1434.8281"/></g><!--MD5=[8ae808d068a8995f06b9b3ec51357f0b]
+class AuthFacade--><g id="elem_AuthFacade"><rect codeLine="75" fill="#F1F1F1" height="83.2188" id="AuthFacade" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="508" x="7" y="1066"/><ellipse cx="218.25" cy="1082" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M220.25,1078.5 Q220.4531,1078 220.6875,1077.75 Q220.9219,1077.5 221.1875,1077.5 Q221.6563,1077.5 221.9531,1077.7813 Q222.25,1078.0625 222.25,1078.7188 L222.25,1080.2813 Q222.25,1080.9375 221.9688,1081.2188 Q221.6875,1081.5 221.25,1081.5 Q220.8594,1081.5 220.6094,1081.3281 Q220.3594,1081.1563 220.25,1080.7031 Q220.2031,1080.3906 220.0313,1080.2188 Q219.7188,1079.8906 219.1563,1079.7031 Q218.5938,1079.5 218.0313,1079.5 Q217.3281,1079.5 216.7344,1079.7813 Q216.1563,1080.0625 215.7031,1080.6875 Q215.25,1081.3125 215.25,1082.1719 L215.25,1083.0938 Q215.25,1084.125 216.0938,1084.8125 Q216.9375,1085.5 218.4375,1085.5 Q219.3281,1085.5 219.9531,1085.2969 Q220.3125,1085.1875 220.7188,1084.8281 Q220.9844,1084.625 221.125,1084.5625 Q221.2656,1084.5 221.4375,1084.5 Q221.7656,1084.5 222,1084.7656 Q222.25,1085.0156 222.25,1085.375 Q222.25,1085.7188 221.9063,1086.125 Q221.4063,1086.7188 220.6094,1087.0469 Q219.5625,1087.5 218.2813,1087.5 Q216.7813,1087.5 215.5781,1086.9063 Q214.6094,1086.4375 213.9219,1085.4219 Q213.25,1084.4063 213.25,1083.2031 L213.25,1082.1094 Q213.25,1080.8594 213.8438,1079.7656 Q214.4531,1078.6719 215.5,1078.0938 Q216.5625,1077.5 217.75,1077.5 Q218.4688,1077.5 219.0938,1077.75 Q219.7188,1078 220.25,1078.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="77" x="238.75" y="1087.7285">AuthFacade</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="514" y1="1098" y2="1098"/><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="514" y1="1106" y2="1106"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="13" y="1124.5332">+existsUser(email:String)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="496" x="13" y="1142.1426">+addUserWithRole(name:String, email:String, pwd:String, role:String) : boolean</text></g><!--MD5=[9a2889027d1a5f59ee05c53124f224f8]
+class PasswordGenerator--><g id="elem_PasswordGenerator"><rect codeLine="81" fill="#F1F1F1" height="188.875" id="PasswordGenerator" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="205" x="550.5" y="1013"/><ellipse cx="586.65" cy="1029" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M588.65,1025.5 Q588.8531,1025 589.0875,1024.75 Q589.3219,1024.5 589.5875,1024.5 Q590.0563,1024.5 590.3531,1024.7813 Q590.65,1025.0625 590.65,1025.7188 L590.65,1027.2813 Q590.65,1027.9375 590.3688,1028.2188 Q590.0875,1028.5 589.65,1028.5 Q589.2594,1028.5 589.0094,1028.3281 Q588.7594,1028.1563 588.65,1027.7031 Q588.6031,1027.3906 588.4313,1027.2188 Q588.1188,1026.8906 587.5563,1026.7031 Q586.9938,1026.5 586.4313,1026.5 Q585.7281,1026.5 585.1344,1026.7813 Q584.5563,1027.0625 584.1031,1027.6875 Q583.65,1028.3125 583.65,1029.1719 L583.65,1030.0938 Q583.65,1031.125 584.4938,1031.8125 Q585.3375,1032.5 586.8375,1032.5 Q587.7281,1032.5 588.3531,1032.2969 Q588.7125,1032.1875 589.1188,1031.8281 Q589.3844,1031.625 589.525,1031.5625 Q589.6656,1031.5 589.8375,1031.5 Q590.1656,1031.5 590.4,1031.7656 Q590.65,1032.0156 590.65,1032.375 Q590.65,1032.7188 590.3063,1033.125 Q589.8063,1033.7188 589.0094,1034.0469 Q587.9625,1034.5 586.6813,1034.5 Q585.1813,1034.5 583.9781,1033.9063 Q583.0094,1033.4375 582.3219,1032.4219 Q581.65,1031.4063 581.65,1030.2031 L581.65,1029.1094 Q581.65,1027.8594 582.2438,1026.7656 Q582.8531,1025.6719 583.9,1025.0938 Q584.9625,1024.5 586.15,1024.5 Q586.8688,1024.5 587.4938,1024.75 Q588.1188,1025 588.65,1025.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="605.35" y="1034.7285">PasswordGenerator</text><line style="stroke:#181818;stroke-width:0.5;" x1="551.5" x2="754.5" y1="1045" y2="1045"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="193" x="556.5" y="1063.5332">-PASSWORD_LENGTH: String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="556.5" y="1081.1426">-DIGIT: String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="184" x="556.5" y="1098.752">-CHAR_LOWERCASE: String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="179" x="556.5" y="1116.3613">-CHAR_UPPERCASE: String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="187" x="556.5" y="1133.9707">-PASSWORD_ALLOW: String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="556.5" y="1151.5801">-random: SecureRandom</text><line style="stroke:#181818;stroke-width:0.5;" x1="551.5" x2="754.5" y1="1158.6563" y2="1158.6563"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="556.5" y="1177.1895">+generatePassword(): String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="142" x="556.5" y="1194.7988">+shuffleString(): String</text></g><!--MD5=[3fd241ca11f270f6bde54c00b8a8581a]
+link RegisterEmployeeUI to RegisterEmployeeController--><g id="link_RegisterEmployeeUI_RegisterEmployeeController"><path codeLine="94" d="M855,90.19 C855,107.42 855,127.59 855,145.37 " fill="none" id="RegisterEmployeeUI-to-RegisterEmployeeController" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="855,150.8,859,141.8,855,145.8,851,141.8,855,150.8" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[969ee03aa52aee79b0e607297418cbd4]
+link RegisterEmployeeController to Company--><g id="link_RegisterEmployeeController_Company"><path codeLine="97" d="M829.23,234.09 C818.92,250.34 806.39,270.07 793.37,290.58 " fill="none" id="RegisterEmployeeController-to-Company" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="790.59,294.97,798.7786,289.4976,793.2605,290.7429,792.0152,285.2248,790.59,294.97" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[7c63a46d16d075ca7ac66937a2a499f7]
+link RegisterEmployeeController to Employee--><g id="link_RegisterEmployeeController_Employee"><path codeLine="98" d="M882.62,234.21 C893.35,252.09 904.59,273.81 911,295 C974.68,505.67 974.47,761.05 964.6,928.35 " fill="none" id="RegisterEmployeeController-to-Employee" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="964.28,933.76,968.8133,925.0165,964.5803,928.769,960.8278,924.536,964.28,933.76" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ce859576cba61219b3cb4d2d23fdcd81]
+link Company to EmployeeStore--><g id="link_Company_EmployeeStore"><path codeLine="101" d="M675.36,554.18 C669.07,578.25 662.52,603.28 656.34,626.95 " fill="none" id="Company-to-EmployeeStore" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="655.02,631.97,661.1799,624.2852,656.2932,627.1348,653.4436,622.2481,655.02,631.97" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#000000" points="670.7356,598.0133,675.8663,590.0054,670.1795,588.519,670.7356,598.0133" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="28" x="681" y="598.4951">uses</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="666.2128" y="575.6359">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="649.8144" y="621.0346">1</text></g><!--MD5=[2f3bac1bdf76f0b867b8cadb6fadb6bc]
+link EmployeeStore to Employee--><g id="link_EmployeeStore_Employee"><path codeLine="105" d="M725.24,856.41 C761.22,896.81 802.05,942.65 838.84,983.95 " fill="none" id="EmployeeStore-to-Employee" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="842.39,987.93,839.4004,978.5459,839.0682,984.193,833.4211,983.8608,842.39,987.93" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#000000" points="766.3256,898.9095,762.5041,890.2004,758.1149,894.1099,766.3256,898.9095" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="49" x="772" y="900.4951">employs</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="724.3733" y="877.6271">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="829.4507" y="976.0564">*</text></g><!--MD5=[27d36d3e9da4627279500943321b912e]
+link EmployeeStore to AuthFacade--><g id="link_EmployeeStore_AuthFacade"><path codeLine="106" d="M513.51,856.41 C443.55,925.7 357.42,1011.01 305.98,1061.95 " fill="none" id="EmployeeStore-to-AuthFacade" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="302.33,1065.56,311.5436,1062.0802,305.8869,1062.046,305.9212,1056.3892,302.33,1065.56" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[cb04af064b34965b13e3441af3b2cb09]
+link EmployeeStore to PasswordGenerator--><g id="link_EmployeeStore_PasswordGenerator"><path codeLine="107" d="M634.32,856.41 C637.93,904.75 642.12,960.89 645.62,1007.72 " fill="none" id="EmployeeStore-to-PasswordGenerator" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="646,1012.8,649.3203,1003.5277,645.6285,1007.8138,641.3424,1004.122,646,1012.8" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ffab42d7305e6830f0674a21f59219d7]
+link Employee to Role--><g id="link_Employee_Role"><path codeLine="110" d="M948,1281.27 C948,1301.19 948,1320.24 948,1336.73 " fill="none" id="Employee-to-Role" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="948,1341.77,952,1332.77,948,1336.77,944,1332.77,948,1341.77" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[003647fa34c95089964e2010f3ea4ca5]
+@startuml
+skinparam classAttributeIconSize 0
+scale 1
+
+class Company {
+-designation : String
+-authFacade : AuthFacade
+-snsUserStore: SnsUserStore
+-vaccinationCenterStore : VacccinationCenterStore
+-empStore : EmployeeStore
+...
+
++getDesignation() : String
++getAuthFacade() : AuthFacade
++getSnsUserStore() : SnsUserStore
++getVaccinationCenterStore() : VacccinationCenterStore
++getEmployeeStore() : EmployeeStore
+(...)
+}
+
+class Employee {
+-name : String
+-email : String
+-address : String
+-citizenCardNumber: long
+-phoneNumber: long
+-role : Role
+-id : String
+-employeeCount: int
+-ID_TEMPLATE : String
+
++getName() : String
++getEmail() : String
++getCitizenCardNumber() : long
++getPhoneNumber() : long
++getRole() : String
++getId() : String
++getEmployeeCount() : int
++toString() : String
+
+}
+
+class RegisterEmployeeUI {
+-controller: RegisterEmployeeController
+
++run()
+}
+
+class RegisterEmployeeController {
+
++createEmployee(name, address, phoneNumber, email, citizenCardNumber, role) : boolean
++saveEmployee() : boolean
+}
+
+class EmployeeStore {
+-authFacade: AuthFacade
+-passwordGenerator : PasswordGenerator
+-employeeList : List<Employee>
+-roleList : List<Role>
+
++createEmployee(name, addres, phoneNumber, email, citizenCardNumber, role) : Employee
++saveEmployee(emp : Employee) : boolean
++addEmployee(emp : Employee) : boolean
++validateEmployee(emp: Employee) : boolean
++sendEmail(emp: Employee, pwd : String)
++getRoleList() : List<Role>
+
+}
+
+Enum Role {
+  +CENTER_COORDINATOR
+  +RECEPTIONIST
+  +NURSE
+}
+
+class AuthFacade {
+
++existsUser(email:String)
++addUserWithRole(name:String, email:String, pwd:String, role:String) : boolean
+}
+
+class PasswordGenerator {
+  -PASSWORD_LENGTH: String
+  -DIGIT: String
+  -CHAR_LOWERCASE: String
+  -CHAR_UPPERCASE: String
+  -PASSWORD_ALLOW: String
+  -random: SecureRandom
+
+  +generatePassword(): String
+  +shuffleString(): String
+}
+
+' UI
+RegisterEmployeeUI ..> RegisterEmployeeController
+
+' Controller
+RegisterEmployeeController ..> Company
+RegisterEmployeeController ..> Employee
+
+' Company
+Company "1" - -> "1" EmployeeStore : > uses
+
+
+' EmployeeStore
+EmployeeStore "1" - -> "*" Employee : > employs
+EmployeeStore ..> AuthFacade
+EmployeeStore ..> PasswordGenerator
+
+' Employee
+Employee ..> Role
+
+@enduml
+
+@startuml
+skinparam classAttributeIconSize 0
+scale 1
+
+class Company {
+-designation : String
+-authFacade : AuthFacade
+-snsUserStore: SnsUserStore
+-vaccinationCenterStore : VacccinationCenterStore
+-empStore : EmployeeStore
+...
+
++getDesignation() : String
++getAuthFacade() : AuthFacade
++getSnsUserStore() : SnsUserStore
++getVaccinationCenterStore() : VacccinationCenterStore
++getEmployeeStore() : EmployeeStore
+(...)
+}
+
+class Employee {
+-name : String
+-email : String
+-address : String
+-citizenCardNumber: long
+-phoneNumber: long
+-role : Role
+-id : String
+-employeeCount: int
+-ID_TEMPLATE : String
+
++getName() : String
++getEmail() : String
++getCitizenCardNumber() : long
++getPhoneNumber() : long
++getRole() : String
++getId() : String
++getEmployeeCount() : int
++toString() : String
+
+}
+
+class RegisterEmployeeUI {
+-controller: RegisterEmployeeController
+
++run()
+}
+
+class RegisterEmployeeController {
+
++createEmployee(name, address, phoneNumber, email, citizenCardNumber, role) : boolean
++saveEmployee() : boolean
+}
+
+class EmployeeStore {
+-authFacade: AuthFacade
+-passwordGenerator : PasswordGenerator
+-employeeList : List<Employee>
+-roleList : List<Role>
+
++createEmployee(name, addres, phoneNumber, email, citizenCardNumber, role) : Employee
++saveEmployee(emp : Employee) : boolean
++addEmployee(emp : Employee) : boolean
++validateEmployee(emp: Employee) : boolean
++sendEmail(emp: Employee, pwd : String)
++getRoleList() : List<Role>
+
+}
+
+Enum Role {
+  +CENTER_COORDINATOR
+  +RECEPTIONIST
+  +NURSE
+}
+
+class AuthFacade {
+
++existsUser(email:String)
++addUserWithRole(name:String, email:String, pwd:String, role:String) : boolean
+}
+
+class PasswordGenerator {
+  -PASSWORD_LENGTH: String
+  -DIGIT: String
+  -CHAR_LOWERCASE: String
+  -CHAR_UPPERCASE: String
+  -PASSWORD_ALLOW: String
+  -random: SecureRandom
+
+  +generatePassword(): String
+  +shuffleString(): String
+}
+
+RegisterEmployeeUI ..> RegisterEmployeeController
+
+RegisterEmployeeController ..> Company
+RegisterEmployeeController ..> Employee
+
+Company "1" - -> "1" EmployeeStore : > uses
+
+
+EmployeeStore "1" - -> "*" Employee : > employs
+EmployeeStore ..> AuthFacade
+EmployeeStore ..> PasswordGenerator
+
+Employee ..> Role
+
+@enduml
+
+PlantUML version 1.2022.4(Sat Apr 09 14:29:17 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

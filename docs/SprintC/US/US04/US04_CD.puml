@@ -1,0 +1,68 @@
+@startuml US04_CD
+skinparam classAttributeIconSize 0
+
+class RegisterSNSUserArrivalUI {
+  
+}
+
+class RegisterSNSUserArrivalController {
+  +registerSnsUserArrival(snsUserNumber, arrivelTime)
+  +getVaccinationCenterList()
+  +saveSnsUserArrival()
+  +validateSnsUserArrival()
+  +validateSnsUserVacineSchedule(snsUserNumber)
+}
+
+class SNSUser {
+    -Int snsUserNumber
+}
+
+class VaccinationCenter {
+    -String name
+    -String phoneNumber
+    -String emailAddress
+    -String faxNumber
+    -String websiteAddress
+    -Time openingHour
+    -Time closingHour
+    -Int slotDuration
+    -Int maxNumVaccines
+    -String centerCoordinator
+    -Address address
+    +registerSnsUserArrival(snsUserNumber, arrivelTime)
+    +saveSnsUserArrival()
+    +validateSnsUserArrival()
+}
+
+class Employee {
+
+}
+
+class Receptionist {
+
+}
+
+Class VaccinationCenterStore{
+    +getVaccinationCenterList()
+}
+
+class VaccineSchedule {
+    -LocalDate date
+    -Time time
+    +validateSnsUserVacineSchedule(scheduleDate, scheduleTime)
+}
+
+RegisterSNSUserArrivalUI ..> RegisterSNSUserArrivalController
+RegisterSNSUserArrivalController ..> VaccinationCenter
+
+VaccinationCenterStore "1" -- "*" VaccinationCenter : has >
+
+Employee "*" -- "1" Receptionist : is of
+Employee "1..*" -- "1" VaccinationCenter : works on
+Receptionist "1" -- "1..*" SNSUser : checks in
+Receptionist "1" -- "1..*" VaccineSchedule : confirms 
+Receptionist "1" -- "*" VaccineSchedule : schedules 
+VaccineSchedule "1..*" -- "1" SNSUser :  created for 
+VaccineSchedule "1..*" -- "1" VaccinationCenter :  allocated to 
+
+@enduml

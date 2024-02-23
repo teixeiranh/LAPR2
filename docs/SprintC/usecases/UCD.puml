@@ -1,0 +1,68 @@
+@startuml
+left to right direction
+
+actor :SNS User: as user
+actor :Nurse: as nurse
+actor :Center Coordinator: as coordinator
+actor :Receptionist: as receptionist
+actor :Administrator: as administrator
+
+usecase UC1 as "UC1: Schedule vaccination" #A9DCDF
+usecase UC2 as "UC2: Schedule vaccination" #A9DCDF
+usecase UC3 as "UC3: As a receptionist, I want to register a SNS user"
+usecase UC4 as "UC4: Register the arrival of a SNS user to take the vaccine" #A9DCDF
+usecase UC5 as "UC5: Consult the users in the waiting room of a vaccination center" #A9DCDF
+usecase UC6 as "UC6: Confirm that the SNS user has the vaccine scheduled"
+usecase UC7 as "UC7: Record adverse reactions of a SNS user"
+usecase UC8 as "UC8: Record the administration of a vaccine to a SNS user"
+usecase UC9 as "UC9: As a administrator, I want to register a vaccination center to respond to certain pandemic"
+usecase UC10 as "UC10: Register a Employee"
+usecase UC11 as "UC11: Get a list of Employees with a given function/role"
+usecase UC12 as "UC12: Specify a new vaccine type"
+usecase UC13 as "UC13: Specify a new vaccine and its administration process"
+usecase UC14 as "UC14: Load a set of users from a CSV file" #A9DCDF
+usecase UC15 as "UC15: Get instructions regarding the vaccine to be administered"
+usecase UC16 as "UC16: Register the vaccine type, brand and lot number"
+usecase UC17 as "UC17: Monitor the vaccination process"
+usecase UC18 as "UC18: get a list of all vaccines" #A9DCDF
+usecase UC19 as "UC19: Analyse reports concerning vaccination process"
+usecase UC20 as "UC20: Schedule a vaccine for a user"
+usecase UC21 as "UC21: Check the user info and health conditions"
+usecase UC22 as "UC22: Authorize the DGS to send SMS message with information about appointment"
+usecase UC23 as "UC23: Issue and deliver vaccination certificate for SNS user"
+usecase UC24 as "UC24: Request EU COVID Digital Certificate"
+usecase UC25 as "UC25: Evaluate the performance of the vaccination process"
+
+
+
+user --> UC1
+user --> UC15
+user --> UC24
+
+receptionist --> UC4
+receptionist --> UC20
+receptionist --> UC6
+receptionist --> UC3
+receptionist --> UC2
+
+nurse --> UC7
+nurse --> UC8
+nurse --> UC5
+nurse --> UC21
+nurse --> UC22
+nurse --> UC23
+nurse --> UC16
+
+administrator --> UC9
+administrator --> UC10
+administrator --> UC11
+administrator --> UC12
+administrator --> UC13
+administrator --> UC14
+
+coordinator --> UC17
+coordinator --> UC25
+coordinator --> UC19
+coordinator --> UC18
+
+@enduml

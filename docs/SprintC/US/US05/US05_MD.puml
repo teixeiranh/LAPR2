@@ -1,0 +1,83 @@
+@startuml
+hide methods
+'left to right direction
+scale 1
+
+class Company {
+}
+
+class VaccinationCenter {
+    -name
+    -phoneNumber
+    -emailAddress
+    -faxNumber
+    -websiteAddress
+    -openingHours
+    -closingHours
+    -slotDuration
+    -maxNumVaccines
+}
+
+
+class Employee {
+    -name : String
+    -email : String
+    -address : String
+    -phoneNumber: long
+    -citizenCardNumber: long
+    -role : Role
+    -id : String
+}
+
+class Nurse {
+}
+
+class VaccineSchedule {
+    -date
+    -time
+}
+
+class HealthcareCenter{}
+
+class CommunityMassVaccinationCenter{}
+
+class SNSUser {}
+
+class WaitingRoom {}
+
+class User {
+ -name
+ -email
+ -password
+ -role
+}
+
+Company "1" - "*" VaccinationCenter : has >
+Company "1" - "*" Employee : employs >
+Company "1" - "*" SNSUser : owns >
+
+Employee "*" -- "1" Nurse : > has a role
+Employee "*" -- "1" Receptionist : > has a role
+Employee "1..*" - "1" VaccinationCenter : works on >
+Employee "0..*" - "1" User : relates to >
+
+
+Receptionist "1" -- "1..*" VaccineSchedule : > confirms
+
+HealthcareCenter --|> VaccinationCenter
+CommunityMassVaccinationCenter -|> VaccinationCenter
+
+VaccineSchedule "1..*" - "1..*" SNSUser : > created for
+VaccineSchedule "1..*" -- "1" VaccinationCenter : > allocated to
+
+Nurse "1" -- "1..*" VaccineSchedule : > checks
+Nurse "1" -- "1..*" SNSUser : > checks
+Nurse "1..*" -- "1" WaitingRoom : checks >
+
+VaccinationCenter "1" - "1" WaitingRoom : has >
+SNSUser "0..*" -- "1" WaitingRoom : waits on >
+
+
+
+
+@enduml

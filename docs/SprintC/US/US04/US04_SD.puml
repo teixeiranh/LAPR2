@@ -1,0 +1,89 @@
+@startuml US04_SD
+autonumber
+'hide footbox
+actor "Receptionist" as RECP
+
+participant ":RegisterArrivalofSNSUserUI" as UI
+participant ":RegisterArrivalofSNSUserController" as CTRL
+participant ":Company" as COMP
+participant ":VaccinationCenterStore" as VCS
+participant ":VaccineSchedule" as VSH
+
+
+activate RECP
+
+RECP -> UI : asks to register the arrival of a SNS User
+activate UI
+
+UI -> CTRL : vaccinationCentersList=getVaccinationCenterList()
+activate CTRL
+
+CTRL -> COMP : vaccinationCenterStore=getVaccinationCenterStore()
+activate COMP
+deactivate COMP
+
+CTRL -> VCS : vaccinationCentersList=getVaccinationCenterList()
+activate VCS
+
+ref over VCS  
+	getVaccinationCentersList_SD
+end ref
+
+deactivate VCS
+deactivate CTRL
+
+UI --> RECP : show list of Vaccination Centers and requests to select one(VaccinationCenter)
+deactivate UI
+
+RECP -> UI : selects the Vaccination Center
+activate UI
+
+UI --> RECP : requests data(snsUserNumber, arrivalTime)
+deactivate UI
+
+RECP -> UI : types requested data(snsUserNumber, arrivalTime)
+activate UI
+
+UI -> CTRL : registerSnsUserArrival(snsUserNumber, arrivelTime)
+activate CTRL
+
+CTRL -> VSH : validateSnsUserVacineSchedule(snsUserNumber)
+activate VSH
+deactivate VSH
+
+CTRL -> VSH : arrival=registerSnsUserArrival(snsUserNumber, arrivelTime)
+activate VSH
+
+VSH --> "arrival: VaccinationCenter"** : create(snsUserNumber, arrivelTime)
+deactivate VSH
+
+CTRL -> VSH : validateSnsUserArrival(arrival)
+
+activate VSH
+deactivate VSH
+deactivate CTRL
+
+UI --> RECP : shows the data and request confirmation
+deactivate UI
+
+RECP -> UI : confirms the data
+activate UI
+
+UI -> CTRL : saveSnsUserArrival(arrival)
+activate CTRL
+
+CTRL -> VSH : saveSnsUserArrival(arrival)
+activate VSH
+
+VSH -> VSH : validateSnsUserArrival(arrival)
+activate VSH
+deactivate VSH
+
+VSH -> VSH : addSnsUserArrival(arrival)
+activate VSH
+deactivate VSH
+
+UI --> RECP : informs operation success
+deactivate CTRL
+
+@enduml

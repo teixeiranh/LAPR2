@@ -1,0 +1,73 @@
+@startuml
+hide methods
+left to right direction
+scale 10000 height
+
+skinparam classAttributeIconSize 10
+skinparam linetype ortho
+skinparam minClassWidth 150
+skinparam classHeaderBackgroundColor LightGray
+skinparam classBackgroundColor WhiteSmoke
+skinparam classBorderColor DarkSlateGray
+skinparam classFontColor automatic
+skinparam classFontSize 15
+skinparam classFontName Corbel
+skinparam nodesep 100
+skinparam ranksep 100
+
+class Company {
+    -vaccinationCenterStatsRecorderRecurringTask: VaccinationCenterStatsRecorderRecurringTask
+    -vaccinationScheduleStore: VaccinationScheduleStore
+    -vaccinationCenterStore: VaccinationCenterStore
+    ...
+
+}
+
+class TaskScheduler #A9DCDF{
+    -adapter
+    -executionTime
+}
+
+class VaccinationCenter {
+    -name
+    -phoneNumber: PhoneNumber
+    -emailAddress: Email
+    -vaccinationCenterFaxNumber: PhoneNumber
+    -websiteAddress: String
+    -openingHours:String
+    -closingHours:String
+    -slotDuration: int
+    -maxNumVaccines: int
+    -centerCoordinator:Employee
+}
+
+'class CommunityMassVaccinationCenter {
+'   - vaccineType: VaccineType
+'}
+
+'class HealthcareCenter {
+'    - ars: String
+'    - ages: String
+'    - vaccineTypes: List<VaccineType>
+'}
+
+'class Address {
+'    \n
+'}
+
+class VaccineSchedule  {
+    -date
+    -time
+    -state
+}
+
+
+Company "1" -[#grey,thickness=2] "*" VaccinationCenter : <font color=gray> has >
+Company "1" -[#grey,thickness=2] "*" VaccineSchedule : <font color=gray> has >
+Company "1" -[#black,thickness=2] "*" TaskScheduler : <font color=black> has a >
+
+VaccineSchedule "1..*" -[#grey,thickness=2]- "1" VaccinationCenter :  <font color=gray> allocated to >
+TaskScheduler "1" -[#black,thickness=2] "*" VaccinationCenter : <font color=black> gets >
+TaskScheduler "1" -[#black,thickness=2]l "*" VaccineSchedule : <font color=black> gets >
+
+@enduml

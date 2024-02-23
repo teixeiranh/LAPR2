@@ -1,0 +1,25 @@
+@startuml
+autonumber
+actor "Coordinator" as Coordinator
+
+activate Coordinator
+Coordinator -> ":System" : starts to export total number of vaccinated users
+
+activate ":System"
+":System" --> Coordinator : requests data (startDate, endDate, csvFileName)
+deactivate ":System"
+
+Coordinator -> ":System" : types requested data
+activate ":System"
+
+":System" --> Coordinator : shows data and request confirmation
+deactivate ":System"
+
+Coordinator -> ":System" : confirms the data
+activate ":System"
+":System" --> Coordinator : informs operation success
+deactivate ":System"
+
+deactivate Coordinator
+
+@enduml

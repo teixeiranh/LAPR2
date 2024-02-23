@@ -1,0 +1,32 @@
+@startuml
+autonumber
+autoactivate on
+scale 1
+skinparam titleFontSize 25
+
+title US05_SD_SnsUserMapper_ToDTO_List
+
+participant ":SnsUserMapper" as MAPPER
+participant "snsUserArrivalsList\n:List<SnsUserArrival>" as LSU
+participant "snsUserArrivalsDTOList\n:List<SnsUserArrivalDTO>" as LSUDTO
+participant "snsUserArrival\n:SnsUserArrival" as USR
+participant "snsUserArrivalDTO\n:SnsUserArrivalDTO" as DTO
+
+[o-> MAPPER : toDTO(snsUserArrivalsList)
+
+MAPPER --> LSUDTO** : create()
+loop for each SnsUserArrival object in snsUserArrivalsList
+MAPPER -> LSU : snsUserArrival = get(i)
+deactivate LSU
+MAPPER -> MAPPER : snsUserArrivalDTO = toDTO(snsUserArrival)
+deactivate MAPPER
+
+MAPPER -> LSUDTO : add(snsUserArrivalDTO)
+deactivate LSUDTO
+
+end
+
+[<-- MAPPER : snsUserArrivalsDTOList
+
+
+@enduml

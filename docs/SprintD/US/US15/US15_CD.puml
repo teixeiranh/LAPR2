@@ -1,0 +1,80 @@
+@startuml
+'left to right direction
+'skinparam classAttributeIconSize 0
+'hide empty members
+'hide @unlinked
+
+class ExportVaccinationStatisticsUI
+{
+-controller : ExportVaccinationStatisticsController
++run()
+}
+
+class ExportVaccinationStatisticsController
+{
+-company : Company
+-vaccineAdministrationStore : VaccineAdministrationStore
+-csvStatisticsExportToExternalSourceAdapter : CSVStatisticsExportToExternalSourceAdapter
++getListOfFullyVaccinatedUsersByDate(startDate,endDate) : List<VaccineTypes>
++printListOfUsers(listOfFullyVaccinatedUsersByDate,fileName)
+}
+
+class Company
+{
+-designation : String
+-vaccineAdministrationStore : VaccineAdministrationStore
++getvaccineAdministrationStore() : VaccineAdministrationStore
++...()
+}
+
+class VaccineAdministrationStore
+{
+-vaccineAdministrationList : List<VaccineAdministration>
++getListFullyVaccinatedUsersBetweenDatesOfUserCenter(startDate, endDate) : void
+}
+
+class VaccineAdministration
+{
+-snsUserArrival : SnsUserArrival
+-snsUser : SnsUserA
+-vaccine : Vaccine
+-doseNumber : int
+-lotNumber : String
+-administrationDate : LocalDateTime
+-leavingDate : LocalDateTime
+-vaccineAdministrationState : VaccineAdministrationState
+}
+
+Enum state
+{
+-State : String
+}
+
+interface IExportStatisticsToExternalSource
+{
++exportStatistics(listOfFullyVaccinatedUsersByDate,nameOfFile) : void
+}
+
+class CSVStatisticsExportToExternalSourceAdapter
+{
++exportStatistics(listOfFullyVaccinatedUsersByDate,nameOfFile) : void
+}
+
+'UI
+ExportVaccinationStatisticsUI ..>  ExportVaccinationStatisticsController : uses
+
+'Controller
+ExportVaccinationStatisticsController ..> Company : uses
+
+'Company
+Company "1" --> "1" VaccineAdministrationStore : uses
+
+VaccineAdministrationStore "1" -> "1" IExportStatisticsToExternalSource: makes use of
+
+VaccineAdministrationStore "1" --> "*" VaccineAdministration : has
+
+CSVStatisticsExportToExternalSourceAdapter "1" .u.|> "1" IExportStatisticsToExternalSource : implements
+
+VaccineAdministration o-- state : has
+
+@enduml

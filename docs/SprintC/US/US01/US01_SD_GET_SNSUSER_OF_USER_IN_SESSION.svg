@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="509px" preserveAspectRatio="none" style="width:1050px;height:509px;background:#FFFFFF;" version="1.1" viewBox="0 0 1050 509" width="1050px" zoomAndPan="magnify"><defs/><g><rect height="41.4453" style="stroke:#00000000;stroke-width:1.0;fill:none;" width="444" x="302.25" y="10"/><text fill="#000000" font-family="sans-serif" font-size="25" font-weight="bold" lengthAdjust="spacing" textLength="434" x="307.25" y="40.9521">SD: Get SNS User of User in session</text><rect fill="#A9DCDF" height="393.4609" style="stroke:#181818;stroke-width:1.0;" width="10" x="122" y="100.0547"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="364" y="394.1641"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="464" y="152.7578"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="533" y="213.1094"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="533" y="333.8125"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="669" y="273.4609"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="863.5" y="454.5156"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="127" x2="127" y1="90.0547" y2="502.5156"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="368.5" x2="368.5" y1="90.0547" y2="502.5156"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="468.5" x2="468.5" y1="90.0547" y2="502.5156"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="537.5" x2="537.5" y1="90.0547" y2="502.5156"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="673.5" x2="673.5" y1="90.0547" y2="502.5156"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="868.5" x2="868.5" y1="90.0547" y2="502.5156"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1008.5" x2="1008.5" y1="90.0547" y2="502.5156"/><rect fill="#A9DCDF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="212" x="21" y="57.4453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="198" x="28" y="78.9785">:VaccinationScheduleController</text><rect fill="#A9DCDF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="135" x="301.5" y="57.4453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="308.5" y="78.9785">company:Company</text><rect fill="#A9DCDF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="45" x="446.5" y="57.4453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="31" x="453.5" y="78.9785">:APP</text><rect fill="#A9DCDF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="73" x="501.5" y="57.4453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55" x="512.5" y="78.9785">app:APP</text><rect fill="#A9DCDF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="179" x="584.5" y="57.4453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161" x="595.5" y="78.9785">userSession:UserSession</text><rect fill="#A9DCDF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="190" x="773.5" y="57.4453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="780.5" y="78.9785">snsUserStore:SnsUserStore</text><rect fill="#A9DCDF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="71" x="973.5" y="57.4453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="980.5" y="78.9785">:SnsUser</text><rect fill="#A9DCDF" height="393.4609" style="stroke:#181818;stroke-width:1.0;" width="10" x="122" y="100.0547"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="364" y="394.1641"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="464" y="152.7578"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="533" y="213.1094"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="533" y="333.8125"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="669" y="273.4609"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="863.5" y="454.5156"/><ellipse cx="7.5" cy="121.6563" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1.5;"/><polygon fill="#181818" points="110,118.4063,120,122.4063,110,126.4063,114,122.4063" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="12" x2="116" y1="122.4063" y2="122.4063"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="15" y="117.5498">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="84" x="26" y="117.5498">doSomething()</text><polygon fill="#181818" points="452,148.7578,462,152.7578,452,156.7578,456,152.7578" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="132" x2="458" y1="152.7578" y2="152.7578"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="139" y="147.9014">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="112" x="150" y="147.9014">app = getInstance()</text><polygon fill="#181818" points="521,209.1094,531,213.1094,521,217.1094,525,213.1094" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="132" x2="527" y1="213.1094" y2="213.1094"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="139" y="208.2529">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="230" x="150" y="208.2529">userSession = getCurrentUserSession()</text><polygon fill="#181818" points="657,269.4609,667,273.4609,657,277.4609,661,273.4609" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="132" x2="663" y1="273.4609" y2="273.4609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="139" y="268.6045">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="63" x="150" y="268.6045">getUserId()</text><polygon fill="#181818" points="521,329.8125,531,333.8125,521,337.8125,525,333.8125" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="132" x2="527" y1="333.8125" y2="333.8125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="139" y="328.9561">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="150" x="150" y="328.9561">company = getCompany()</text><polygon fill="#181818" points="352,390.1641,362,394.1641,352,398.1641,356,394.1641" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="132" x2="358" y1="394.1641" y2="394.1641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="139" y="389.3076">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="202" x="150" y="389.3076">snsUserStore = getSnsUserStore()</text><polygon fill="#181818" points="851.5,450.5156,861.5,454.5156,851.5,458.5156,855.5,454.5156" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="132" x2="857.5" y1="454.5156" y2="454.5156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="139" y="449.6592">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="166" x="150" y="449.6592">snsUser = getSnsUserById()</text><!--MD5=[a2ef1b5d853b86049b606736d3d35ce7]
+@startuml
+autonumber
+hide footbox
+skinparam titleFontSize 25
+skinparam classFontSize 18
+
+
+participant ":VaccinationScheduleController" as CTRL #A9DCDF
+participant "company:Company" as COMP #A9DCDF
+participant ":APP" as App#A9DCDF
+participant " app:APP" as app#A9DCDF
+participant " userSession:UserSession" as UserSession#A9DCDF
+participant "snsUserStore:SnsUserStore" as STORE#A9DCDF
+participant ":SnsUser" as USER#A9DCDF
+
+
+title SD: Get SNS User of User in session
+
+
+activate CTRL  #A9DCDF
+[o-> CTRL : doSomething()
+CTRL -> App : app = getInstance()
+activate App
+deactivate App
+CTRL -> app : userSession = getCurrentUserSession()
+activate app
+deactivate app
+CTRL -> UserSession : getUserId()
+activate UserSession
+deactivate UserSession
+CTRL -> app : company = getCompany()
+activate app
+deactivate app
+CTRL -> COMP : snsUserStore = getSnsUserStore()
+activate COMP
+deactivate COMP
+CTRL -> STORE : snsUser = getSnsUserById()
+activate STORE
+deactivate STORE
+
+
+@enduml
+
+PlantUML version 1.2022.4(Sat Apr 09 14:29:17 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>

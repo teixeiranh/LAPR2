@@ -1,0 +1,174 @@
+@startuml
+
+'*left to right direction
+
+skinparam classAttributeIconSize 10
+skinparam linetype ortho
+skinparam minClassWidth 150
+skinparam classHeaderBackgroundColor LightGray
+skinparam classBackgroundColor WhiteSmoke
+skinparam classBorderColor DarkSlateGray
+skinparam classFontColor automatic
+skinparam classFontSize 18
+skinparam noteFontSize 18
+skinparam titleFontSize 28
+skinparam classFontName Corbel
+skinparam nodesep 120
+skinparam ranksep 70
+
+title Class Diagram: Process of registering an SNS User
+
+class RegisterSnsUserUI {
+    - controller:RegisterSnsUserController
+    + run():void
+}
+
+class SnsUserDTO  {
+  -id:String
+  -name:String
+  -email:String
+  -gender:Gender
+  -birthDate:Date
+  -snsNumber:long
+  -address:Address
+  -phoneNumber:String
+  -citizenCardNumber:long
+  +getName():String
+  +getEmail():String
+  +getGender():Gender
+  +getBirthDate():Date
+  +getSnsNumber():long
+  +getAddress():Address
+  +getPhoneNumber():String
+  +getCitizenCardNumber():long
+}
+
+class VaccinationScheduleController  {
+  -app:App
+  -company:Company
+  -snsUserStore: SnsUserStore
+  -vaccineStore:VaccineStore
+  -vaccineTypeStore:VaccineStore
+  -vaccinationCenterStore:VaccinationCenterStore
+  -vaccinationScheduleStore:VaccinationScheduleStore
+  -VaccinationSchedule:vaccinationSchedule
+  +**createVaccinationSchedule(VaccinationScheduleDTO):Boolean**
+  +**addVaccinationSchedule():Boolean**
+}
+
+class AddressUI {
+    +readAddressFromConsole():Address
+}
+
+class Company  {
+  -designation:String
+  -**authFacade:AuthFacade**
+  -**snsUserStore:SnsUserStore **
+  -...
+  +getDesignation():String
+  +**getAuthFacade():AuthFacade**
+  +**getSnsUserStore():SnsUserStore**
+  +(...)
+}
+
+class AuthFacade  {
+  -userSession:UserSession
+  -roles:UserRoleStore
+  -users:UserStore
+  +addUserRole(id, description):boolean
+  +existsRole(id):boolean
+  +removeRole(id):boolean
+  +getUserRoles():List<UserRoleDTO>
+  +**addUserWithRole(name, email, pwd, roleId):boolean**
+  +addUserWithRoles(name, email, pwd,rolesId[]:boolean
+  +**existsUser(email):boolean**
+  (...)
+}
+
+class SnsUserStore {
+  -snsUserStore:SnsUser
+
+  +**createSnsUser (SnsUserDTO):SnsUser**
+  +**addSnsUser(SnsUser):boolean**
+  +**getSnsUserById(String):SnsUser**
+  +**existsSnsUser(String):boolean**
+}
+
+class SnsUserMapper {
+
+  +toDTO(SnsUser):SnsUserDTO
+  +**toModel(SnsUserDTO):SnsUser**
+}
+
+class SnsUser {
+  -id:String
+  -name:String
+  -email:String
+  -gender:Gender
+  -birthDate:Date
+  -snsNumber:long
+  -address:Address
+  -phoneNumber:String
+  -citizenCardNumber:long
+  +getId():String
+  +getName():String
+  +getEmail():String
+  +getGender():Gender
+  +getBirthDate():Date
+  +getSnsNumber():long
+  +getAddress():Address
+  +getPhoneNumber():String
+  +getCitizenCardNumber():long
+  +setId(String):void
+  -validateId(String):void
+  -validateSnsNumber(long):void
+}
+
+Enum Gender {
+  -String description
+}
+
+class PasswordGenerator {
+  -PASSWORD_LENGTH: String
+  -DIGIT: String
+  -CHAR_LOWERCASE: String
+  -CHAR_UPPERCASE: String
+  -PASSWORD_ALLOW: String
+  -random: SecureRandom
+  +**generatePassword(): String**
+  +shuffleString(): String
+}
+
+note as N1
+all methods in bold are
+required for the implementation
+of the US03 rationale.
+end note
+
+
+RegisterSnsUserUI "1"-[#black,bold]r-> "1" RegisterSnsUserController:uses >
+RegisterSnsUserUI ..> SnsUserDTO:create >
+
+SnsUser o--r AddressUI: lives at
+SnsUser o-- Gender: has a
+
+RegisterSnsUserController ..> AuthFacade
+RegisterSnsUserController "1"-[#black,bold]-> "1" Company: uses >
+RegisterSnsUserController "1"-[#black,bold]r->"1"  PasswordGenerator: asks for >
+RegisterSnsUserController ..> SnsUserStore
+RegisterSnsUserController ..> SnsUserDTO
+SnsUserMapper "1" -[#black,bold]r-> "1" SnsUser: maps >
+SnsUserDTO "1"<-[#black,bold]- "1" SnsUserMapper:maps <
+SnsUserStore .l.> SnsUserDTO
+SnsUserStore "1"-[#black,bold]l->"1" SnsUserMapper: uses >
+
+
+Company "1"-r-> "1" AuthFacade: uses >
+
+SnsUserStore  "1" -[#black,bold]r-> "*" SnsUser: stores >
+
+Company "1" -[#black,bold]-> "1" SnsUserStore : uses >
+
+
+
+@enduml

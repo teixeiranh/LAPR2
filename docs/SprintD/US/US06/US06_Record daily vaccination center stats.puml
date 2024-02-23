@@ -1,0 +1,51 @@
+@startuml
+autonumber
+hide footbox
+skinparam titleFontSize 25
+skinparam classFontSize 18
+
+
+participant ":VaccinationCenterStats\nDailyRecorderAdapter" as adapter #A9DCDF
+participant ":APP" as App#A9DCDF
+participant "app:APP" as app#A9DCDF
+participant "company:\nCompany" as COMP #A9DCDF
+participant "vaccinationCenterStore:\nVaccinationCenterStore" as VCStore#A9DCDF
+participant "vaccinationScheduleStore:\nVaccinationScheduleStore" as VSStore#A9DCDF
+
+
+title SD: Record daily vaccination center stats
+
+
+activate adapter
+[o-> adapter : run()
+adapter -> App : app = getInstance()
+activate App
+deactivate App
+
+adapter -> app : company = getCompany()
+activate app
+deactivate app
+
+adapter -> COMP : vaccinationCenterStore = getVaccinationCenterStore()
+activate COMP
+deactivate COMP
+adapter -> COMP : vaccinationScheduleStore = getVaccinationScheduleStore()
+activate COMP
+deactivate COMP
+
+adapter -> VCStore#A9DCDF: vaccinationCenters = vaccinationCenterStore.getAllVaccinationCenter()
+activate VCStore
+deactivate VCStore
+
+ loop for each Vaccination Center
+|||
+adapter -> VSStore#A9DCDF: totalNumberOfVaccinations = vaccinationScheduleStore.getNumberOfVaccinations(vc)
+
+ref#E6E6FA  over VSStore: US06_Get number of completed vaccination
+activate VSStore
+deactivate VSStore
+
+adapter -> adapter: writeAndAppendToFile(vaccinationCenterName, date, totalNumberOfVaccinations)
+|||
+end
+@enduml

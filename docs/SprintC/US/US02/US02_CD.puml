@@ -1,0 +1,132 @@
+@startuml
+'left to right direction
+'skinparam classAttributeIconSize 0
+'hide empty members
+'hide @unlinked
+
+class VaccinationScheduleUI
+{
+-controller : vaccinationScheduleController
++run()
+}
+
+class VaccinationScheduleController
+{
+-company : Company
+-snsUserStore : SnsUserStore
+-vaccineTypeStore : VaccineTypeStore
+-vaccinationCenterStore : VaccinationCenterStore
+-vaccinationScheduleStore : VaccinationScheduleStore
+-vaccinationSchedule : VaccinationSchedule
++getSnsUserBySnsNumber(snsUserNumber) : SnsUser
++getAllVaccineTypes() : List<VaccineTypes>
++getAllVaccinationCenterByVaccineType(vaccineType) : List<VaccinationCenter>
++createVaccinationSchedule(vaccineScheduleDTO) : vaccinationSchedule
+}
+
+class Company
+{
+-designation : String
+-snsUserStore : SNSUserStore
+-vaccinationCenterStore : VaccinationCenterStore
+-vaccineTypeStore : VaccineTypeStore
+-vaccinationScheduleStore : VaccinationScheduleStore
++getSnsUserStore() : SNSUserStore
++getVaccineTypeStore() : VaccineTypeStore
++getVaccinationCenterStore() : VaccinationCenterStore
++...()
+}
+
+class VaccinationScheduleStore
+{
+-vaccinationScheduleMapper : VaccinationScheduleMapper
+-vaccinationScheduleList : List<VaccinationSchedule>
++createVaccinationSchedule(vaccineScheduleDTO)
++addVaccinationSchedule(vaccineSchedule)
++validateVaccinationSchedule()
+}
+
+class VaccinationSchedule
+{
+-id : String
+-SnsUser : SnsUser
+-date : Date
+-time : DateTime
+-vaccineType : VaccineType
+-vaccinationCenter : VaccinationCenter
+-vaccinationScheduleState : state
+}
+
+Enum state
+{
+-State : String
+}
+
+class SNSUserStore
+{
+-snsUserList : List<SnsUser>
+-...
+}
+
+class VaccinationCenterStore
+{
+-vaccinationCenterList : List<VaccinationCenter>
+-...
+}
+
+class VaccinationScheduleDTO
+{
+-id : String
+-SnsUser : SnsUser
+-date : Date
+-time : DateTime
+-vaccineType : VaccineType
+-vaccinationCenter : VaccinationCenter
+-vaccinationScheduleState : state
++getSnsUser() : SnsUser
++...()
+
+}
+class VaccinationScheduleMapper
+{
++toDTO(VaccineSchedule) : VaccineScheduleDTO
++toModel(VaccineScheduleDTO) : VaccinationSchedule
+}
+
+
+class VaccineTypeStore
+{
+-vaccineTypeList : List<VaccineType>
+-...
+}
+
+class NotificationHandler
+{
++sendSMS(long,String):void
+}
+
+'UI
+VaccinationScheduleUI ..>  VaccinationScheduleController : uses >
+
+'Controller
+VaccinationScheduleController ..> Company : uses >
+VaccinationScheduleController ..> VaccinationScheduleDTO
+
+'Mapper
+'VaccinationScheduleMapper ..> VaccinationScheduleDTO
+VaccinationScheduleDTO --> VaccinationScheduleMapper : maps >
+VaccinationScheduleMapper "1" -->  "1"VaccinationSchedule : maps >
+
+'Company
+Company ..> VaccinationScheduleStore : uses >
+Company .> SNSUserStore : uses >
+Company ..> VaccineTypeStore : uses >
+Company ..> VaccinationCenterStore : uses >
+
+VaccinationScheduleStore "1" --> "*" VaccinationSchedule : has >
+
+VaccinationSchedule o-- state : has
+
+VaccinationScheduleStore "1" ->  "1" NotificationHandler : sends SMS >
+
+@enduml

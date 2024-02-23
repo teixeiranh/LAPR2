@@ -1,0 +1,19 @@
+@startuml
+autonumber
+autoactivate on
+scale 1
+actor "CenterCoordinator" as coordinator
+participant ":System" as system
+
+'1
+activate coordinator
+coordinator -> system : starts importing data from legacy system
+return request path of the file to import
+
+coordinator -> system : types requested file path (filePath)
+return shows data sorting options and requests selection
+
+coordinator -> system :  selects data sorting option
+return shows imported data according to the selected sorting option
+
+@enduml

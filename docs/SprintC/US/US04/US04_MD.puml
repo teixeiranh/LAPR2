@@ -1,0 +1,44 @@
+@startuml US04_MD
+hide methods
+
+scale 500 height
+
+class SNSUser {
+    -snsUserNumber
+}
+
+class VaccinationCenter {
+    -name
+    -phoneNumber
+    -emailAddress
+    -faxNumber
+    -websiteAddress
+    -openingHours
+    -closingHours
+    -slotDuration
+    -maxNumVaccines
+}
+
+class Employee {
+
+}
+
+class Receptionist {
+
+}
+
+class VaccineSchedule {
+    -date
+    -time
+}
+
+
+Employee "*" -- "1" Receptionist : is of
+Employee "1..*" -- "1" VaccinationCenter : works on
+Receptionist "1" -- "1..*" SNSUser : checks in
+Receptionist "1" -- "1..*" VaccineSchedule : confirms 
+Receptionist "1" -- "*" VaccineSchedule : schedules 
+VaccineSchedule "1..*" -- "1" SNSUser :  created for 
+VaccineSchedule "1..*" -- "1" VaccinationCenter :  allocated to 
+
+@enduml

@@ -1,0 +1,35 @@
+@startuml
+autonumber
+'hide footbox
+
+participant ":csvStatisticsExportToExternalSourceAdapter" as CSVStatisticsExportToExternalSourceAdapter
+participant ":listOfFullyVaccinatedUsersByDate\nList<VaccineAdministration>" as ListOfFullyVaccinatedUsersByDate
+participant ":bufferedWritter\nBufferedWritter" as BufferedWritter
+
+title : SD_exportStatistics(listOfFullyVaccinatedUsersByDate,csvFileName)
+
+[o-> CSVStatisticsExportToExternalSourceAdapter : exportStatistics(listOfFullyVaccinatedUsersByDate,csvFileName)
+activate CSVStatisticsExportToExternalSourceAdapter
+
+loop for each element in listOfFullyVaccinatedUsersByDate
+CSVStatisticsExportToExternalSourceAdapter -> ListOfFullyVaccinatedUsersByDate : isEqual()
+activate ListOfFullyVaccinatedUsersByDate
+deactivate ListOfFullyVaccinatedUsersByDate
+
+CSVStatisticsExportToExternalSourceAdapter -> CSVStatisticsExportToExternalSourceAdapter : count++()
+activate CSVStatisticsExportToExternalSourceAdapter
+deactivate CSVStatisticsExportToExternalSourceAdapter
+
+end loop
+
+CSVStatisticsExportToExternalSourceAdapter -> BufferedWritter** : write(csvFilename)
+
+BufferedWritter -> BufferedWritter : write()
+activate BufferedWritter
+deactivate BufferedWritter
+
+deactivate CSVStatisticsExportToExternalSourceAdapter
+
+
+
+@enduml

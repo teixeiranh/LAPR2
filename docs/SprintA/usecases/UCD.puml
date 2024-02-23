@@ -1,0 +1,68 @@
+@startuml
+left to right direction
+
+
+skinparam actorBackgroundColor LightGray
+skinparam actorBorderColor DarkSlateGray
+skinparam usecaseBackgroundColor WhiteSmoke
+skinparam usecaseBorderColor DarkSlateGray
+skinparam usecaseArrowColor DarkSlateGray
+
+actor :SNS User: as user
+actor :Nurse: as nurse
+actor :NurseHCC: as nurseHCC
+actor :Center Coordinator: as coordinator
+actor :Receptionist: as receptionist
+actor :ReceptionistHCC: as receptionistHCC
+actor :Administrator: as administrator
+
+usecase (UC01: Schedule vaccination) as UC01
+usecase (UC02: Request EU COVID Digital Certificate) as UC02
+usecase UC03 as "UC03: Authorize the DGS to send SMS message
+with information about appointment"
+usecase (UC04: Register the arrival of a SNS user to take the vaccine) as UC04
+usecase (UC05: Schedule a vaccine for a user) as UC05
+usecase (UC06: Confirm that the SNS user has the vaccine scheduled) as UC06
+usecase (UC07: Record adverse reactions of a SNS user) as UC07
+usecase (UC08: Record the administration of a vaccine to a SNS user) as UC08
+usecase UC09 as "UC09: Check the list of SNS users that are
+present in the vaccination center"
+usecase (UC010: Check the user info and health conditions) as UC010
+usecase (UC011: Issue and deliver vaccination certificate for SNS user) as UC011
+usecase (UC012: Specify a new vaccine type) as UC012
+usecase (UC013: Specify a new vaccine and its administration process) as UC013
+usecase UC014 as "UC014: Register centers, SNS users,
+center coordinators, receptionists and nurses"
+usecase (UC015: Get instructions regarding the vaccine to be administered) as UC015
+usecase (UC016: Register the vaccine type, brand and lot number) as UC016
+usecase (UC017: Monitor the vaccination process) as UC017
+usecase UC018 as "UC018: Evaluate the performance
+                  of the vaccination process"
+usecase UC019 as "UC019: Analyse reports concerning vaccination process"
+
+user --> UC01
+user --> UC02
+user --> UC03
+
+receptionist --> UC04
+receptionist --> UC06
+receptionistHCC --> UC05
+
+nurse --> UC07
+nurse --> UC08
+nurse --> UC09
+nurse --> UC010
+nurseHCC --> UC011
+
+administrator --> UC012
+administrator --> UC013
+administrator --> UC014
+
+nurse --> UC015
+nurse --> UC016
+
+coordinator --> UC017
+coordinator --> UC018
+coordinator --> UC019
+
+@enduml

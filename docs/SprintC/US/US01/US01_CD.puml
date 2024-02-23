@@ -1,0 +1,201 @@
+@startuml
+
+'*left to right direction
+
+skinparam classAttributeIconSize 10
+skinparam linetype ortho
+skinparam minClassWidth 150
+skinparam classHeaderBackgroundColor LightGray
+skinparam classBackgroundColor WhiteSmoke
+skinparam classBorderColor DarkSlateGray
+skinparam classFontColor automatic
+skinparam classFontSize 18
+skinparam noteFontSize 20
+skinparam titleFontSize 28
+skinparam classFontName Corbel
+skinparam nodesep 150
+skinparam ranksep 200
+
+title Class Diagram: Process of scheduling a vaccine by a SNS User
+
+
+
+class VaccinationScheduleUI {
+    - controller:VaccinationScheduleController
+    + run():void
+}
+
+class VaccinationScheduleController {
+      -app:App
+      -company:Company
+      -snsUserStore: SnsUserStore
+      -vaccineStore: VaccineStore
+      -vaccineTypeStore: VaccineTypeStore
+      -vaccinationCenterStore: VaccinationCenterStore
+      -vaccinationScheduleStore: VaccinationScheduleStore
+      -vaccinationSchedule: VaccinationSchedule
+      +getAllVaccinationCentersByVaccineType(VaccineTypeDTO):List<VaccinationCenterDTO>
+      +getAllVaccineTypes(): List<VaccineType>
+      +**createVaccinationSchedule(VaccinationScheduleDTO):Boolean**
+      +**addVaccinationSchedule():Boolean**
+      +**getSnsUserInSession():SnsUser**
+      +**checkIfScheduleAlreadyExists(VaccinationScheduleDTO):Boolean**
+}
+
+class VaccinationScheduleDTO  {
+  -snsUser:SnsUserDTO
+  -date:LocalDateTime
+  -vaccineType:StrinVaccineTypeDTO
+  -vaccinationCenter:VaccinationCenterDTO
+  +getSnsUser():SnsUserDTO
+  +getDate():LocalDateTime
+  +getVaccineType():VaccineTypeDTO
+  +getVaccinationCenter():VaccinationCenterDTO
+}
+
+class VaccinationScheduleMapper {
+  +toDTO(VaccinationSchedule):VaccinationScheduleDTO
+  +**toModel(VaccinationScheduleDTO):VaccinationSchedule**
+}
+
+class VaccinationSchedule  {
+  -id:String
+  -snsUser:SnsUser
+  -date:LocalDateTime
+  -vaccineType:VaccineType
+  -vaccinationCenter:VaccinationCenter
+  -state:VaccinationScheduleState
+  +getSnsUser():SnsUser
+  +getDate():LocalDateTime
+  +getVaccineType():VaccineType
+  +getVaccinationCenter():VaccinationCenter
+  +getState():VaccinationScheduleState
+}
+
+package store <<Folder>> #DDDDDD {
+class VaccinationScheduleStore  {
+  -vaccinationScheduleStore:Set<VaccinationSchedule>
+  -vaccinationScheduleMapper:VaccinationScheduleMapper
+  +**existsVaccinationSchedule(VaccinationScheduleDTO):Optional<VaccinationSchedule>**
+  +**createVaccinationSchedule(VaccinationScheduleDTO):VaccinationSchedule**
+  +**addVaccinationSchedule(VaccinationSchedule): boolean**
+  +**existsVaccinationSchedule(long,String):Optional<VaccinationSchedule>**
+}
+
+class SnsUserStore {
+  -snsUserStore:Set<SnsUser>
+  +createSnsUser(SnsUserDTO):SnsUser
+  +addSnsUser(SnsUser):boolean
+  +getSnsUserById(String):SnsUser
+  +existsSnsUser(String):boolean
+  +checkIfUserAlreadyExists(SnsUserDTO):boolean
+  +(...)
+}
+
+class VaccineTypeStore {
+  -vaccineTypestore:Set<VaccineType>
+  +createVaccineType(VaccineTypeDTO):VaccineType
+  +addVaccineType(VaccineType):boolean
+  +existsVaccineType(String):boolean
+  +getVaccineTypeByCode(String):Optional<VaccineType>
+  +getAllDTO():List<VaccineTypeDTO>
+  +(...)
+}
+
+class VaccinationCenterStore {
+  -communityMassVaccinationCenterMapper:CommunityMassVaccinationCenterMapper
+  -healthCareVaccinationCenterMapper:HealthCareVaccinationCenterMapper
+  -store:Set<VaccinationCenter>
+  +createHealthcareVaccinationCenter(HealthCareVaccinationCenterDTO):HealthcareVaccinationCenter
+  +createCommunityMassVaccinationCenter(CommunityMassVaccinationCenterDTO):CommunityMassVaccinationCenter
+  +addVaccinationCenter(VaccinationCenter):boolean
+  +existsCommunityMassVaccinationCenter(String):boolean
+  +getByEmail(String):Optional<VaccinationCenter>
+  +getAllDTOByVaccineType(VaccineTypeDTO):List<VaccinationCenterDTO>
+  +(...)
+}
+
+class SnsUserStore {
+  -snsUserStore:SnsUser
+  +createSnsUser (SnsUserDTO):SnsUser
+  +addSnsUser(SnsUser):boolean
+  +getSnsUserById(String):SnsUser
+  +existsSnsUser(String):boolean
+}
+}
+
+class Company  {
+  -designation:String
+  -authFacade:AuthFacade
+  -**snsUserStore:SnsUserStore**
+  -vaccineStore:VaccineStore
+  -**vaccinationCenterStore:VaccinationCenterStore**
+  -**vaccineTypeStore:VaccineTypeStore**
+  -**vaccinationScheduleStore:VaccinationScheduleStore**
+  -...
+  +getDesignation():String
+  +**getAuthFacade():AuthFacade**
+  +**getSnsUserStore():SnsUserStore**
+  +**getVaccineStore():VaccineStore**
+  +**vaccineTypeStore():VaccineTypeStore**
+  +**getVaccinationCenterStore():vaccinationCenterStore**
+  +**getVaccinationScheduleStore():VaccinationScheduleStore**
+  +(...)
+}
+
+class AuthFacade  {
+  -**userSession:UserSession**
+  -roles:UserRoleStore
+  -users:UserStore
+  +addUserRole(id, description):boolean
+  +existsRole(id):boolean
+  +removeRole(id):boolean
+  +getUserRoles():List<UserRoleDTO>
+  +addUserWithRole(name, email, pwd, roleId):boolean
+  +addUserWithRoles(name, email, pwd,rolesId[]:boolean
+  +existsUser(email):boolean
+  +**getCurrentUserSession():UserSession**
+  (...)
+}
+
+class NotificationHandler {
+  +**sendSMS(long,String):void**
+}
+
+
+note as N1
+all methods in bold are
+required for the implementation
+of the US01 rationale.
+end note
+
+VaccinationScheduleUI "1"-[#black,bold]r-> "1" VaccinationScheduleController:uses >
+'VaccinationScheduleUI ..> VaccinationScheduleDTO
+
+VaccinationScheduleController ..>  AuthFacade
+VaccinationScheduleController ..>  NotificationHandler
+VaccinationScheduleController "1"-[#black,bold]-> "1" Company: uses >
+VaccinationScheduleController ..> VaccinationScheduleDTO
+
+VaccinationScheduleController "1" -[#black,bold]-> "1" store : uses >
+'VaccinationScheduleController "1" -[#black,bold]u-> "1" VaccineTypeStore : uses >
+'VaccinationScheduleController "1" -[#black,bold]-> "1" VaccinationCenterStore : uses >
+'VaccinationScheduleController "1" -[#black,bold]-> "1" VaccinationScheduleStore : uses >
+
+
+Company "1" -[#black,bold]r-> "1" store : has >
+'Company "1" -[#black,bold]u-> "1" VaccineTypeStore : has >
+'Company "1" -[#black,bold]-> "1" VaccinationCenterStore : has >
+'Company "1" -[#black,bold]-> "1" VaccinationScheduleStore : has >
+Company "1"-l-> "1" AuthFacade: gets SnsUser In Session >
+
+VaccinationScheduleMapper "1" .[#black,bold].> "1" VaccinationSchedule: maps >
+
+VaccinationScheduleStore  "1" -[#black,bold]r-> "*" VaccinationSchedule: stores >
+VaccinationScheduleStore  "1" -[#black,bold]r-> "1" NotificationHandler: sends SMS >
+VaccinationScheduleStore ..> VaccinationScheduleDTO
+
+VaccinationScheduleDTO "1".[#black,bold].> "1" VaccinationScheduleMapper:maps >
+
+
+@enduml

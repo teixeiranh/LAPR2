@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="642px" preserveAspectRatio="none" style="width:501px;height:642px;background:#FFFFFF;" version="1.1" viewBox="0 0 501 642" width="501.6px" zoomAndPan="magnify"><defs/><g><rect height="33.1313" style="stroke:#00000000;stroke-width:1.2;fill:none;" width="480" x="6" y="6"/><text fill="#000000" font-family="sans-serif" font-size="16.8" font-weight="bold" lengthAdjust="spacing" textLength="468" x="12" y="29.4398">State diagram: Life cycle of vaccination schedule object</text><g id="C"><rect fill="#F1F1F1" height="60" rx="15" ry="15" style="stroke:#181818;stroke-width:0.6;" width="85.2" x="99" y="171.1313"/><line style="stroke:#181818;stroke-width:0.6;" x1="99" x2="184.2" y1="204.2625" y2="204.2625"/><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="61.2" x="111" y="194.5711">Created</text></g><g id="IP"><rect fill="#F1F1F1" height="60" rx="15" ry="15" style="stroke:#181818;stroke-width:0.6;" width="110.4" x="86.4" y="324.7313"/><line style="stroke:#181818;stroke-width:0.6;" x1="86.4" x2="196.8" y1="357.8625" y2="357.8625"/><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="86.4" x="98.4" y="348.1711">In Progress</text></g><g id="F"><rect fill="#F1F1F1" height="60" rx="15" ry="15" style="stroke:#181818;stroke-width:0.6;" width="91.2" x="96" y="478.3312"/><line style="stroke:#181818;stroke-width:0.6;" x1="96" x2="187.2" y1="511.4625" y2="511.4625"/><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="67.2" x="108" y="501.7711">Finalized</text></g><ellipse cx="141.6" cy="65.5313" fill="#222222" rx="12" ry="12" style="stroke:none;stroke-width:1.2;"/><ellipse cx="141.6" cy="623.5313" fill="none" rx="12" ry="12" style="stroke:#222222;stroke-width:1.2;"/><ellipse cx="142.2" cy="624.1313" fill="#222222" rx="7.2" ry="7.2" style="stroke:none;stroke-width:1.2;"/><!--MD5=[b8276e40954a44381de3dd7c425f5ac3]
+link *start to C--><g id="link_*start_C"><path d="M141.6,77.6272 C141.6,96.4312 141.6,135.6953 141.6,164.6992 " fill="none" id="*start-to-C" style="stroke:#181818;stroke-width:1.2;"/><polygon fill="#181818" points="141.6,170.7112,146.4,159.9112,141.6,164.7112,136.8,159.9112,141.6,170.7112" style="stroke:#181818;stroke-width:1.2;"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="278.4" x="142.8" y="130.9254">US1|US2: Vaccination schedule created</text></g><!--MD5=[7e3c51b6dd014701de4ebd175d8c278b]
+link C to IP--><g id="link_C_IP"><path d="M141.6,231.4793 C141.6,256.2712 141.6,291.9353 141.6,318.3113 " fill="none" id="C-to-IP" style="stroke:#181818;stroke-width:1.2;"/><polygon fill="#181818" points="141.6,324.4673,146.4,313.6672,141.6,318.4673,136.8,313.6672,141.6,324.4673" style="stroke:#181818;stroke-width:1.2;"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="261.6" x="142.8" y="284.5254">US4: Registered arrival for vaccination</text></g><!--MD5=[0db366afdb1c678fb008357927d60866]
+link IP to F--><g id="link_IP_F"><path d="M141.6,385.0792 C141.6,409.8713 141.6,445.5352 141.6,471.9112 " fill="none" id="IP-to-F" style="stroke:#181818;stroke-width:1.2;"/><polygon fill="#181818" points="141.6,478.0672,146.4,467.2672,141.6,472.0672,136.8,467.2672,141.6,478.0672" style="stroke:#181818;stroke-width:1.2;"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="272.4" x="142.8" y="438.1254">US8: Registered vaccine administration</text></g><!--MD5=[37f58d88441e0da07239a4f6e976772c]
+link F to *end--><g id="link_F_*end"><path d="M141.6,538.5832 C141.6,559.7393 141.6,587.6873 141.6,605.3393 " fill="none" id="F-to-*end" style="stroke:#181818;stroke-width:1.2;"/><polygon fill="#181818" points="141.6,611.3393,146.4,600.5392,141.6,605.3393,136.8,600.5392,141.6,611.3393" style="stroke:#181818;stroke-width:1.2;"/></g><!--MD5=[93e1b6395f175d9e34144188f89de39d]
+@startuml
+'left to right direction
+
+title State diagram: Life cycle of vaccination schedule object
+
+state "Created" as C
+state "In Progress" as IP
+state "Finalized" as F
+
+[*] - -> C : US1|US2: Vaccination schedule created
+C - -> IP : US4: Registered arrival for vaccination
+IP - -> F : US8: Registered vaccine administration
+F - -> [*]
+
+
+@enduml
+
+@startuml
+
+title State diagram: Life cycle of vaccination schedule object
+
+state "Created" as C
+state "In Progress" as IP
+state "Finalized" as F
+
+[*] - -> C : US1|US2: Vaccination schedule created
+C - -> IP : US4: Registered arrival for vaccination
+IP - -> F : US8: Registered vaccine administration
+F - -> [*]
+
+
+@enduml
+
+PlantUML version 1.2022.5(Sat Apr 30 11:55:52 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

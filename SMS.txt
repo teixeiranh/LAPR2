@@ -1,0 +1,48 @@
+87654321: scheduled your vaccination for the day/hour: 2022-07-23T10:00at the vaccination center:Porto HCVC
+
+11111111: scheduled your vaccination for the day/hour: 2022-05-27T10:00at the vaccination center:Porto HCVC
+
+11111111: scheduled your vaccination for the day/hour: 2022-06-05T10:00at the vaccination center:Porto HCVC
+
+11111111: scheduled your vaccination for the day/hour: 2022-06-05T10:00at the vaccination center:Porto HCVC
+
+11111111: scheduled your vaccination for the day/hour: 2022-06-05T10:00at the vaccination center:Porto HCVC
+
+11111111: scheduled your vaccination for the day/hour: 2022-06-05T10:00at the vaccination center:Porto HCVC
+
+11111111: scheduled your vaccination for the day/hour: 2022-06-05T10:00at the vaccination center:Porto HCVC
+
+11111111: scheduled your vaccination for the day/hour: 2022-06-05T10:00at the vaccination center:Porto HCVC
+
+11111111: scheduled your vaccination for the day/hour: 2022-06-27T10:00at the vaccination center:Porto HCVC
+
+11111111: scheduled your vaccination for the day/hour: 2022-06-27T10:00at the vaccination center:Porto HCVC
+
+11111111: scheduled your vaccination for the day/hour: 2022-06-27T10:00at the vaccination center:Porto HCVC
+
+11111111: scheduled your vaccination for the day/hour: 2022-06-27T10:00at the vaccination center:Porto HCVC
+
+11111111: scheduled your vaccination for the day/hour: 2022-06-27T10:00at the vaccination center:Porto HCVC
+
+11111111: scheduled your vaccination for the day/hour: 2022-06-27T10:00at the vaccination center:Porto HCVC
+
+11111111: scheduled your vaccination for the day/hour: 2022-07-27T10:00at the vaccination center:Braga CMVC
+
+11111111: Your vaccination is scheduled for: 2022-06-20T10:00, at the vaccination center: Porto HCVC
+
+33333333: Your vaccination is scheduled for: 2022-06-20T10:00, at the vaccination center: Porto HCVC
+
+12312312: Your vaccination is scheduled for: 2022-06-17T16:00, at the vaccination center: Braga CMVC
+
+33333333: Your vaccination is scheduled for: 2022-06-17T16:00, at the vaccination center: Braga CMVC
+
+33333333: Your vaccination is scheduled for: 2022-06-17T16:00, at the vaccination center: Braga CMVC
+
+33333333: Your vaccination is scheduled for: 2022-06-17T16:00, at the vaccination center: Braga CMVC
+
+33333333: Your vaccination is scheduled for: 2022-06-17T16:00, at the vaccination center: Braga CMVC
+
+33333333: Your vaccination is scheduled for: 2022-06-17T16:00, at the vaccination center: Braga CMVC
+
+33333333: Your vaccination is scheduled for: 2022-06-17T16:00, at the vaccination center: Braga CMVC
+

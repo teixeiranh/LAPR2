@@ -1,0 +1,81 @@
+@startuml
+hide methods
+'left to right direction
+scale 1
+
+class Company {
+\n
+}
+
+
+class CenterCoordinator {
+\n
+}
+
+class Employee {
+\n
+}
+
+class VaccinationCenter {
+    -name
+    -phoneNumber
+    -emailAddress
+    -faxNumber
+    -websiteAddress
+    -openingHours
+    -closingHours
+    -slotDuration
+    -maxNumVaccines
+}
+
+
+
+
+class VaccineSchedule {
+    -Date
+    -Time
+}
+
+class VaccineAdministration {
+    \n
+}
+
+
+class User {
+ -name
+ -email
+ -password
+ -role
+}
+
+class VaccineAdministration {
+}
+
+class ExternalModule {
+\n
+}
+
+class UserArrival {
+}
+
+
+Company "1" -d- "*" Employee : employs >
+Employee "*" -d- "1" CenterCoordinator : is of >
+VaccinationCenter "1"  -u- "1" CenterCoordinator : has >
+Employee "0..*" - "1" User : relates to >
+VaccinationCenter "*" -[#grey]- "*" VaccineAdministration : implements >
+VaccinationCenter "1" -[#grey]- "*" UserArrival : for a given <
+
+CenterCoordinator "1" -- "1" ExternalModule : makes use of >
+
+VaccineSchedule "1..*" -[#grey]- "1" VaccineType : for taking >
+VaccineSchedule "1..*" -[#grey]- "1" SNSUser : created for >
+VaccineSchedule "1..*" -[#grey]- "1" VaccinationCenter : allocated to >
+VaccineSchedule "1" -[#grey]- "1" UserArrival :  has >
+VaccineAdministration "1" -[#grey]- "1" VaccineSchedule : fulfilling >
+VaccineAdministration "1..*" -[#grey]- "1" SNSUser :  administered on >
+ExternalModule "1" -[#grey]- "*" VaccineSchedule : imports >
+ExternalModule "1" -[#grey]- "*" VaccineAdministration : imports >
+ExternalModule "1" -[#grey]- "*" UserArrival : imports >
+
+@enduml
